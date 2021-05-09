@@ -1,0 +1,107 @@
+@use "sass:map";
+
+// DevPR
+// primary
+$devpr-primary-contrast: map.get($devpr-primary, contrast);
+$devpr-secondary-contrast: map.get($devpr-secondary, contrast);
+
+:root {
+  --devpr-color-primary-50: #{map.get($devpr-primary, 50)};
+  --devpr-color-primary-100: #{map.get($devpr-primary, 100)};
+  --devpr-color-primary-200: #{map.get($devpr-primary, 200)};
+  --devpr-color-primary-300: #{map.get($devpr-primary, 300)};
+  --devpr-color-primary-400: #{map.get($devpr-primary, 400)};
+  --devpr-color-primary-500: #{map.get($devpr-primary, 500)};
+  --devpr-color-primary-600: #{map.get($devpr-primary, 600)};
+  --devpr-color-primary-700: #{map.get($devpr-primary, 700)};
+  --devpr-color-primary-800: #{map.get($devpr-primary, 800)};
+  --devpr-color-primary-900: #{map.get($devpr-primary, 900)};
+  --devpr-color-primary-A100: #{map.get($devpr-primary, A100)};
+  --devpr-color-primary-A200: #{map.get($devpr-primary, A200)};
+  --devpr-color-primary-A400: #{map.get($devpr-primary, A400)};
+  --devpr-color-primary-A700: #{map.get($devpr-primary, A700)};
+
+  --devpr-color-primary-50-contrast: #{map.get($devpr-primary-contrast, 50)};
+  --devpr-color-primary-100-contrast: #{map.get($devpr-primary-contrast, 100)};
+  --devpr-color-primary-200-contrast: #{map.get($devpr-primary-contrast, 200)};
+  --devpr-color-primary-300-contrast: #{map.get($devpr-primary-contrast, 300)};
+  --devpr-color-primary-400-contrast: #{map.get($devpr-primary-contrast, 400)};
+  --devpr-color-primary-500-contrast: #{map.get($devpr-primary-contrast, 500)};
+  --devpr-color-primary-600-contrast: #{map.get($devpr-primary-contrast, 600)};
+  --devpr-color-primary-700-contrast: #{map.get($devpr-primary-contrast, 700)};
+  --devpr-color-primary-800-contrast: #{map.get($devpr-primary-contrast, 800)};
+  --devpr-color-primary-900-contrast: #{map.get($devpr-primary-contrast, 900)};
+  --devpr-color-primary-A100-contrast: #{map.get($devpr-primary-contrast, A100)};
+  --devpr-color-primary-A200-contrast: #{map.get($devpr-primary-contrast, A200)};
+  --devpr-color-primary-A400-contrast: #{map.get($devpr-primary-contrast, A400)};
+  --devpr-color-primary-A700-contrast: #{map.get($devpr-primary-contrast, A700)};
+
+  --devpr-color-secondary-50: #{map.get($devpr-secondary, 50)};
+  --devpr-color-secondary-100: #{map.get($devpr-secondary, 100)};
+  --devpr-color-secondary-200: #{map.get($devpr-secondary, 200)};
+  --devpr-color-secondary-300: #{map.get($devpr-secondary, 300)};
+  --devpr-color-secondary-400: #{map.get($devpr-secondary, 400)};
+  --devpr-color-secondary-500: #{map.get($devpr-secondary, 500)};
+  --devpr-color-secondary-600: #{map.get($devpr-secondary, 600)};
+  --devpr-color-secondary-700: #{map.get($devpr-secondary, 700)};
+  --devpr-color-secondary-800: #{map.get($devpr-secondary, 800)};
+  --devpr-color-secondary-900: #{map.get($devpr-secondary, 900)};
+  --devpr-color-secondary-A100: #{map.get($devpr-secondary, A100)};
+  --devpr-color-secondary-A200: #{map.get($devpr-secondary, A200)};
+  --devpr-color-secondary-A400: #{map.get($devpr-secondary, A400)};
+  --devpr-color-secondary-A700: #{map.get($devpr-secondary, A700)};
+
+  --devpr-color-secondary-50-contrast: #{map.get($devpr-secondary-contrast, 50)};
+  --devpr-color-secondary-100-contrast: #{map.get(
+      $devpr-secondary-contrast,
+      100
+    )};
+  --devpr-color-secondary-200-contrast: #{map.get(
+      $devpr-secondary-contrast,
+      200
+    )};
+  --devpr-color-secondary-300-contrast: #{map.get(
+      $devpr-secondary-contrast,
+      300
+    )};
+  --devpr-color-secondary-400-contrast: #{map.get(
+      $devpr-secondary-contrast,
+      400
+    )};
+  --devpr-color-secondary-500-contrast: #{map.get(
+      $devpr-secondary-contrast,
+      500
+    )};
+  --devpr-color-secondary-600-contrast: #{map.get(
+      $devpr-secondary-contrast,
+      600
+    )};
+  --devpr-color-secondary-700-contrast: #{map.get(
+      $devpr-secondary-contrast,
+      700
+    )};
+  --devpr-color-secondary-800-contrast: #{map.get(
+      $devpr-secondary-contrast,
+      800
+    )};
+  --devpr-color-secondary-900-contrast: #{map.get(
+      $devpr-secondary-contrast,
+      900
+    )};
+  --devpr-color-secondary-A100-contrast: #{map.get(
+      $devpr-secondary-contrast,
+      A100
+    )};
+  --devpr-color-secondary-A200-contrast: #{map.get(
+      $devpr-secondary-contrast,
+      A200
+    )};
+  --devpr-color-secondary-A400-contrast: #{map.get(
+      $devpr-secondary-contrast,
+      A400
+    )};
+  --devpr-color-secondary-A700-contrast: #{map.get(
+      $devpr-secondary-contrast,
+      A700
+    )};
+}

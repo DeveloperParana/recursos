@@ -1,94 +1,84 @@
+# Comunidade DevParaná
 
+- [DevParaná](#devparana)
 
-# Devpr
+  - [Ideia](#devparana-ideia)
+  - [Iniciativa](#devparana-iniciativa)
+  - [Onde nos encontrar](#devparana-onde-nos-encontrar)
 
-This project was generated using [Nx](https://nx.dev).
+- [Repositório](#repositorio)
 
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+  - [Objetivo](#repositorio-objetivo)
 
-🔎 **Powerful, Extensible Dev Tools**
+- [Aplicativos](#aplicativos)
+  - [Gravação da tela](#aplicativos-gravacao-da-tela)
 
-## Adding capabilities to your workspace
+<a id="devparana"></a>
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+## Bem vindo ao DevParaná
 
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
+<a id="devparana-ideia"></a>
 
-Below are our core plugins:
+### A ideia deste movimento
 
-- [React](https://reactjs.org)
-  - `npm install --save-dev @nrwl/react`
-- Web (no framework frontends)
-  - `npm install --save-dev @nrwl/web`
-- [Angular](https://angular.io)
-  - `npm install --save-dev @nrwl/angular`
-- [Nest](https://nestjs.com)
-  - `npm install --save-dev @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `npm install --save-dev @nrwl/express`
-- [Node](https://nodejs.org)
-  - `npm install --save-dev @nrwl/node`
+Dar o empurrão que faltava para muito dos desenvolvedores paranaenses começar a compartilhar conhecimentos, através de MeetUps, Coding Dojo, Conferências e tudo mais que pudermos fazer.
 
-There are also many [community plugins](https://nx.dev/nx-community) you could add.
+<a id="devparana-iniciativa"></a>
 
-## Generate an application
+### Nossa iniciativa
 
-Run `nx g @nrwl/react:app my-app` to generate an application.
+Auxiliar nas comunidades e movimentos nas suas ações, não competindo com os mesmos.
 
-> You can use any of the plugins above to generate applications as well.
+<a id="devparana-onde-nos-encontrar"></a>
 
-When using Nx, you can create multiple applications and libraries in the same workspace.
+### Onde nos encontrar
 
-## Generate a library
+<div style="float: left">
 
-Run `nx g @nrwl/react:lib my-lib` to generate a library.
+## - [Github](https://github.com/DeveloperParana/)
 
-> You can also use any of the plugins above to generate libraries as well.
+## - [Facebook](https://facebook.com/DeveloperParana/)
 
-Libraries are shareable across libraries and applications. They can be imported from `@devpr/mylib`.
+## - [Instagram](https://www.instagram.com/devparana/)
 
-## Development server
+## - [Twitter](https://www.instagram.com/devparana/)
 
-Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+## - [Meetups](https://www.meetup.com/pt-BR/developerparana/)
 
-## Code scaffolding
+</div>
 
-Run `nx g @nrwl/react:component my-component --project=my-app` to generate a new component.
+<div style="text-align: center">
 
-## Build
+![Comunidade DevParaná](design/assets/logo.svg 'Comunidade DevParaná')
 
-Run `nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+</div>
 
-## Running unit tests
+<hr style="clear: both;">
 
-Run `nx test my-app` to execute the unit tests via [Jest](https://jestjs.io).
+<a id="repositorio"></a>
 
-Run `nx affected:test` to execute the unit tests affected by a change.
+## Repositório
 
-## Running end-to-end tests
+<a id="repositorio-objetivo"></a>
 
-Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
+### Objetivo do repositório
 
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
+Este repositório contém alguns facilitadores para organização de eventos e preparações de talks, caso tenha algo a colaborar, sinta-se a vontade para enviar um pull request contribuindo.
 
-## Understand your workspace
+---
 
-Run `nx dep-graph` to see a diagram of the dependencies of your projects.
+<a id="aplicativos"></a>
 
-## Further help
+## Aplicativos
 
-Visit the [Nx Documentation](https://nx.dev) to learn more.
+<a id="aplicativos-gravacao-da-tela"></a>
 
+### Gravação da tela
 
+Temos uma aplicação para gravação da tela, caso precise mostrar algo durante sua apresentação, você pode clonar o repositório e executar localmente ou acessar direto por este link [adicionar]
 
-## ☁ Nx Cloud
+---
 
-### Computation Memoization in the Cloud
+Este projeto foi gerado e usa como base [Nx](https://nx.dev) workspaces.
 
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
-
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
-
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
-
-Visit [Nx Cloud](https://nx.app/) to learn more.
+---

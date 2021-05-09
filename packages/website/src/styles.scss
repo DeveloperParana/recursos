@@ -1,0 +1,22 @@
+@use "sass:map";
+
+@import 'core/theming/palette';
+@import 'styles/theming/vars';
+
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Helvetica, sans-serif;
+  font-family: 'Lato', sans-serif;
+  background-color: #f4f4f4;
+  scroll-behavior: smooth;
+}
+
+a {
+  color: #000;
+}
