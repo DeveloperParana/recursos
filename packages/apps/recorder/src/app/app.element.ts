@@ -1,5 +1,4 @@
 import { css, CustomElement, eventTarget, html } from '@devpr/shared-elements'
-import './app.element.scss'
 
 @CustomElement('devpr-root')
 export class AppElement extends HTMLElement {
@@ -21,23 +20,23 @@ export class AppElement extends HTMLElement {
   get template() {
     return html`
       <header>
-        <devpr-heading>DevParaná</devpr-heading>
+        <devpr-heading size="60">DevPR Recorder</devpr-heading>
       </header>
       <main>
         <section>
-          <video id="recorder" width="640" playsinline autoplay muted></video>
+          <video id="recorder" playsinline autoplay></video>
           <video id="recorded" playsinline loop></video>
         </section>
         <nav>
           <div>
-            <button class="secondary" id="start">Start camera</button>
-            <button class="primary" id="record" disabled>
+            <button is="devpr-button" id="start">Start camera</button>
+            <button is="devpr-button" id="record" disabled>
               Start Recording
             </button>
           </div>
           <div>
-            <button class="secondary" id="play" disabled>Play</button>
-            <button class="primary" id="download" disabled>Download</button>
+            <button is="devpr-button" id="play" disabled>Play</button>
+            <button is="devpr-button" id="download" disabled>Download</button>
           </div>
         </nav>
         <a id="downlink" download></a>

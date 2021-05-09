@@ -15,11 +15,6 @@ describe('AppElement', () => {
     expect(app).toBeTruthy()
   })
 
-  it('should have DevParaná', () => {
-    whenDefined('devpr-heading', () => {
-      expect(app.querySelector('h1').innerHTML).toEqual('DevParaná')
-    })
-  })
   it('should call connected callback', () => {
     spyOn(app, 'connectedCallback')
     app.connectedCallback()

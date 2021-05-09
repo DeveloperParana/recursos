@@ -1,5 +1,9 @@
 import { AppElement } from './app.element'
 
+const whenDefined = (selector: string, fn: () => void) => {
+  customElements.whenDefined(selector).then(fn).catch(console.error)
+}
+
 describe('AppElement', () => {
   let app: AppElement
 
@@ -11,11 +15,11 @@ describe('AppElement', () => {
     expect(app).toBeTruthy()
   })
 
-  it('should have a greeting', () => {
+  it('should call connected callback', () => {
+    spyOn(app, 'connectedCallback')
     app.connectedCallback()
-
-    expect(app.querySelector('h1').innerHTML).toEqual(
-      'Welcome to apps-recorder!'
-    )
+    whenDefined('devpr-root', () => {
+      expect(app.connectedCallback).toHaveBeenCalledTimes(1)
+    })
   })
 })

@@ -123,9 +123,11 @@
             "main": "packages/apps/recorder/src/main.ts",
             "polyfills": "packages/apps/recorder/src/polyfills.ts",
             "tsConfig": "packages/apps/recorder/tsconfig.app.json",
+            "stylePreprocessorOptions": { "includePaths": ["design/styles"] },
             "assets": [
-              "packages/apps/recorder/src/favicon.ico",
-              "packages/apps/recorder/src/assets"
+              "packages/apps/recorder/src/favicon.png",
+              "packages/apps/recorder/src/assets",
+              { "input": "design/assets", "glob": "**/*", "output": "assets" }
             ],
             "styles": ["packages/apps/recorder/src/styles.scss"],
             "scripts": []
