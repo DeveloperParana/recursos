@@ -1,4 +1,4 @@
-import { css, CustomElement, html } from './shared'
+import { css, CustomElement, html } from '@devpr/shared-elements'
 
 import './app.element.scss'
 
