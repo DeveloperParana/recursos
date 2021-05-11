@@ -31,6 +31,12 @@ export class AppElement extends HTMLElement {
           <button is="devpr-button">Text</button>
           <button is="devpr-button" mode="outlined">Outlined</button>
         </section>
+        <section>
+          <label is="devpr-checkbox">
+            <input type="checkbox" name="checkbox" />
+            <span>Checkbox</span>
+          </label>
+        </section>
       </main>
     `
   }
