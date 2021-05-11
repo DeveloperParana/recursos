@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@devpr/shared-elements": ["packages/shared/elements/src/index.ts"]
+      "@devpr/common/web": ["packages/common/web/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

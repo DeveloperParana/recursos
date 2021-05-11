@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'shared-elements',
+  displayName: 'common-web',
   preset: '../../../jest.preset.js',
   globals: {
     'ts-jest': {
@@ -10,5 +10,5 @@ module.exports = {
     '^.+\\.[tj]sx?$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../../coverage/packages/shared/elements',
+  coverageDirectory: '../../../coverage/packages/common/web',
 }

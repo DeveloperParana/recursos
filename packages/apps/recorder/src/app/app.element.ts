@@ -1,4 +1,4 @@
-import { css, CustomElement, eventTarget, html } from '@devpr/shared-elements'
+import { css, CustomElement, eventTarget, html } from '@devpr/common/web'
 
 @CustomElement('devpr-root')
 export class AppElement extends HTMLElement {

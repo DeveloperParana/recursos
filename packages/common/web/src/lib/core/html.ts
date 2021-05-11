@@ -8,6 +8,6 @@
  * @param {...unknown[]} values
  * @returns
  */
- export function html(strings: TemplateStringsArray, ...values: unknown[]) {
+export function html(strings: TemplateStringsArray, ...values: unknown[]) {
   return strings.map((str, i) => str + (values[i] ?? '')).join('')
 }
