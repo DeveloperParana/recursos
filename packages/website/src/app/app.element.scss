@@ -4,5 +4,7 @@ body > *:first-child {
   margin: 0px auto;
 }
 
-devpr-root {
+main section {
+  display: flex;
+  justify-content: center;
 }

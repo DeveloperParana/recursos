@@ -1,0 +1,147 @@
+.devpr-checkbox {
+  z-index: 0;
+  position: relative;
+  display: inline-block;
+  color: $devpr-primary-500;
+  font-size: 16px;
+  line-height: 1.5;
+
+  /* Box */
+  & > input {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    z-index: 1;
+    position: absolute;
+    display: block;
+    box-sizing: border-box;
+    margin: 3px 1px;
+    border: solid 2px; /* Safari */
+    border-color: $devpr-primary-400;
+    border-radius: 2px;
+    width: 18px;
+    height: 18px;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.2s, background-color 0.2s;
+  }
+
+  /* Span */
+  & > input + span {
+    display: inline-block;
+    box-sizing: border-box;
+    padding-left: 30px;
+    width: inherit;
+    cursor: pointer;
+  }
+
+  /* Highlight */
+  & > input + span::before {
+    content: "";
+    position: absolute;
+    left: -10px;
+    top: -8px;
+    display: block;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: $devpr-primary-500;
+    opacity: 0;
+    transform: scale(1);
+    pointer-events: none;
+    transition: opacity 0.3s, transform 0.2s;
+  }
+
+  /* Check Mark */
+  & > input + span::after {
+    content: "";
+    z-index: 1;
+    display: block;
+    position: absolute;
+    top: 3px;
+    left: 1px;
+    box-sizing: content-box;
+    width: 10px;
+    height: 5px;
+    border: solid 2px transparent;
+    border-right-width: 0;
+    border-top-width: 0;
+    pointer-events: none;
+    transform: translate(3px, 4px) rotate(-45deg);
+    transition: border-color 0.2s;
+  }
+
+  /* Checked, Indeterminate */
+  & > input:checked,
+  & > input:indeterminate {
+    border-color: $devpr-on-primary-focused;
+    background-color: $devpr-on-primary-focused;
+  }
+
+  & > input:checked + span::before,
+  & > input:indeterminate + span::before {
+    background-color: $devpr-on-primary-focused;
+  }
+
+  & > input:checked + span::after,
+  & > input:indeterminate + span::after {
+    border-color: $devpr-surface;
+  }
+
+  & > input:indeterminate + span::after {
+    border-left-width: 0;
+    transform: translate(4px, 3px);
+  }
+
+  /* Hover, Focus */
+  &:hover > input + span::before {
+    opacity: 0.04;
+  }
+
+  & > input:focus + span::before {
+    opacity: 0.12;
+  }
+
+  &:hover > input:focus + span::before {
+    opacity: 0.16;
+  }
+
+  /* Active */
+  &:active > input,
+  &:active:hover > input {
+    border-color: $devpr-on-primary-border;
+  }
+
+  &:active > input:checked {
+    border-color: transparent;
+    background-color: $devpr-primary-500;
+  }
+
+  &:active > input + span::before {
+    opacity: 1;
+    transform: scale(0);
+    transition: transform 0s, opacity 0s;
+  }
+
+  /* Disabled */
+  & > input:disabled {
+    border-color: $devpr-on-primary-disabled;
+    cursor: initial;
+  }
+
+  & > input:checked:disabled,
+  & > input:indeterminate:disabled {
+    border-color: transparent;
+    background-color: $devpr-on-primary-disabled;
+  }
+
+  & > input:disabled + span {
+    color: $devpr-on-primary-disabled;
+    cursor: initial;
+  }
+
+  & > input:disabled + span::before {
+    opacity: 0;
+    transform: scale(0);
+  }
+}

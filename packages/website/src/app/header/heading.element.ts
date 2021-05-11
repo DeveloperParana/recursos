@@ -1,4 +1,4 @@
-import { css, CustomElement, html } from '../shared'
+import { css, CustomElement } from '@devpr/common/web'
 
 @CustomElement('devpr-heading', { extends: 'h1' })
 export class Heading extends HTMLHeadingElement {

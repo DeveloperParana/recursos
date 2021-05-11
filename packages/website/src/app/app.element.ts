@@ -1,4 +1,4 @@
-import { css, CustomElement, html } from './shared'
+import { css, CustomElement, html } from '@devpr/common/web'
 
 import './app.element.scss'
 
@@ -25,7 +25,24 @@ export class AppElement extends HTMLElement {
       <header is="devpr-header" link="/" text="${this.title}"></header>
 
       <main>
-        <h1 is="devpr-heading">${this.title}</h1>
+        <devpr-heading>${this.title}</devpr-heading>
+
+        <section>
+          <label is="devpr-textfield">
+            <input type="text" name="text" />
+            <span>Text</span>
+          </label>
+        </section>
+        <section>
+          <button is="devpr-button">Text</button>
+          <button is="devpr-button" mode="outlined">Outlined</button>
+        </section>
+        <section>
+          <label is="devpr-checkbox">
+            <input type="checkbox" name="checkbox" />
+            <span>Checkbox</span>
+          </label>
+        </section>
       </main>
     `
   }

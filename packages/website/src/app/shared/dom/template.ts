@@ -48,7 +48,7 @@ export function CustomElement(
  * @export
  * @returns {*}
  */
-export function property(): any {
+export function prop(): any {
   return (target: any) => {
     target.attributeChangedCallback = function (
       name: string,

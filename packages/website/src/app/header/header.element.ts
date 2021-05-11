@@ -1,4 +1,4 @@
-import { html, css, property, CustomElement } from '../shared'
+import { html, css, prop, CustomElement } from '../shared'
 
 /**
  * Sempre utilize o selector
@@ -11,10 +11,10 @@ const selector = 'devpr-header'
 export class Header extends HTMLElement {
   static observedAttributes = ['text', 'link']
 
-  @property()
+  @prop()
   public text = ''
 
-  @property()
+  @prop()
   public link = '#'
 
   get styles() {
