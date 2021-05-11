@@ -7,4 +7,9 @@ body > *:first-child {
 main section {
   display: flex;
   justify-content: center;
+
+  nav {
+    display: flex;
+    justify-content: space-around;
+  }
 }

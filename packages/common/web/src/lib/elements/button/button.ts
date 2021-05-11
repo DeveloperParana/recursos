@@ -1,4 +1,4 @@
-import { BuiltInElement, prop } from '@devpr/common/web'
+import { BuiltInElement, prop } from '../../decorators'
 
 type ButtonMode = 'text' | 'outlined'
 

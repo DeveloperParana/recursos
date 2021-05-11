@@ -1,4 +1,4 @@
-import { BuiltInElement } from '@devpr/common/web'
+import { BuiltInElement } from '../../decorators'
 
 @BuiltInElement('devpr-checkbox', 'label')
 export class CheckboxElement extends HTMLLabelElement {
