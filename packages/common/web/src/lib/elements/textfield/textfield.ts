@@ -1,10 +1,5 @@
-import {
-  prop,
-  event,
-  outputEvent,
-  eventTarget,
-  BuiltInElement,
-} from '@devpr/common/web'
+import { output, outputEvent, eventTarget } from '../../utilities'
+import { prop, BuiltInElement } from '../../decorators'
 
 type TextFieldMode = 'filled' | 'outlined' | 'standard'
 
@@ -14,7 +9,7 @@ export class TextField extends HTMLLabelElement {
     return ['mode']
   }
 
-  @event('valueChange')
+  @output('valueChange')
   output = outputEvent
 
   @prop()
@@ -44,8 +39,8 @@ export class TextField extends HTMLLabelElement {
 
   onChange(input: HTMLInputElement) {
     this.classList.add('touched')
-    this.touched = true
     this.output(input.value)
+    this.touched = true
   }
 
   onFocus(input: HTMLInputElement) {
