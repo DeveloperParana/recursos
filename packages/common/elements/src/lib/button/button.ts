@@ -12,8 +12,6 @@ export class DevPRButton extends HTMLButtonElement {
   mode: ButtonMode
 
   connectedCallback() {
-    console.log('button');
-
     this.classList.add(this.getMode(this.mode))
   }
 
@@ -22,7 +20,6 @@ export class DevPRButton extends HTMLButtonElement {
       case 'outlined':
         return 'devpr-button-outlined'
       case 'text':
-        return 'devpr-button-text'
       default:
         return 'devpr-button-text'
     }

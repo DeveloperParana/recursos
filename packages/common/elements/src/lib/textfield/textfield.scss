@@ -1,0 +1,396 @@
+label.devpr-textfield {
+  position: relative;
+  display: inline-block;
+  font-size: 16px;
+  line-height: 1.5;
+  width: 100%;
+  max-height: 56px;
+  margin-bottom: 24px;
+
+  padding-top: 6px;
+
+  &.filled {
+    /* Input, Textarea */
+    > input,
+    > textarea {
+      display: block;
+      box-sizing: border-box;
+      margin: 0;
+      border: none;
+      border-top: solid 24px transparent;
+      border-bottom: solid 1px rgba($devpr-primary-500, 0.6);
+      border-radius: 4px 4px 0 0;
+      padding: 0 12px 7px;
+      width: 100%;
+      height: inherit;
+      color: $devpr-primary-500;
+      -webkit-text-fill-color: currentColor; /* Safari */
+      background-color: rgba($devpr-primary-500, 0.04);
+      box-shadow: none; /* Firefox */
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+      caret-color: $devpr-primary-500;
+      transition: border-bottom 0.2s, background-color 0.2s;
+    }
+
+    /* Span */
+    > input + span,
+    > textarea + span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: block;
+      box-sizing: border-box;
+      padding: 7px 12px 0;
+      color: rgba($devpr-primary-500, 0.6);
+      font-size: 75%;
+      line-height: 18px;
+      pointer-events: none;
+      transition: color 0.2s, font-size 0.2s, line-height 0.2s;
+    }
+
+    /* Underline */
+    > input + span::after,
+    > textarea + span::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: $devpr-primary-500;
+      transform-origin: bottom center;
+      transform: scaleX(0);
+      transition: transform 0.3s;
+    }
+
+    /* Hover */
+    &:hover > input,
+    &:hover > textarea {
+      border-bottom-color: rgba($devpr-primary-500, 0.87);
+      background-color: rgba($devpr-primary-500, 0.08);
+    }
+
+    /* Placeholder-shown */
+    > input:not(:focus):placeholder-shown + span,
+    > textarea:not(:focus):placeholder-shown + span {
+      font-size: inherit;
+      line-height: 48px;
+    }
+
+    /* Focus */
+    > input:focus,
+    > textarea:focus {
+      outline: none;
+    }
+
+    > input:focus + span,
+    > textarea:focus + span {
+      color: $devpr-primary-500;
+    }
+
+    > input:focus + span::after,
+    > textarea:focus + span::after {
+      transform: scale(1);
+    }
+
+    /* Disabled */
+    > input:disabled,
+    > textarea:disabled {
+      border-bottom-color: rgba($devpr-primary-500, 0.38);
+      color: rgba($devpr-primary-500, 0.38);
+      background-color: rgba($devpr-primary-500, 0.24);
+    }
+
+    > input:disabled + span,
+    > textarea:disabled + span {
+      color: rgba($devpr-primary-500, 0.38);
+    }
+  }
+
+  &.outlined {
+    /* Input, Textarea */
+    > input,
+    > textarea {
+      box-sizing: border-box;
+      margin: 0;
+      border-style: solid;
+      border-width: 1px;
+      border-color: transparent rgba($devpr-primary-500, 0.6)
+        rgba($devpr-primary-500, 0.6);
+      border-radius: 4px;
+      padding: 15px 13px 15px;
+      width: 100%;
+      height: inherit;
+      color: rgba($devpr-primary-500, 0.87);
+      -webkit-text-fill-color: currentColor; /* Safari */
+      background-color: transparent;
+      box-shadow: inset 1px 0 transparent, inset -1px 0 transparent,
+        inset 0 -1px transparent;
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+      caret-color: $devpr-primary-500;
+      transition: border 0.2s, box-shadow 0.2s;
+    }
+
+    > input:not(:focus):placeholder-shown,
+    > textarea:not(:focus):placeholder-shown {
+      border-top-color: rgba($devpr-primary-500, 0.6);
+    }
+
+    /* Span */
+    > input + span,
+    > textarea + span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      width: 100%;
+      max-height: 100%;
+      color: rgba($devpr-primary-500, 0.6);
+      font-size: 75%;
+      line-height: 15px;
+      cursor: text;
+      transition: color 0.2s, font-size 0.2s, line-height 0.2s;
+    }
+
+    > input:not(:focus):placeholder-shown + span,
+    > textarea:not(:focus):placeholder-shown + span {
+      font-size: inherit;
+      line-height: 68px;
+    }
+
+    /* Corners */
+    > input + span::before,
+    > input + span::after,
+    > textarea + span::before,
+    > textarea + span::after {
+      content: '';
+      display: block;
+      box-sizing: border-box;
+      margin-top: 6px;
+      border-top: solid 1px rgba($devpr-primary-500, 0.6);
+      min-width: 10px;
+      height: 8px;
+      pointer-events: none;
+      box-shadow: inset 0 1px transparent;
+      transition: border 0.2s, box-shadow 0.2s;
+    }
+
+    > input + span::before,
+    > textarea + span::before {
+      margin-right: 4px;
+      border-left: solid 1px transparent;
+      border-radius: 4px 0;
+    }
+
+    > input + span::after,
+    > textarea + span::after {
+      flex-grow: 1;
+      margin-left: 4px;
+      border-right: solid 1px transparent;
+      border-radius: 0 4px;
+    }
+
+    > input:not(:focus):placeholder-shown + span::before,
+    > textarea:not(:focus):placeholder-shown + span::before,
+    > input:not(:focus):placeholder-shown + span::after,
+    > textarea:not(:focus):placeholder-shown + span::after {
+      border-top-color: transparent;
+    }
+
+    /* Hover */
+    &:hover > input,
+    &:hover > textarea {
+      border-color: transparent rgba($devpr-primary-500, 0.87)
+        rgba($devpr-primary-500, 0.87);
+    }
+
+    &:hover > input + span::before,
+    &:hover > textarea + span::before,
+    &:hover > input + span::after,
+    &:hover > textarea + span::after {
+      border-top-color: rgba($devpr-primary-500, 0.87);
+    }
+
+    &:hover > input:not(:focus):placeholder-shown,
+    &:hover > textarea:not(:focus):placeholder-shown {
+      border-color: rgba($devpr-primary-500, 0.87);
+    }
+
+    /* Focus */
+    > input:focus,
+    > textarea:focus {
+      border-color: transparent $devpr-primary-500
+        $devpr-primary-500;
+      box-shadow: inset 1px 0 $devpr-primary-500,
+        inset -1px 0 $devpr-primary-500,
+        inset 0 -1px $devpr-primary-500;
+      outline: none;
+    }
+
+    > input:focus + span,
+    > textarea:focus + span {
+      color: $devpr-primary-500;
+    }
+
+    > input:focus + span::before,
+    > input:focus + span::after,
+    > textarea:focus + span::before,
+    > textarea:focus + span::after {
+      border-top-color: $devpr-primary-500 !important;
+      box-shadow: inset 0 1px $devpr-primary-500;
+    }
+
+    /* Disabled */
+    > input:disabled,
+    > input:disabled + span,
+    > textarea:disabled,
+    > textarea:disabled + span {
+      border-color: transparent $devpr-primary-500
+        $devpr-primary-500 !important;
+      color: rgba($devpr-primary-500, 0.38);
+      pointer-events: none;
+    }
+
+    > input:disabled + span::before,
+    > input:disabled + span::after,
+    > textarea:disabled + span::before,
+    > textarea:disabled + span::after {
+      border-top-color: $devpr-primary-500 !important;
+    }
+
+    > input:disabled:placeholder-shown,
+    > input:disabled:placeholder-shown + span,
+    > textarea:disabled:placeholder-shown,
+    > textarea:disabled:placeholder-shown + span {
+      border-top-color: $devpr-primary-500 !important;
+    }
+
+    > input:disabled:placeholder-shown + span::before,
+    > input:disabled:placeholder-shown + span::after,
+    > textarea:disabled:placeholder-shown + span::before,
+    > textarea:disabled:placeholder-shown + span::after {
+      border-top-color: transparent !important;
+    }
+  }
+
+  &.standard {
+    /* Input, Textarea */
+    > input,
+    > textarea {
+      display: block;
+      box-sizing: border-box;
+      margin: 0;
+      border: none;
+      border-top: solid 24px transparent;
+      border-bottom: solid 1px rgba($devpr-primary-500, 0.6);
+      padding: 0 0 7px;
+      width: 100%;
+      height: inherit;
+      color: rgba($devpr-primary-500, 0.87);
+      -webkit-text-fill-color: currentColor; /* Safari */
+      background-color: transparent;
+      box-shadow: none; /* Firefox */
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+      caret-color: $devpr-primary-500;
+      transition: border-bottom 0.2s, background-color 0.2s;
+    }
+
+    /* Span */
+    > input + span,
+    > textarea + span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: block;
+      box-sizing: border-box;
+      padding: 7px 0 0;
+      color: rgba($devpr-primary-500, 0.6);
+      font-size: 75%;
+      line-height: 18px;
+      pointer-events: none;
+      transition: color 0.2s, font-size 0.2s, line-height 0.2s;
+    }
+
+    /* Underline */
+    > input + span::after,
+    > textarea + span::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: $devpr-primary-500;
+      transform-origin: bottom center;
+      transform: scaleX(0);
+      transition: transform 0.2s;
+    }
+
+    /* Hover */
+    &:hover > input,
+    &:hover > textarea {
+      border-bottom-color: rgba($devpr-primary-500, 0.87);
+    }
+
+    /* Placeholder-shown */
+    > input:not(:focus):placeholder-shown + span,
+    > textarea:not(:focus):placeholder-shown + span {
+      font-size: inherit;
+      line-height: 56px;
+    }
+
+    /* Focus */
+    > input:focus,
+    > textarea:focus {
+      outline: none;
+    }
+
+    > input:focus + span,
+    > textarea:focus + span {
+      color: $devpr-primary-500;
+    }
+
+    > input:focus + span::after,
+    > textarea:focus + span::after {
+      transform: scale(1);
+    }
+
+    /* Disabled */
+    > input:disabled,
+    > textarea:disabled {
+      border-bottom-color: rgba($devpr-primary-500, 0.38);
+      color: rgba($devpr-primary-500, 0.38);
+    }
+
+    > input:disabled + span,
+    > textarea:disabled + span {
+      color: rgba($devpr-primary-500, 0.38);
+    }
+  }
+}
+
+/* Faster transition in Safari for less noticable fractional font-size issue */
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) {
+    .devpr-textfield.filled > input,
+    .devpr-textfield.filled > input + span,
+    .devpr-textfield.filled > input + span::after,
+    .devpr-textfield.filled > textarea,
+    .devpr-textfield.filled > textarea + span,
+    .devpr-textfield.filled > textarea + span::after {
+      transition-duration: 0.1s;
+    }
+  }
+}

@@ -28,6 +28,12 @@ export class AppElement extends HTMLElement {
         <devpr-heading>${this.title}</devpr-heading>
 
         <section>
+          <label is="devpr-textfield">
+            <input type="text" name="text" />
+            <span>Text</span>
+          </label>
+        </section>
+        <section>
           <button is="devpr-button">Text</button>
           <button is="devpr-button" mode="outlined">Outlined</button>
         </section>
