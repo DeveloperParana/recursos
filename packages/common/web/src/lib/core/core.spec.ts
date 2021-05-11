@@ -5,6 +5,7 @@ import { css } from './css'
 import { tmpl } from './tmpl'
 
 const dom = new JSDOM()
+const label = 'button'
 
 global.document = dom.window.document
 global.window = dom.window
@@ -16,7 +17,7 @@ describe('AppElement', () => {
   beforeEach(() => {
     // prettier-ignore
     styles = css`.button {}`
-    template = html`<button></button>`
+    template = html`<button>${label}</button>`
   })
 
   it('should create styles successfully', () => {
@@ -32,7 +33,7 @@ describe('AppElement', () => {
   })
 
   it('should template is button string', () => {
-    expect(template).toEqual('<button></button>')
+    expect(template).toEqual(`<button>${label}</button>`)
   })
 
   it('should noop return null', () => {

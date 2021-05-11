@@ -1,4 +1,4 @@
-import { html, css, property, CustomElement } from '../shared'
+import { html, css, prop, CustomElement } from '../shared'
 
 /**
  * Sempre utilize o selector

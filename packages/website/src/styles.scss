@@ -1,5 +1,8 @@
 @use "sass:map";
 
+@import 'theming/variables';
+@import 'mapped-tokens';
+@import 'scss/elements';
 @import 'theming/palette';
 @import 'styles/theming/vars';
 

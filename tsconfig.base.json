@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@devpr/common/web": ["packages/common/web/src/index.ts"]
+      "@devpr/common/web": ["packages/common/web/src/index.ts"],
+      "@devpr/common-elements": ["packages/common/elements/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

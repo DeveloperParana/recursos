@@ -3,5 +3,6 @@ module.exports = {
     '<rootDir>/packages/website',
     '<rootDir>/packages/apps/recorder',
     '<rootDir>/packages/shared/elements',
+    '<rootDir>/packages/common/elements',
   ],
 }

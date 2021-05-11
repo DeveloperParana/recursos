@@ -2,7 +2,7 @@ import { css, CustomElement, eventTarget, html } from '@devpr/common/web'
 
 @CustomElement('devpr-root')
 export class AppElement extends HTMLElement {
-  title = 'DevPR Tube'
+  title = 'DevPR Screen'
 
   mimeType: string
   stream: MediaStream
@@ -30,13 +30,15 @@ export class AppElement extends HTMLElement {
         <nav>
           <div>
             <button is="devpr-button" id="start">Start camera</button>
-            <button is="devpr-button" id="record" disabled>
+            <button is="devpr-button" mode="outlined" id="record" disabled>
               Start Recording
             </button>
           </div>
           <div>
             <button is="devpr-button" id="play" disabled>Play</button>
-            <button is="devpr-button" id="download" disabled>Download</button>
+            <button is="devpr-button" mode="outlined" id="download" disabled>
+              Download
+            </button>
           </div>
         </nav>
         <a id="downlink" download></a>
@@ -64,17 +66,21 @@ export class AppElement extends HTMLElement {
     this.button.start.onclick = this.onStart.bind(this)
     this.button.record.onclick = eventTarget(this.onRecord.bind(this))
     this.button.download.onclick = this.onDownload.bind(this)
+
+    this.button.start.focus()
   }
 
   onStart() {
     const constraints = { video: { width: 1920, height: 1080 } }
 
-    this.init(constraints).then((stream) => {
-      this.stream = stream
-      this.button.start.disabled = true
-      this.button.record.disabled = false
-      this.video.recorder.srcObject = stream
-    })
+    this.init(constraints)
+      .then((stream) => {
+        this.stream = stream
+        this.button.start.disabled = true
+        this.button.record.disabled = false
+        this.video.recorder.srcObject = stream
+      })
+      .then(() => this.button.record.focus())
   }
 
   onPlay() {
@@ -82,6 +88,7 @@ export class AppElement extends HTMLElement {
     this.video.recorded.src = URL.createObjectURL(blob)
     this.video.recorded.controls = true
     this.video.recorded.play()
+    this.button.download.focus()
   }
 
   onRecord(button: HTMLButtonElement) {
@@ -90,6 +97,7 @@ export class AppElement extends HTMLElement {
     if (state && state === 'recording') {
       this.mediaRecorder.stop()
       button.textContent = 'Start'
+
     } else {
       this.startRecording()
       button.textContent = 'Stop'
@@ -137,6 +145,7 @@ export class AppElement extends HTMLElement {
       this.mediaRecorder.onstop = () => {
         this.button.play.disabled = false
         this.button.download.disabled = false
+        this.button.play.focus()
       }
     } catch (err) {
       console.error('Exception while creating MediaRecorder:', err)

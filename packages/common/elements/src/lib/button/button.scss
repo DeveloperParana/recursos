@@ -1,0 +1,200 @@
+.devpr-button-text {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  margin: 0;
+  border: none;
+  border-radius: 4px;
+  padding: 0 8px;
+  min-width: 64px;
+  height: 36px;
+  text-transform: uppercase;
+  vertical-align: middle;
+  text-align: center;
+  text-overflow: ellipsis;
+  color: $devpr-primary-400;
+  background-color: transparent;
+  font-family: $devpr-common-font-family, sans-serif;
+  font-size: #{$devpr-common-font-size}px;
+  font-weight: $devpr-common-font-weight;
+  line-height: 36px;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 200ms ease-in-out;
+}
+
+.devpr-button-text::-moz-focus-inner {
+  border: none;
+}
+
+/* Highlight, Ripple */
+.devpr-button-text::before,
+.devpr-button-text::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  opacity: 0;
+}
+
+.devpr-button-text::before {
+  background-color: $devpr-primary-400;
+  transition: opacity 0.2s;
+}
+
+.devpr-button-text::after {
+  background: radial-gradient(circle at center, currentColor 1%, transparent 1%)
+    center/10000% 10000% no-repeat;
+  transition: opacity 1s, background-size 0.5s;
+}
+
+.devpr-button-text:hover {
+  color: $devpr-primary-500;
+  background-color: $devpr-on-primary-hover;
+}
+
+.devpr-button-text:focus {
+  color: $devpr-primary-500;
+  background-color: $devpr-on-primary-selected;
+}
+
+/* Hover, Focus */
+.devpr-button-text:hover::before {
+  opacity: 0.04;
+}
+
+.devpr-button-text:focus::before {
+  opacity: 0.12;
+}
+
+.devpr-button-text:hover:focus::before {
+  opacity: 0.16;
+}
+
+/* Active */
+.devpr-button-text:active::after {
+  opacity: 0.16;
+  background-size: 100% 100%;
+  transition: background-size 0s;
+}
+
+/* Disabled */
+.devpr-button-text:disabled {
+  color: $devpr-on-primary-disabled;
+  background-color: transparent;
+  cursor: initial;
+}
+
+.devpr-button-text:disabled::before,
+.devpr-button-text:disabled::after {
+  opacity: 0;
+}
+
+//
+// Outlined
+//
+.devpr-button-outlined {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  margin: 0;
+  border: solid 2px; /* Safari */
+  border-width: 2px;
+  border-color: $devpr-on-primary-medium;
+  border-radius: 4px;
+  padding: 0 16px;
+  min-width: 64px;
+  height: 36px;
+  text-transform: uppercase;
+  vertical-align: middle;
+  text-align: center;
+  text-overflow: ellipsis;
+  color: $devpr-primary-400;
+  background-color: transparent;
+  font-family: $devpr-common-font-family, sans-serif;
+  font-size: #{$devpr-common-font-size}px;
+  font-weight: $devpr-common-font-weight;
+  line-height: 34px;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 200ms ease-in-out, border-color 200ms ease-in-out;
+}
+
+.devpr-button-outlined::-moz-focus-inner {
+  border: none;
+}
+
+/* Highlight, Ripple */
+.devpr-button-outlined::before,
+.devpr-button-outlined::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 3px;
+  opacity: 0;
+}
+
+.devpr-button-outlined::before {
+  background-color: $devpr-primary-400;
+  transition: opacity 0.2s;
+}
+
+.devpr-button-outlined::after {
+  background: radial-gradient(circle at center, currentColor 1%, transparent 1%)
+    center/10000% 10000% no-repeat;
+  transition: opacity 1s, background-size 0.5s;
+}
+
+.devpr-button-outlined:hover {
+  color: $devpr-primary-500;
+  border-color: $devpr-on-primary-high;
+  background-color: $devpr-on-primary-hover;
+}
+
+.devpr-button-outlined:focus {
+  color: $devpr-primary-500;
+  border-color: $devpr-on-primary-focused;
+  background-color: $devpr-on-primary-selected;
+}
+
+/* Hover, Focus */
+.devpr-button-outlined:hover::before {
+  opacity: 0.04;
+}
+
+.devpr-button-outlined:focus::before {
+  opacity: 0.12;
+}
+
+.devpr-button-outlined:hover:focus::before {
+  opacity: 0.16;
+}
+
+/* Active */
+.devpr-button-outlined:active::after {
+  opacity: 0.16;
+  background-size: 100% 100%;
+  transition: background-size 0s;
+}
+
+/* Disabled */
+.devpr-button-outlined:disabled {
+  color: $devpr-on-primary-disabled;
+  border-color: $devpr-on-primary-disabled;
+  background-color: transparent;
+  cursor: initial;
+  &:hover {
+    border-color: $devpr-on-primary-disabled;
+  }
+}
+
+.devpr-button-outlined:disabled::before,
+.devpr-button-outlined:disabled::after {
+  opacity: 0;
+}

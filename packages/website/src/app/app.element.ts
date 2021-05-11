@@ -25,7 +25,12 @@ export class AppElement extends HTMLElement {
       <header is="devpr-header" link="/" text="${this.title}"></header>
 
       <main>
-        <h1 is="devpr-heading">${this.title}</h1>
+        <devpr-heading>${this.title}</devpr-heading>
+
+        <section>
+          <button is="devpr-button">Text</button>
+          <button is="devpr-button" mode="outlined">Outlined</button>
+        </section>
       </main>
     `
   }

@@ -1,4 +1,4 @@
-import { CustomElement, property } from '../decorators'
+import { CustomElement, prop } from '../decorators'
 import { css, html } from '../core'
 
 @CustomElement('devpr-heading')
