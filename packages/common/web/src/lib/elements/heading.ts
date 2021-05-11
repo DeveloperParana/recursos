@@ -7,7 +7,7 @@ export class Heading extends HTMLElement {
     return ['size']
   }
 
-  @property()
+  @prop()
   size = 100
 
   styles = css`

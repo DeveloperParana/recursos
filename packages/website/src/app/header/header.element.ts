@@ -11,10 +11,10 @@ const selector = 'devpr-header'
 export class Header extends HTMLElement {
   static observedAttributes = ['text', 'link']
 
-  @property()
+  @prop()
   public text = ''
 
-  @property()
+  @prop()
   public link = '#'
 
   get styles() {
