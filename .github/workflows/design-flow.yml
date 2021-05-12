@@ -1,0 +1,14 @@
+name: design-flow-payload-action
+on: repository_dispatch
+jobs:
+  design:
+    name: Tokens
+    if: github.event.action == 'update-tokens'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - run: 'echo "${{ github.event.client_payload.tokens }} > design/tokens/properties/${{ github.event.client_payload.tokenFileName }}"'
+      - run: 'echo "payload: ${{ toJson(github.event.client_payload) }}"'
+      - run: cd design/tokens
+      - run: npx style-dictionary clean && npx style-dictionary build
+
