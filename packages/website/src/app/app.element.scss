@@ -1,15 +1,70 @@
+@import 'theming/variables';
+
 body > *:first-child {
   min-width: 300px;
   max-width: 980px;
   margin: 0px auto;
 }
+.wrapper {
+  height: calc(100vh - 60px);
+  overflow: auto;
+  scroll-snap-type: y mandatory;
+}
 
-main section {
-  display: flex;
-  justify-content: center;
+.section {
+  height: calc(100vh - 60px);
+  scroll-snap-align: center;
 
-  nav {
+  h2 {
+    font-family: #{$devpr-header-1-font-family}, sans-serif;
+    font-size: #{$devpr-header-1-font-size}px;
+    font-weight: $devpr-header-1-font-weight;
+    font-style: $devpr-header-1-font-style;
+    font-stretch: $devpr-header-1-font-stretch;
+    text-decoration: $devpr-header-1-text-decoration;
+    letter-spacing: #{$devpr-header-1-letter-spacing}px;
+    line-height: #{$devpr-header-1-line-height};
+  }
+
+  h3 {
+    font-family: #{$devpr-header-2-font-family}, sans-serif;
+    font-size: #{$devpr-header-2-font-size}px;
+    font-weight: $devpr-header-2-font-weight;
+    font-style: $devpr-header-2-font-style;
+    text-decoration: $devpr-header-2-text-decoration;
+    line-height: #{$devpr-header-2-line-height};
+  }
+
+  h2,
+  h3 {
+    text-align: center;
+    margin: 0;
+    font-weight: normal;
+  }
+  &__header {
+    position: sticky;
+    top: 0;
+    padding: 1em;
+    color: $devpr-primary-400;
+    background: $devpr-surface;
+  }
+  &__content {
+    padding: 1em;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  &__content > div {
+    max-width: 992px;
   }
 }
+// main section {
+//   display: flex;
+//   justify-content: center;
+
+//   nav {
+//     display: flex;
+//     justify-content: space-around;
+//   }
+// }

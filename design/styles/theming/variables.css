@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 11 May 2021 08:00:33 GMT
+ * Generated on Wed, 12 May 2021 03:22:36 GMT
  */
 
 :root {
@@ -34,6 +34,42 @@
   --devpr-message-warning: rgba(245, 204, 121, 1);
   --devpr-message-confirm: rgba(83, 169, 116, 1);
   --devpr-message-inform: rgba(110, 170, 238, 1);
+  --devpr-header-1-font-size: 48;
+  --devpr-header-1-text-decoration: none;
+  --devpr-header-1-font-family: Montserrat;
+  --devpr-header-1-font-weight: 700;
+  --devpr-header-1-font-style: normal;
+  --devpr-header-1-font-stretch: normal;
+  --devpr-header-1-font-style-old: Bold;
+  --devpr-header-1-letter-spacing: -2;
+  --devpr-header-1-line-height: normal;
+  --devpr-header-1-paragraph-indent: 0;
+  --devpr-header-1-paragraph-spacing: 0;
+  --devpr-header-1-text-case: none;
+  --devpr-header-2-font-size: 36;
+  --devpr-header-2-text-decoration: none;
+  --devpr-header-2-font-family: Montserrat;
+  --devpr-header-2-font-weight: 700;
+  --devpr-header-2-font-style: normal;
+  --devpr-header-2-font-stretch: normal;
+  --devpr-header-2-font-style-old: Bold;
+  --devpr-header-2-letter-spacing: -2;
+  --devpr-header-2-line-height: normal;
+  --devpr-header-2-paragraph-indent: 0;
+  --devpr-header-2-paragraph-spacing: 0;
+  --devpr-header-2-text-case: none;
+  --devpr-header-3-font-size: 24;
+  --devpr-header-3-text-decoration: none;
+  --devpr-header-3-font-family: Raleway;
+  --devpr-header-3-font-weight: 600;
+  --devpr-header-3-font-style: normal;
+  --devpr-header-3-font-stretch: normal;
+  --devpr-header-3-font-style-old: SemiBold;
+  --devpr-header-3-letter-spacing: -2;
+  --devpr-header-3-line-height: normal;
+  --devpr-header-3-paragraph-indent: 0;
+  --devpr-header-3-paragraph-spacing: 0;
+  --devpr-header-3-text-case: none;
   --devpr-body-font-size: 16;
   --devpr-body-text-decoration: none;
   --devpr-body-font-family: Raleway;
@@ -58,28 +94,4 @@
   --devpr-common-paragraph-indent: 0;
   --devpr-common-paragraph-spacing: 0;
   --devpr-common-text-case: none;
-  --devpr-header-1-font-size: 34;
-  --devpr-header-1-text-decoration: none;
-  --devpr-header-1-font-family: Montserrat;
-  --devpr-header-1-font-weight: 700;
-  --devpr-header-1-font-style: normal;
-  --devpr-header-1-font-stretch: normal;
-  --devpr-header-1-font-style-old: Bold;
-  --devpr-header-1-letter-spacing: -2;
-  --devpr-header-1-line-height: normal;
-  --devpr-header-1-paragraph-indent: 0;
-  --devpr-header-1-paragraph-spacing: 0;
-  --devpr-header-1-text-case: none;
-  --devpr-header-2-font-size: 20;
-  --devpr-header-2-text-decoration: none;
-  --devpr-header-2-font-family: Montserrat;
-  --devpr-header-2-font-weight: 700;
-  --devpr-header-2-font-style: normal;
-  --devpr-header-2-font-stretch: normal;
-  --devpr-header-2-font-style-old: Bold;
-  --devpr-header-2-letter-spacing: -2;
-  --devpr-header-2-line-height: normal;
-  --devpr-header-2-paragraph-indent: 0;
-  --devpr-header-2-paragraph-spacing: 0;
-  --devpr-header-2-text-case: none;
 }

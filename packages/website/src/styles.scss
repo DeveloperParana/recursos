@@ -12,14 +12,44 @@ html,
 body {
   height: 100%;
 }
+html {
+  scroll-behavior: smooth;
+}
 body {
   margin: 0;
-  font-family: Helvetica, sans-serif;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Raleway', sans-serif;
   background-color: #f4f4f4;
   scroll-behavior: smooth;
 }
 
 a {
   color: #000;
+}
+
+// header {
+//   display: flex;
+//   align-items: center;
+// }
+
+nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  width: 200px;
+  text-align: center;
+  padding: 15px;
+}
+
+nav [role='link'] {
+  padding: 5px;
+  cursor: pointer;
+  filter: invert(0.7);
+  color: #777;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

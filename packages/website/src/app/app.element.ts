@@ -7,7 +7,7 @@ import { ContactElement } from './contact'
 export class AppElement extends HTMLElement {
   title = 'DevParaná'
 
-  @query('devpr-root')
+  @query('header')
   widget: ContactElement
 
   get styles() {
@@ -28,15 +28,47 @@ export class AppElement extends HTMLElement {
     return html`
       <header is="devpr-header" link="/" text="${this.title}"></header>
 
-      <main>
-        <devpr-contact data-on-contact="devpr-root.onContact"></devpr-contact>
+      <main class="wrapper">
+        <section class="section">
+          <div id="sectionA" class="section__content">
+            <devpr-heading>${this.title}</devpr-heading>
+          </div>
+
+          <h3>Envie sua talk, palestre e leve sua xícara</h3>
+
+          <div class="section__content">
+            <devpr-c4p-button>C4P</devpr-c4p-button>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section__header">
+            <h2>Section #1 Header</h2>
+          </div>
+
+          <div id="sectionB" class="section__content"></div>
+        </section>
       </main>
+      <!-- <header>
+        <nav>
+          <a data-href="#sectionA" role="link">#1</a>
+
+          <a data-href="#sectionB" role="link">#2</a>
+
+          <a data-href="#sectionC" role="link">#3</a>
+
+          <a data-href="#sectionD" role="link">#4</a>
+        </nav>
+      </header> -->
+      <!-- <main>
+        <devpr-contact data-on-contact="devpr-root.onContact"></devpr-contact>
+      </main> -->
     `
   }
 
   connectedCallback() {
     // Do something
-    const contact = this.querySelector('devpr-contact')
+    const contact = this.querySelector('header')
     contact.addEventListener('onContact', eventDetail(this.onContact))
 
     setTimeout(() => {
