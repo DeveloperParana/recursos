@@ -1,17 +1,9 @@
-import {
-  CustomElement,
-  output,
-  event,
-  EventEmitter,
-  outputEvent,
-  html,
-} from '@devpr/common/web'
-import 'reflect-metadata'
+import { CustomElement, event, Emitter, html } from '@devpr/common/web'
 
 @CustomElement('devpr-contact')
 export class ContactElement extends HTMLElement {
   @event()
-  onContact: EventEmitter
+  onContact: Emitter<string>
 
   innerHTML = html`
     <form is="web-form" data-submit="onSend">
