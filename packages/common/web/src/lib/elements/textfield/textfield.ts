@@ -1,5 +1,6 @@
-import { output, outputEvent, eventTarget } from '../../utilities'
-import { prop, BuiltInElement } from '../../decorators'
+import { prop, BuiltInElement, event } from '../../decorators'
+import { eventTarget } from '../../utilities'
+import { Emitter } from '../../core'
 
 type TextFieldMode = 'filled' | 'outlined' | 'standard'
 
@@ -9,8 +10,8 @@ export class TextField extends HTMLLabelElement {
     return ['mode']
   }
 
-  @output('valueChange')
-  output = outputEvent
+  @event()
+  valueChange: Emitter<string>
 
   @prop()
   mode: TextFieldMode = 'filled'
@@ -39,7 +40,7 @@ export class TextField extends HTMLLabelElement {
 
   onChange(input: HTMLInputElement) {
     this.classList.add('touched')
-    this.output(input.value)
+    this.valueChange.emit(input.value)
     this.touched = true
   }
 
