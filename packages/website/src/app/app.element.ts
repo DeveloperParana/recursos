@@ -19,105 +19,67 @@ export class AppElement extends HTMLElement {
       <header is="devpr-header" text="DevParaná"></header>
 
       <main class="wrapper">
-        <section class="section">
-          <div id="home">
-            <devpr-heading size="120"> MX </devpr-heading>
-          </div>
-
-          <div class="grid-container">
-            <div>
-              <p>
-                Escolha um conteúdo que quer aprender, ensinar ou compartilhar
-              </p>
-            </div>
-            <div>
-              <p>
-                Escreva sobre ele pensando em como transmiti-lo de forma
-                didática
-              </p>
-            </div>
-            <div>
-              <p>
-                Envie sua talk para nosso C4P e compartilhe seu conhecimento
-              </p>
-            </div>
-            <div>
-              <h2>Aprenda 2x!</h2>
-              <div class="section__content">
-                <devpr-c4p-button>C4P</devpr-c4p-button>
-              </div>
-            </div>
-          </div>
-        </section>
-
         <section is="devpr-section">
-          <header>
-            <h2>Como podemos ajudar?</h2>
-          </header>
           <article>
+            <!-- <img src="/assets/images/mx.svg" /> -->
+            <devpr-heading size="480"> MX </devpr-heading>
+          </article>
+        </section>
+
+        <section is="devpr-section">
+          <header>
+            <h2>Apps</h2>
+          </header>
+          <article id="apps">
+            <img src="/assets/images/apps-como-recursos-devpr.svg" />
             <p>
-              Consequat quis minim qui exercitation Lorem quis magna aliquip
-              exercitation. Adipisicing duis pariatur fugiat tempor enim est
-              irure excepteur consectetur laboris voluptate. Ullamco anim
-              officia labore consectetur veniam sunt est culpa fugiat.
+              Aplicativos disponíveis que facilitam a criação de slides e
+              organização de eventos
             </p>
           </article>
         </section>
 
         <section is="devpr-section">
           <header>
-            <h2>Como podemos ajudar?</h2>
+            <h2>Apoio</h2>
           </header>
-          <article id="iniciativa">
-            <ol>
-              <li>
-                <devpr-ticked></devpr-ticked>
-                Aplicativos criados sob medida
-              </li>
-              <li>
-                <devpr-ticked></devpr-ticked>
-                Banco de imagens úteis
-              </li>
-              <li>
-                <devpr-ticked></devpr-ticked>
-                Coleção de animações SVG
-              </li>
-              <li>
-                <devpr-ticked></devpr-ticked>
-                Repositório de GIFs
-              </li>
-              <li>
-                <devpr-ticked></devpr-ticked>
-                Apoio da comunidade
-              </li>
-            </ol>
-          </article>
-        </section>
-        <section is="devpr-section">
-          <header>
-            <h2>Grave sua voz</h2>
-          </header>
-          <article id="movimento">
+          <article id="apoio">
+            <img src="/assets/images/apoio-e-feedbacks-devpr.svg" />
             <p>
-              Est eu exercitation irure nostrud exercitation velit minim laboris
-              in deserunt pariatur eu. Aute duis ipsum aliqua adipisicing ut
-              quis. Lorem dolore aliquip mollit reprehenderit dolor consequat
-              minim Lorem. Irure velit culpa amet sunt laborum adipisicing
-              fugiat ex tempor irure amet culpa.
+              Apoio na preparação, feedbacks e mentorias com membros experientes
+              da comunidade
             </p>
           </article>
         </section>
         <section is="devpr-section">
           <header>
-            <h2>Use animações SVG</h2>
+            <h2>Espaço</h2>
           </header>
-          <article id="eventos">
+          <article id="espaco">
+            <img src="/assets/images/espaco-e-divulgacao-devpr.svg" />
             <p>
-              Est eu exercitation irure nostrud exercitation velit minim laboris
-              in deserunt pariatur eu. Aute duis ipsum aliqua adipisicing ut
-              quis. Lorem dolore aliquip mollit reprehenderit dolor consequat
-              minim Lorem. Irure velit culpa amet sunt laborum adipisicing
-              fugiat ex tempor irure amet culpa.
+              Todos temos o direito de espaço para propagação de conhecimento
+            </p>
+          </article>
+        </section>
+        <section is="devpr-section">
+          <header>
+            <h2>Comunidade</h2>
+          </header>
+          <article id="comunidade">
+            <img src="/assets/images/comunidade-devpr.svg" />
+            <p>Comunidade sempre disposta a participar</p>
+          </article>
+        </section>
+        <section is="devpr-section">
+          <header>
+            <h2>Membro</h2>
+          </header>
+          <article id="membro">
+            <img src="/assets/images/membro-decolando-devpr.svg" />
+            <p>
+              Tudo isso pra que você, membro da nossa comunidade. Decole e
+              faça com que decolem!
             </p>
           </article>
         </section>
