@@ -5,6 +5,7 @@
   "scripts": {
     "nx": "nx",
     "start": "nx serve",
+    "website": "nx serve website",
     "build": "nx build",
     "test": "nx test",
     "lint": "nx workspace-lint && nx lint",
