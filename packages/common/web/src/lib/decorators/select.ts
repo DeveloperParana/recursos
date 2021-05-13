@@ -10,7 +10,9 @@ export interface PropertyOptions {
   reflectToAttribute?: boolean
   readOnly?: boolean
   computed?: string
-  observer?: string | ((val: {}, old: {}) => void)
+  observer?:
+    | string
+    | ((val: Record<string, unknown>, old: Record<string, unknown>) => void)
 }
 
 export interface ElementConstructor extends Function {
@@ -30,12 +32,8 @@ export interface ElementPrototype extends HTMLElement {
 
 export function query(selector: string) {
   return (proto: ElementPrototype, propName: string) => {
-
     Object.defineProperty(proto, propName, {
       get(this: HTMLElement) {
-        console.log(propName)
-        console.log(this!.querySelector(selector))
-
         return this.shadowRoot!.querySelector(selector)
       },
       enumerable: true,

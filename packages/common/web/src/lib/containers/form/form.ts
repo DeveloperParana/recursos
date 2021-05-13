@@ -20,7 +20,7 @@ export class Form<T> extends HTMLFormElement {
     }
   }
 
-  emitEvent(type: string, detail: any) {
+  emitEvent<T>(type: string, detail: T) {
     const event = new CustomEvent(type, { detail })
     this.parentElement.dispatchEvent(event)
   }
