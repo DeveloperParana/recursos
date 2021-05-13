@@ -9,6 +9,7 @@
     <title>DevParaná - De pessoas, para pessoas</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;1,400&display=swap" rel="stylesheet">
+
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="favicon.png" />
   </head>
@@ -21,6 +22,19 @@
 
     <template id="devpr-heading">
       <slot></slot>
+    </template>
+
+    <template id="devpr-section">
+      <section class="section">
+        <slot slot="header"></slot>
+        <slot slot="content"></slot>
+      </section>
+    </template>
+
+    <template id="devpr-ticked">
+      <div>
+        <slot></slot>
+      </div>
     </template>
 
     <template id="devpr-c4p-button">

@@ -1,17 +1,62 @@
 @import 'theming/variables';
 
-body > *:first-child {
+devpr-root {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   min-width: 300px;
-  max-width: 980px;
   margin: 0px auto;
+
+  // background-image: url(/assets/images/devparana.svg);
+  // background-repeat: no-repeat;
+  // background-position-x: 240px;
+  // background-position-y: 0px;
+  // background-size: 100px;
+
 }
+
+
+
+.grid-container {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px 10px;
+  grid-template-areas:
+    '. .'
+    '. .';
+
+  p {
+    color: $devpr-on-surface-medium;
+    text-align: center;
+    font-weight: 500;
+    font-size: 32px;
+  }
+}
+
 .wrapper {
   height: calc(100vh - 60px);
   overflow: auto;
   scroll-snap-type: y mandatory;
 }
 
+ol {
+  display: flex;
+  flex-direction: column;
+  li {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    font-size: 32px;
+    gap: 10px;
+  }
+}
+
 .section {
+  display: flex;
+  flex-direction: column;
   height: calc(100vh - 60px);
   scroll-snap-align: center;
 
@@ -54,17 +99,11 @@ body > *:first-child {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    p {
+      font-size: 36px;
+    }
   }
   &__content > div {
     max-width: 992px;
   }
 }
-// main section {
-//   display: flex;
-//   justify-content: center;
-
-//   nav {
-//     display: flex;
-//     justify-content: space-around;
-//   }
-// }

@@ -21,9 +21,8 @@ export function CustomElement(
     if (tmpl(selector)) {
       const connected = target.prototype.connectedCallback ?? noop
 
-      const template = tmpl(selector).content.cloneNode(true)
-
       target.prototype.connectedCallback = function (): void {
+        const template = tmpl(selector).content.cloneNode(true)
         this.innerHTML = this.styles + this.template
 
         this.attachShadow({ mode: 'open' }).append(template)
