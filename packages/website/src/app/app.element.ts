@@ -18,10 +18,9 @@ export class AppElement extends HTMLElement {
     return html`
       <header is="devpr-header" text="DevParaná"></header>
 
-      <main class="wrapper">
+      <main role="main" class="wrapper" tabindex="0">
         <section is="devpr-section">
           <article>
-            <!-- <img src="/assets/images/mx.svg" /> -->
             <devpr-heading size="480"> MX </devpr-heading>
           </article>
         </section>
@@ -31,7 +30,7 @@ export class AppElement extends HTMLElement {
             <h2>Apps</h2>
           </header>
           <article id="apps">
-            <img src="/assets/images/apps-como-recursos-devpr.svg" />
+            <img src="/assets/images/apps-como-recursos-devpr.svg" alt="apps como recursos" />
             <p>
               Aplicativos disponíveis que facilitam a criação de slides e
               organização de eventos
@@ -44,7 +43,7 @@ export class AppElement extends HTMLElement {
             <h2>Apoio</h2>
           </header>
           <article id="apoio">
-            <img src="/assets/images/apoio-e-feedbacks-devpr.svg" />
+            <img src="/assets/images/apoio-e-feedbacks-devpr.svg" alt="apoio e feedbacks devpr" />
             <p>
               Apoio na preparação, feedbacks e mentorias com membros experientes
               da comunidade
@@ -56,7 +55,7 @@ export class AppElement extends HTMLElement {
             <h2>Espaço</h2>
           </header>
           <article id="espaco">
-            <img src="/assets/images/espaco-e-divulgacao-devpr.svg" />
+            <img src="/assets/images/espaco-e-divulgacao-devpr.svg" alt="espaco e divulgacao devpr" />
             <p>
               Todos temos o direito de espaço para propagação de conhecimento
             </p>
@@ -67,7 +66,7 @@ export class AppElement extends HTMLElement {
             <h2>Comunidade</h2>
           </header>
           <article id="comunidade">
-            <img src="/assets/images/comunidade-devpr.svg" />
+            <img src="/assets/images/comunidade-devpr.svg" alt="comunidade devpr" />
             <p>Comunidade sempre disposta a participar</p>
           </article>
         </section>
@@ -76,7 +75,7 @@ export class AppElement extends HTMLElement {
             <h2>Membro</h2>
           </header>
           <article id="membro">
-            <img src="/assets/images/membro-decolando-devpr.svg" />
+            <img src="/assets/images/membro-decolando-devpr.svg" alt="membro decolando devpr" />
             <p>Tudo isso pra que você, membro da nossa comunidade.</p>
             <p>Decole e faça com que decolem!</p>
           </article>

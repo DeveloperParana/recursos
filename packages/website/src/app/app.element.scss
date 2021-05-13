@@ -8,33 +8,6 @@ devpr-root {
   flex-direction: column;
   min-width: 300px;
   margin: 0px auto;
-
-  // background-image: url(/assets/images/devparana.svg);
-  // background-repeat: no-repeat;
-  // background-position-x: 240px;
-  // background-position-y: 0px;
-  // background-size: 100px;
-
-}
-
-
-
-.grid-container {
-  flex: 1;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 10px 10px;
-  grid-template-areas:
-    '. .'
-    '. .';
-
-  p {
-    color: $devpr-on-surface-medium;
-    text-align: center;
-    font-weight: 500;
-    font-size: 32px;
-  }
 }
 
 .wrapper {
