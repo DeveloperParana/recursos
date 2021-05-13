@@ -33,6 +33,7 @@
             "stylePreprocessorOptions": { "includePaths": ["design/styles"] },
             "assets": [
               "packages/website/src/favicon.png",
+              "packages/website/src/robots.txt",
               "packages/website/src/assets"
             ],
             "styles": ["packages/website/src/styles.scss"],
