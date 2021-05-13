@@ -1,0 +1,48 @@
+name: Publish Website
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  CI: true
+
+jobs:
+  release:
+    name: Format, Lint, Test, Build & Publish
+    if: "!contains(github.event.head_commit.message, 'skip ci')"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v1
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Check Format
+        run: npm run format:check -- --base origin/main
+
+      - name: Lint Workspace & Code
+        run: npm run affected:lint -- --base origin/main
+
+      - name: Unit Tests
+        run: npm run affected:test -- --base origin/main
+
+      # - name: Test Builds
+      #   run: npm run affected:build -- --base origin/main
+
+      # - name: Build, Release on GitHub & Publish to NPM
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      #   run: npm run release
+
+      - name: Build affected projects
+        run: npm run affected:build -- --base origin/main --with-deps --prod
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist/packages/website

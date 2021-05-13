@@ -1,8 +1,7 @@
 @import 'theming/variables';
 
 .header {
-  box-shadow: 1px 1px 4px 0
-    rgba($devpr-surface, 0.1);
+  box-shadow: 1px 1px 4px 0 rgba($devpr-surface, 0.1);
   position: sticky;
   width: 100%;
   height: 59px;

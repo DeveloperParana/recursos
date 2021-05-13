@@ -1,1 +1,1 @@
-export * from './contact.element';
+export * from './contact.element'

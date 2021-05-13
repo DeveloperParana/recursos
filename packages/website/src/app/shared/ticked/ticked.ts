@@ -8,10 +8,9 @@ export class TickedElement extends HTMLElement {
         display: inline-flex;
       }
       devpr-ticked svg {
-          display: inline-flex;
-          width: 40px;
-          height: auto;
-
+        display: inline-flex;
+        width: 40px;
+        height: auto;
       }
     `
   }

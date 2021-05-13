@@ -37,7 +37,7 @@
 
   /* Highlight */
   & > input + span::before {
-    content: "";
+    content: '';
     position: absolute;
     left: -10px;
     top: -8px;
@@ -54,7 +54,7 @@
 
   /* Check Mark */
   & > input + span::after {
-    content: "";
+    content: '';
     z-index: 1;
     display: block;
     position: absolute;
