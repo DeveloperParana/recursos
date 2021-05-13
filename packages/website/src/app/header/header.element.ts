@@ -18,6 +18,7 @@ export class Header extends HTMLElement {
           rgba(var(--devpr-color-primary-50-contrast), 0.1);
         position: sticky;
         width: 100%;
+        height: 59px;
         z-index: 3;
         top: 0;
       }
@@ -25,7 +26,7 @@ export class Header extends HTMLElement {
       .header {
         background-image: url(/assets/images/devparana.svg);
         background-repeat: no-repeat;
-        background-position-x: 240px;
+        background-position-x: 220px;
         background-size: 100px;
       }
 
@@ -137,7 +138,7 @@ export class Header extends HTMLElement {
 
       /* 48em = 768px */
 
-      @media (min-width: 48em) {
+      @media (min-width: 49em) {
         li {
           float: left;
         }
@@ -165,9 +166,11 @@ export class Header extends HTMLElement {
       </label>
 
       <ul slot="menu" part="menu" class="menu">
-        <li><a data-href="#iniciativa">Como?</a></li>
-        <li><a data-href="#movimento">Por quê?</a></li>
-        <li><a data-href="#eventos">Pra quem?</a></li>
+        <li><a data-href="#apps">Apps</a></li>
+        <li><a data-href="#apoio">Apoio</a></li>
+        <li><a data-href="#espaco">Espaço</a></li>
+        <li><a data-href="#comunidade">Comunidade</a></li>
+        <li><a data-href="#membro">Membro</a></li>
       </ul>
     `
   }

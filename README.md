@@ -1,21 +1,22 @@
 # Comunidade DevParaná
 
+- [Repositório](#repositorio)
+
+  - [Objetivo](#repositorio-objetivo)
+
+- [Aplicativos](#aplicativos)
+
+  - [Gravação da tela](#aplicativos-gravacao-da-tela)
+
 - [DevParaná](#devparana)
 
   - [Ideia](#devparana-ideia)
   - [Iniciativa](#devparana-iniciativa)
   - [Onde nos encontrar](#devparana-onde-nos-encontrar)
 
-- [Repositório](#repositorio)
-
-  - [Objetivo](#repositorio-objetivo)
-
-- [Aplicativos](#aplicativos)
-  - [Gravação da tela](#aplicativos-gravacao-da-tela)
-
 <a id="devparana"></a>
 
-## Bem vindo ao DevParaná
+## Bem vindo ao `DevPR MX`, esperamos que você tenha a melhor experiência como membro da nossa comunidade
 
 <a id="devparana-ideia"></a>
 
@@ -29,31 +30,7 @@ Dar o empurrão que faltava para muito dos desenvolvedores paranaenses começar 
 
 Auxiliar nas comunidades e movimentos nas suas ações, não competindo com os mesmos.
 
-<a id="devparana-onde-nos-encontrar"></a>
-
-### Onde nos encontrar
-
-<div style="float: left">
-
-## - [Github](https://github.com/DeveloperParana/)
-
-## - [Facebook](https://facebook.com/DeveloperParana/)
-
-## - [Instagram](https://www.instagram.com/devparana/)
-
-## - [Twitter](https://www.instagram.com/devparana/)
-
-## - [Meetups](https://www.meetup.com/pt-BR/developerparana/)
-
-</div>
-
-<div style="text-align: center">
-
-![Comunidade DevParaná](design/assets/logo.svg 'Comunidade DevParaná')
-
-</div>
-
-<hr style="clear: both;">
+---
 
 <a id="repositorio"></a>
 
@@ -75,10 +52,30 @@ Este repositório contém alguns facilitadores para organização de eventos e p
 
 ### Gravação da tela
 
-Temos uma aplicação para gravação da tela, caso precise mostrar algo durante sua apresentação, você pode clonar o repositório e executar localmente ou acessar direto por este link [adicionar]
+Temos uma aplicação para gravação da tela, caso precise mostrar algo durante sua apresentação, você pode clonar o repositório e executar localmente ou acessar a versão web.
+
+[Link Web](http://devpr-recorder.surge.sh)
+
+[Link do Código](./packages/apps/recorder/src/app/app.element.ts)
 
 ---
 
-Este projeto foi gerado e usa como base [Nx](https://nx.dev) workspaces.
+<a id="devparana-onde-nos-encontrar"></a>
+
+### Onde nos encontrar
+
+## - [Github](https://github.com/DeveloperParana/)
+
+## - [Facebook](https://facebook.com/DeveloperParana/)
+
+## - [Instagram](https://www.instagram.com/devparana/)
+
+## - [Twitter](https://www.instagram.com/devparana/)
+
+## - [Meetups](https://www.meetup.com/pt-BR/developerparana/)
+
+![Comunidade DevParaná](design/assets/logo.svg 'Comunidade DevParaná')
 
 ---
+
+Este projeto usa [Nx](https://nx.dev) workspaces.

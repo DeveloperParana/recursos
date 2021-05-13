@@ -14,8 +14,8 @@ export class DevPRSection extends HTMLElement {
     const content = this.querySelector('article')
 
     this.classList.add('section')
-    header.classList.add('section__header')
-    content.classList.add('section__content')
+    header?.classList.add('section__header')
+    content?.classList.add('section__content')
   }
 }
 

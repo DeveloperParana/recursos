@@ -1,7 +1,11 @@
 section[is='devpr-section'] header {
   background-image: url(/assets/images/devparana.svg);
   background-repeat: no-repeat;
-  background-position-x: 240px;
+  background-position-x: 220px;
   background-position-y: -59px;
   background-size: 100px;
+  z-index: 1;
+}
+section[is='devpr-section'] article > p {
+  opacity: 0.5;
 }
