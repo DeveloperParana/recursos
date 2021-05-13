@@ -4,4 +4,8 @@ section[is='devpr-section'] header {
   background-position-x: 220px;
   background-position-y: -59px;
   background-size: 100px;
+  z-index: 1;
+}
+section[is='devpr-section'] article > p {
+  opacity: 0.5;
 }

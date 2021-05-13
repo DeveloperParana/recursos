@@ -77,10 +77,8 @@ export class AppElement extends HTMLElement {
           </header>
           <article id="membro">
             <img src="/assets/images/membro-decolando-devpr.svg" />
-            <p>
-              Tudo isso pra que você, membro da nossa comunidade. Decole e
-              faça com que decolem!
-            </p>
+            <p>Tudo isso pra que você, membro da nossa comunidade.</p>
+            <p>Decole e faça com que decolem!</p>
           </article>
         </section>
       </main>

@@ -18,6 +18,7 @@ export class Header extends HTMLElement {
           rgba(var(--devpr-color-primary-50-contrast), 0.1);
         position: sticky;
         width: 100%;
+        height: 59px;
         z-index: 3;
         top: 0;
       }
@@ -137,7 +138,7 @@ export class Header extends HTMLElement {
 
       /* 48em = 768px */
 
-      @media (min-width: 48em) {
+      @media (min-width: 49em) {
         li {
           float: left;
         }
