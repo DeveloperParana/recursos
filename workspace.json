@@ -51,6 +51,7 @@
               "outputHashing": "all",
               "sourceMap": false,
               "extractCss": true,
+              "baseHref": "recursos",
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,

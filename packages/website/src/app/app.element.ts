@@ -1,14 +1,22 @@
-import { css, CustomElement, eventDetail, html, query } from '@devpr/common/web'
+import {
+  css,
+  html,
+  listen,
+  eventDetail,
+  CustomElement,
+} from '@devpr/common/web'
 
 import './app.element.scss'
-import { ContactElement } from './contact'
 
 @CustomElement('devpr-root')
 export class AppElement extends HTMLElement {
   title = 'mx'
 
-  @query('header')
-  widget: ContactElement
+  @listen('devpr-header', 'onClick')
+  header({ detail }: CustomEvent<string>) {
+    const section = this.querySelector(detail)
+    section.scrollIntoView({ behavior: 'smooth' })
+  }
 
   get styles() {
     return css``
@@ -16,12 +24,15 @@ export class AppElement extends HTMLElement {
 
   get template() {
     return html`
-      <header is="devpr-header" text="DevParaná"></header>
+      <devpr-header text="DevParaná"></devpr-header>
 
       <main role="main" class="wrapper" tabindex="0">
         <section is="devpr-section">
-          <article>
-            <devpr-heading size="480"> MX </devpr-heading>
+          <article id="home">
+            <div>
+              <devpr-heading> DevPR </devpr-heading>
+            </div>
+            <h2>Member Experience</h2>
           </article>
         </section>
 
@@ -31,7 +42,7 @@ export class AppElement extends HTMLElement {
           </header>
           <article id="apps">
             <img
-              src="/assets/images/apps-como-recursos-devpr.svg"
+              src="assets/images/apps-como-recursos-devpr.svg"
               alt="apps como recursos"
             />
             <p>
@@ -47,7 +58,7 @@ export class AppElement extends HTMLElement {
           </header>
           <article id="apoio">
             <img
-              src="/assets/images/apoio-e-feedbacks-devpr.svg"
+              src="assets/images/apoio-e-feedbacks-devpr.svg"
               alt="apoio e feedbacks devpr"
             />
             <p>
@@ -62,7 +73,7 @@ export class AppElement extends HTMLElement {
           </header>
           <article id="espaco">
             <img
-              src="/assets/images/espaco-e-divulgacao-devpr.svg"
+              src="assets/images/espaco-e-divulgacao-devpr.svg"
               alt="espaco e divulgacao devpr"
             />
             <p>
@@ -76,7 +87,7 @@ export class AppElement extends HTMLElement {
           </header>
           <article id="comunidade">
             <img
-              src="/assets/images/comunidade-devpr.svg"
+              src="assets/images/comunidade-devpr.svg"
               alt="comunidade devpr"
             />
             <p>Comunidade sempre disposta a participar</p>
@@ -88,11 +99,12 @@ export class AppElement extends HTMLElement {
           </header>
           <article id="membro">
             <img
-              src="/assets/images/membro-decolando-devpr.svg"
+              src="assets/images/membro-decolando-devpr.svg"
               alt="membro decolando devpr"
             />
-            <p>Tudo isso pra que você, membro da nossa comunidade.</p>
-            <p>Decole e faça com que decolem!</p>
+            <p>Tudo isso pra que você decole!</p>
+            <p>E ajude pra que também decolem.</p>
+            <div>Compartilhe 😉</div>
           </article>
         </section>
       </main>
@@ -100,22 +112,8 @@ export class AppElement extends HTMLElement {
   }
 
   connectedCallback() {
-    const header = this.querySelector('header')
-
-    const onClick = ({ detail }: CustomEvent) => {
-      const section = this.querySelector(detail)
-      section.scrollIntoView({ behavior: 'smooth' })
-    }
-
-    header.addEventListener('onClick', onClick)
-
-    // Do something
     const contact = this.querySelector('header')
     contact.addEventListener('onContact', eventDetail(this.onContact))
-
-    setTimeout(() => {
-      console.log('this.contact: ', this.widget)
-    }, 1000)
   }
 
   onContact(detail: any) {

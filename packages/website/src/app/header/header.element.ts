@@ -1,18 +1,24 @@
-import { Emitter, event } from '@devpr/common/web'
+import { Emitter, event, listen } from '@devpr/common/web'
 import { html, css, prop, CustomElement } from '../shared'
 
 import './header.element.scss'
 
-@CustomElement('devpr-header', { extends: 'header' })
+@CustomElement('devpr-header')
 export class Header extends HTMLElement {
   static observedAttributes = ['text']
 
   @event() onClick: Emitter<string>
 
+  @listen('a', 'click')
+  onClicked({ target }) {
+    this.onClick.emit(target.dataset.href)
+  }
+
   @prop()
   public text = ''
 
   styles = css``
+
   get template() {
     return html`
       <a slot="logo" data-href="#home" class="logo" role="link">
@@ -36,8 +42,5 @@ export class Header extends HTMLElement {
 
   connectedCallback() {
     this.classList.add('header')
-    this.querySelectorAll('a').forEach((a) => {
-      a.onclick = () => this.onClick.emit(a.dataset.href)
-    })
   }
 }

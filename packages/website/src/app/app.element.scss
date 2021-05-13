@@ -33,6 +33,11 @@ devpr-root {
     line-height: #{$devpr-header-1-line-height};
   }
 
+
+  #home h2 {
+    opacity: 0.1;
+  }
+
   h3 {
     font-family: #{$devpr-header-2-font-family}, sans-serif;
     font-size: #{$devpr-header-2-font-size}px;
