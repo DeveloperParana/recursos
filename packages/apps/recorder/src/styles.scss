@@ -2,7 +2,6 @@
 @import 'mapped-tokens';
 @import 'scss/elements';
 
-
 html,
 body {
   height: 100%;
@@ -19,15 +18,30 @@ body {
 
 devpr-root {
   margin: 0;
+  z-index: 1;
   padding: 20px;
   height: 100%;
   display: flex;
   padding: 32px;
   border-radius: 12px;
   flex-direction: column;
+  &::after {
+    top: 0;
+    bottom: 0;
+    content: '';
+    width: 100%;
+    position: absolute;
+    background-image: url(assets/images/devparana.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: 0.02;
+    z-index: 0;
+  }
 }
 
 main {
+  z-index: 2;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -57,6 +71,8 @@ nav {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 80px;
+  position: relative;
+
   > div {
     gap: 16px;
     display: flex;

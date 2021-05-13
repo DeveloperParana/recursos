@@ -19,9 +19,6 @@ export class AppElement extends HTMLElement {
 
   get template() {
     return html`
-      <header>
-        <devpr-heading size="60">DevPR Recorder</devpr-heading>
-      </header>
       <main>
         <section>
           <video id="recorder" playsinline autoplay></video>
@@ -97,7 +94,6 @@ export class AppElement extends HTMLElement {
     if (state && state === 'recording') {
       this.mediaRecorder.stop()
       button.textContent = 'Start'
-
     } else {
       this.startRecording()
       button.textContent = 'Stop'
@@ -119,6 +115,7 @@ export class AppElement extends HTMLElement {
       'video/webm;codecs=vp9,opus',
       'video/webm;codecs=vp8,opus',
       'video/webm',
+      'video/mp4',
     ]
 
     this.mimeType = mimeTypes.find((type) => {

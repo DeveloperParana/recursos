@@ -11,23 +11,24 @@ export class Heading extends HTMLElement {
   size = 100
 
   styles = css`
-    h1 {
-      margin-top: 20px;
+    .h1 {
+      margin-top: 10px;
       text-align: center;
       color: transparent;
       background: green url('/assets/images/devparana.svg');
       -webkit-background-clip: text;
       background-position: center;
+      background-size: 145%;
       background-clip: text;
     }
     @media (max-width: 600px) {
-      h1 {
+      :host > .h1 {
         font-size: 64px;
       }
     }
   `
 
-  template = html`<h1>${this.textContent}</h1>`
+  template = html`<h1 class="h1">${this.textContent}</h1>`
 
   heading: HTMLHeadingElement
 

@@ -1,21 +1,14 @@
+import { Emitter, event } from '@devpr/common/web'
 import { html, css, prop, CustomElement } from '../shared'
 
-/**
- * Sempre utilize o selector
- * do componente como attr id
- * do template na `index.html`
- */
-const selector = 'devpr-header'
-
-@CustomElement(selector, { extends: 'header' })
+@CustomElement('devpr-header', { extends: 'header' })
 export class Header extends HTMLElement {
-  static observedAttributes = ['text', 'link']
+  static observedAttributes = ['text']
+
+  @event() onClick: Emitter<string>
 
   @prop()
   public text = ''
-
-  @prop()
-  public link = '#'
 
   get styles() {
     return css`
@@ -23,9 +16,17 @@ export class Header extends HTMLElement {
         background-color: var(--devpr-color-primary-500-contrast);
         box-shadow: 1px 1px 4px 0
           rgba(var(--devpr-color-primary-50-contrast), 0.1);
-        position: fixed;
+        position: sticky;
         width: 100%;
         z-index: 3;
+        top: 0;
+      }
+
+      .header {
+        background-image: url(/assets/images/devparana.svg);
+        background-repeat: no-repeat;
+        background-position-x: 240px;
+        background-size: 100px;
       }
 
       ul {
@@ -39,6 +40,7 @@ export class Header extends HTMLElement {
       li a {
         display: block;
         padding: 20px 20px;
+        cursor: pointer;
         border-right: 1px solid var(--devpr-color-secondary-800);
         text-decoration: none;
       }
@@ -56,6 +58,7 @@ export class Header extends HTMLElement {
         color: var(--devpr-color-primary-500);
         padding: 10px 20px;
         text-decoration: none;
+        cursor: pointer;
       }
 
       /* menu */
@@ -154,7 +157,7 @@ export class Header extends HTMLElement {
   }
   get template() {
     return html`
-      <a slot="logo" class="logo" href="${this.link}"> ${this.text} </a>
+      <a slot="logo" data-href="#home" class="logo"> ${this.text} </a>
 
       <input slot="menu-btn" type="checkbox" id="menu-btn" />
       <label slot="menu-btn" class="menu-icon" for="menu-btn">
@@ -162,14 +165,19 @@ export class Header extends HTMLElement {
       </label>
 
       <ul slot="menu" part="menu" class="menu">
-        <li><a href="#iniciativa">Iniciativa</a></li>
-        <li><a href="#movimento">Movimento</a></li>
-        <li><a href="#eventos">Eventos</a></li>
+        <li><a data-href="#iniciativa">Como?</a></li>
+        <li><a data-href="#movimento">Por quê?</a></li>
+        <li><a data-href="#eventos">Pra quem?</a></li>
       </ul>
     `
   }
 
   connectedCallback() {
     this.classList.add('header')
+    this.querySelectorAll('a').forEach((a) => {
+      console.log(a.dataset.href);
+
+      a.onclick = () => this.onClick.emit(a.dataset.href)
+    })
   }
 }
