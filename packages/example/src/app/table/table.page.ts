@@ -8,7 +8,7 @@ export class TablePage extends HTMLElement {
   ]
 
   innerHTML = html`
-    <table is="web-table" data-source="data">
+    <table is="devpr-table" source="data">
       <thead>
         <tr>
           <th>Nome</th>
