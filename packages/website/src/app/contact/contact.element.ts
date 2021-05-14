@@ -39,4 +39,7 @@ declare global {
   interface HTMLElementTagNameMap {
     'devpr-contact': ContactElement
   }
+  interface HTMLElementEventMap {
+    onContact: string
+  }
 }

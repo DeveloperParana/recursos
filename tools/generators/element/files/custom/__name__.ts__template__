@@ -1,0 +1,47 @@
+import {
+  css,
+  prop,
+  html,
+  event,
+  listen,
+  Emitter,
+  CustomElement
+} from '@devpr/common/web'
+
+@CustomElement('devpr-<%= selector %>')
+export class <%= classify( selector ) %>Element extends HTMLElement {
+  static observedAttributes = ['param']
+
+  @event()
+  onEvent: Emitter<Event>
+
+  @listen('element', 'event')
+  onListen(event: Event) {
+    this.onEvent.emit(event)
+  }
+
+  @prop()
+  public param = ''
+
+  styles = css`
+
+  `
+
+  get template() {
+    return html`
+
+    `
+  }
+
+  connectedCallback() {}
+}
+
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'devpr-<%= selector %>': <%= classify( selector ) %>Element
+  }
+  interface HTMLElementEventMap {
+    onEvent: Event
+  }
+}

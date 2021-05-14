@@ -1,0 +1,25 @@
+{
+  "cli": "nx",
+  "id": "element",
+  "type": "object",
+  "properties": {
+    "selector": {
+      "type": "string",
+      "description": "Element selector"
+    },
+    "inherit": {
+      "type": "string",
+      "description": "Element inherit"
+    },
+    "project": {
+      "type": "string",
+      "description": "",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "Which project do you want to add element to?"
+    }
+  },
+  "required": ["selector", "project"]
+}
