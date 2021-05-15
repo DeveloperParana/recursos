@@ -1,10 +1,4 @@
-import {
-  css,
-  CustomElement,
-  eventTarget,
-  html,
-  listen,
-} from '@devpr/common/web'
+import { css, html, listen, CustomElement } from '@devpr/common/web'
 
 @CustomElement('devpr-root')
 export class AppElement extends HTMLElement {
@@ -33,12 +27,10 @@ export class AppElement extends HTMLElement {
         <nav>
           <div>
             <button is="devpr-button" id="start">Start camera</button>
-            <form is="web-form">
-              <label is="devpr-checkbox">
-                <input type="checkbox" name="muted" />
-                <span>Mute</span>
-              </label>
-            </form>
+            <label is="devpr-checkbox">
+              <input type="checkbox" name="muted" />
+              <span>Mute</span>
+            </label>
             <button is="devpr-button" mode="outlined" id="record" disabled>
               Start Recording
             </button>
@@ -56,11 +48,6 @@ export class AppElement extends HTMLElement {
     `
   }
 
-  @listen('[type="checkbox"]', 'click', true)
-  onChange(checkbox: HTMLInputElement) {
-    this.video.recorder.muted = checkbox.checked
-  }
-
   connectedCallback() {
     this.button = {
       play: this.querySelector('#play'),
@@ -76,14 +63,15 @@ export class AppElement extends HTMLElement {
 
     this.link = this.querySelector('#downlink')
 
-    this.button.play.onclick = this.onPlay.bind(this)
-    this.button.start.onclick = this.onStart.bind(this)
-    this.button.record.onclick = eventTarget(this.onRecord.bind(this))
-    this.button.download.onclick = this.onDownload.bind(this)
-
     this.button.start.focus()
   }
 
+  @listen('[type="checkbox"]', 'click', true)
+  onChange(checkbox: HTMLInputElement) {
+    this.video.recorder.muted = checkbox.checked
+  }
+
+  @listen('#start', 'click')
   onStart() {
     const constraints = { video: { width: 1920, height: 1080 }, audio: true }
 
@@ -97,6 +85,7 @@ export class AppElement extends HTMLElement {
       .then(() => this.button.record.focus())
   }
 
+  @listen('#play', 'click')
   onPlay() {
     const blob = new Blob(this.recordedBlobs, { type: this.mimeType })
     this.video.recorded.src = URL.createObjectURL(blob)
@@ -105,6 +94,7 @@ export class AppElement extends HTMLElement {
     this.button.download.focus()
   }
 
+  @listen('#record', 'click', true)
   onRecord(button: HTMLButtonElement) {
     const { state } = this.mediaRecorder ?? {}
 
@@ -117,6 +107,7 @@ export class AppElement extends HTMLElement {
     }
   }
 
+  @listen('#download', 'click')
   onDownload() {
     const blob = new Blob(this.recordedBlobs, { type: this.mimeType })
     this.link.href = URL.createObjectURL(blob)
