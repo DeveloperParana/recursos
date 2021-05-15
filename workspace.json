@@ -390,6 +390,73 @@
           }
         }
       }
+    },
+    "presenter": {
+      "projectType": "application",
+      "root": "apps/presenter",
+      "sourceRoot": "apps/presenter/src",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/presenter",
+            "index": "apps/presenter/src/index.html",
+            "main": "apps/presenter/src/main.ts",
+            "polyfills": "apps/presenter/src/polyfills.ts",
+            "tsConfig": "apps/presenter/tsconfig.app.json",
+            "assets": [
+              "apps/presenter/src/favicon.ico",
+              "apps/presenter/src/assets"
+            ],
+            "styles": ["apps/presenter/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/presenter/src/environments/environment.ts",
+                  "with": "apps/presenter/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/web:dev-server",
+          "options": { "buildTarget": "presenter:build" },
+          "configurations": {
+            "production": { "buildTarget": "presenter:build:production" }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": { "lintFilePatterns": ["apps/presenter/**/*.ts"] }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/presenter"],
+          "options": {
+            "jestConfig": "apps/presenter/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }

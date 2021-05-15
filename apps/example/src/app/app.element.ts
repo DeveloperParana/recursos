@@ -7,7 +7,7 @@ export class AppElement extends HTMLElement {
   public static observedAttributes = []
 
   styles = css``
-  innerHTML = html`
+  template = html`
     <header>
       <a>
         <img src="assets/devparana.svg" width="100" alt="Dev Paraná" />

@@ -1,0 +1,73 @@
+@import 'design/styles/mixins/media-query';
+@import 'highlight.js/styles/github.css';
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Helvetica, arial, sans-serif;
+  color: #333333;
+  font-size: 16px;
+  line-height: 1.6;
+  background-color: white;
+}
+
+slide-deck {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h1:first-of-type {
+    text-align: center;
+  }
+  p:first-of-type {
+    text-align: center;
+  }
+  p > a[title='next-slide'] {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-size: 32px;
+    background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24'%3E%3Cpath d='M10 17l5-5-5-5v10z'/%3E%3Cpath d='M0 24V0h24v24H0z' fill='none'/%3E%3C/svg%3E");
+    color: transparent;
+  }
+
+  > div {
+    width: 100%;
+  }
+  img {
+    width: 50%;
+  }
+}
+
+@include mobile {
+  slide-deck {
+    width: 320px;
+  }
+}
+
+@include mobileLandscape {
+  slide-deck {
+    width: 480px;
+  }
+}
+
+@include tablet {
+  slide-deck {
+    width: 480px;
+  }
+}
+@include desktop {
+  slide-deck {
+    width: 1024px;
+  }
+}
