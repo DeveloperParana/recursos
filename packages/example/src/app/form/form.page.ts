@@ -5,21 +5,30 @@ import './form.page.scss'
 @CustomElement('form-page')
 export class FormPage extends HTMLElement {
   @event()
-  onCreate = Emitter
+  onSubmit: Emitter
 
   @listen('form', 'onSubmit')
-  onSubmit({ detail }: CustomEvent) {
-    console.log(detail)
+  onSubmitted({ detail }: CustomEvent) {
+    console.log('form-page onSubmit: ', detail)
+    this.onSubmit.emit(detail)
   }
 
+  @event()
+  onChange: Emitter
+
   @listen('form', 'onChange')
-  onChange({ detail }: CustomEvent) {
-    console.log(detail)
+  onChanged({ detail }: CustomEvent) {
+    console.log('form-page onChange: ', detail)
+    this.onChange.emit(detail)
   }
+
+  @event()
+  valueChange: Emitter
 
   @listen('label', 'valueChange')
   onValueChange({ detail }: CustomEvent) {
-    console.log(detail)
+    console.log('form-page valueChange: ', detail)
+    this.valueChange.emit(detail)
   }
 
   innerHTML = html`
@@ -61,14 +70,8 @@ export class FormPage extends HTMLElement {
   `
 
   connectedCallback() {
-    // this.querySelectorAll('label').forEach((textfield) =>
-    //   textfield.addEventListener('valueChange', console.log)
-    // )
   }
 
-  attributeChangedCallback(name: string, prev: string, next: string) {
-    this[name] = next
-  }
 }
 
 declare global {

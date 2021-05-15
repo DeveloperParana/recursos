@@ -6,9 +6,18 @@ import './app.element.scss'
 export class AppElement extends HTMLElement {
   public static observedAttributes = []
 
-  @listen('devpr-form', 'onChange')
+  @listen('form-page', 'onSubmit')
+  onSubmit({ detail }: CustomEvent) {
+    console.log('devpr-root: ', detail)
+  }
+
+  @listen('form-page', 'onChange')
   onChange({ detail }: CustomEvent) {
-    console.log(detail)
+    console.log('devpr-root: ', detail)
+  }
+  @listen('form-page', 'valueChange')
+  valueChange({ detail }: CustomEvent) {
+    console.log('devpr-root: ', detail)
   }
 
   styles = css``
