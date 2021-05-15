@@ -70,8 +70,8 @@ export class FormPage extends HTMLElement {
   `
 
   connectedCallback() {
+    console.log('form')
   }
-
 }
 
 declare global {
