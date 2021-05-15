@@ -8,6 +8,10 @@
 
 /* You can add global styles to this file, and also import other style files */
 
+:root {
+  --devpr-primary-500: $devpr-primary-500;
+
+}
 html,
 body {
   height: 100%;
@@ -18,7 +22,7 @@ html {
 body {
   margin: 0;
   font-family: 'Raleway', sans-serif;
-  background-color: #f4f4f4;
+  background-color: #f0f0f0;
   scroll-behavior: smooth;
 }
 

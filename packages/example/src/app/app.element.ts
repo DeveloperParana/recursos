@@ -1,10 +1,16 @@
-import { css, CustomElement, html } from '@devpr/common/web'
+import { css, CustomElement, html, listen } from '@devpr/common/web'
 
 import './app.element.scss'
 
 @CustomElement('devpr-root')
 export class AppElement extends HTMLElement {
   public static observedAttributes = []
+
+  @listen('devpr-form', 'onChange')
+  onChange({ detail }: CustomEvent) {
+    console.log(detail)
+  }
+
   styles = css``
   innerHTML = html`
     <header>

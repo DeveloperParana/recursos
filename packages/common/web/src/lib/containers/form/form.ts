@@ -1,21 +1,33 @@
 import { BuiltInElement, event } from '../../decorators'
 import { serializeForm } from '../../utilities'
-import { BehaviorSubject } from 'rxjs'
 import { Emitter } from '../../core'
 
+/**
+ * Formulário integrado com handling de dados
+ * Emite eventos de alteração e submissão com
+ * os dados já serializados como objeto JSON.
+ *
+ * *WebComponent*
+ *
+ * @example
+ * ```html
+ * <form is="devpr-form"> </form>
+ * ```
+ *
+ * @export
+ * @template T
+ * @extends {HTMLFormElement}
+ * @class Form
+ */
 @BuiltInElement('devpr-form', 'form')
 export class Form<T> extends HTMLFormElement {
   @event() onChange: Emitter<T>
 
   @event() onSubmit: Emitter<T>
 
-  private _valueChanges = new BehaviorSubject<T>(null)
-  public valueChanges = this._valueChanges.asObservable()
-
   connectedCallback() {
     this.onchange = () => {
       const value = serializeForm<T>(this)
-      this._valueChanges.next(value)
       this.onChange.emit(value)
     }
 

@@ -6,6 +6,7 @@
  * @param {HTMLFormElement} form
  * @returns
  */
+
 export function serializeForm<T>(form: HTMLFormElement) {
   const pairs = {}
 

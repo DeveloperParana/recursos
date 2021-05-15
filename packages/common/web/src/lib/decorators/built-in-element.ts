@@ -3,6 +3,12 @@
  * legibilidade para declaração de um
  * novo custom element integrado
  *
+ * @example
+ * ```ts
+ * _@BuiltInElement('devpr-table', 'table')
+ * export class Table<T> extends HTMLTableElement { }
+ * ```
+ *
  * @export
  * @param {string} selector
  * @param {keyof HTMLElementTagNameMap} inherit

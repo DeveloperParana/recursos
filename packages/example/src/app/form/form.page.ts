@@ -7,14 +7,19 @@ export class FormPage extends HTMLElement {
   @event()
   onCreate = Emitter
 
-  @listen('[is="devpr-form"]', 'onSubmit')
-  onSubmit(event: CustomEvent<Record<string, string>>) {
-    console.log(event.detail)
+  @listen('form', 'onSubmit')
+  onSubmit({ detail }: CustomEvent) {
+    console.log(detail)
   }
 
-  @listen('[is="devpr-form"]', 'onChange')
-  onChange(event: CustomEvent<Record<string, string>>) {
-    console.log(event.detail)
+  @listen('form', 'onChange')
+  onChange({ detail }: CustomEvent) {
+    console.log(detail)
+  }
+
+  @listen('label', 'valueChange')
+  onValueChange({ detail }: CustomEvent) {
+    console.log(detail)
   }
 
   innerHTML = html`

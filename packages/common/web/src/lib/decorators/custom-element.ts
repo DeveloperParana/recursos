@@ -1,12 +1,19 @@
 import { noop, tmpl } from '../core'
 
-export function render(html: string) {
-  return (this.innerHTML = html)
-}
-
 /**
  * Este decorator facilita a legibilidade ao
  * declarar um custom element
+ *
+ * *WebComponent*
+ *
+ * @example
+ * ```ts
+ * _@CustomElement('web-element')
+ * class WebElement extends HTMLElement { }
+ *
+ * _@CustomElement('web-text', { extends: 'p' })
+ * class WebElement extends HTMLParagraphElement { }
+ * ```
  *
  * @export
  * @param {string} selector

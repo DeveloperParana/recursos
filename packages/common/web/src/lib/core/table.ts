@@ -17,7 +17,20 @@ export function getDataContext({ source }: DOMStringMap) {
 }
 
 export const addData = <T>(node: HTMLTableDataCellElement, row: T) => {
-  node.textContent = row[node.dataset.col]
+  if (node.dataset.val) {
+    if (
+      node.hasChildNodes &&
+      node.firstElementChild instanceof HTMLButtonElement
+    ) {
+      node.firstElementChild.value = row[node.dataset.val]
+    }
+  }
+  if (
+    typeof row[node.dataset.col] === 'string' ||
+    typeof row[node.dataset.col] === 'number'
+  ) {
+    node.textContent = row[node.dataset.col]
+  }
 }
 
 export function cloneTemplate(template: HTMLTemplateElement) {

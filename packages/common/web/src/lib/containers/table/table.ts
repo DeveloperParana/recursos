@@ -1,6 +1,42 @@
 import { BuiltInElement, prop } from '../../decorators'
 import { handleTableData } from '../../core'
 
+/**
+ * Tabela integrada com template handling
+ * que adiciona valores de objetos em td's
+ *
+ * *WebComponent*
+ *
+ * @example
+ * class WebElement extends HTMLElement {
+ *  data = [
+ *    { name: 'Nome' }
+ *  ]
+ * }
+ * ```
+ *
+ * ```html
+ * <table is="devpr-table" source="data">
+ *  <thead>
+ *    <tr>
+ *      <th>Nome</th>
+ *    </tr>
+ *  </thead>
+ *  <tbody>
+ *    <template>
+ *      <tr>
+ *        <td data-col="name"></td>
+ *      </tr>
+ *    </template>
+ *  </tbody>
+ * </table>
+ * ```
+ *
+ * @export
+ * @class Table
+ * @extends {HTMLTableElement}
+ * @template T
+ */
 @BuiltInElement('devpr-table', 'table')
 export class Table<T> extends HTMLTableElement {
   static observedAttributes = ['source']
