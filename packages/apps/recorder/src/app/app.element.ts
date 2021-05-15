@@ -1,4 +1,10 @@
-import { css, CustomElement, eventTarget, html } from '@devpr/common/web'
+import {
+  css,
+  CustomElement,
+  eventTarget,
+  html,
+  listen,
+} from '@devpr/common/web'
 
 @CustomElement('devpr-root')
 export class AppElement extends HTMLElement {
@@ -27,6 +33,12 @@ export class AppElement extends HTMLElement {
         <nav>
           <div>
             <button is="devpr-button" id="start">Start camera</button>
+            <form is="web-form">
+              <label is="devpr-checkbox">
+                <input type="checkbox" name="muted" />
+                <span>Mute</span>
+              </label>
+            </form>
             <button is="devpr-button" mode="outlined" id="record" disabled>
               Start Recording
             </button>
@@ -42,6 +54,11 @@ export class AppElement extends HTMLElement {
         <output id="error-message"></output>
       </main>
     `
+  }
+
+  @listen('[type="checkbox"]', 'click', true)
+  onChange(checkbox: HTMLInputElement) {
+    this.video.recorder.muted = checkbox.checked
   }
 
   connectedCallback() {
@@ -68,7 +85,7 @@ export class AppElement extends HTMLElement {
   }
 
   onStart() {
-    const constraints = { video: { width: 1920, height: 1080 } }
+    const constraints = { video: { width: 1920, height: 1080 }, audio: true }
 
     this.init(constraints)
       .then((stream) => {
@@ -149,11 +166,25 @@ export class AppElement extends HTMLElement {
     }
   }
 
-  init(constraints: MediaStreamConstraints) {
+  async init({ video, audio }: MediaStreamConstraints) {
     try {
-      return navigator.mediaDevices.getDisplayMedia(constraints)
+      const display = await this.getDisplay(video as MediaTrackConstraints)
+      const user = await this.getUser(audio as MediaTrackConstraints)
+
+      const [track] = user.getAudioTracks()
+      display.addTrack(track)
+
+      return display
     } catch (err) {
       alert(err)
     }
+  }
+
+  getUser(audio: MediaTrackConstraints) {
+    return navigator.mediaDevices.getUserMedia({ audio })
+  }
+
+  getDisplay(video: MediaTrackConstraints) {
+    return navigator.mediaDevices.getDisplayMedia({ video })
   }
 }
