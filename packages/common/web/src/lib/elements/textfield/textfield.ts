@@ -1,5 +1,4 @@
-import { prop, BuiltInElement, event } from '../../decorators'
-import { eventTarget } from '../../utilities'
+import { prop, BuiltInElement, event, listen } from '../../decorators'
 import { Emitter } from '../../core'
 
 type TextFieldMode = 'filled' | 'outlined' | 'standard'
@@ -10,48 +9,47 @@ export class TextField extends HTMLLabelElement {
     return ['mode']
   }
 
+  public input: HTMLInputElement
+
+  public touched = false
+  public focused = false
+
   @event()
   valueChange: Emitter<string>
 
   @prop()
   mode: TextFieldMode = 'filled'
 
-  public input: HTMLInputElement
-
-  public touched = false
-  public focused = false
-
-  connectedCallback() {
-    this.classList.add('devpr-textfield')
-    this.classList.add(this.getMode(this.mode))
-    this.input = this.handle(this.querySelector('input'))
-  }
-
-  handle(input: HTMLInputElement) {
-    if (!input) {
-      throw Error('input element not founded')
-    }
-    input.setAttribute('placeholder', ' ')
-    input.oninput = eventTarget(this.onChange.bind(this))
-    input.onfocus = eventTarget(this.onFocus.bind(this))
-    input.onblur = eventTarget(this.onBlur.bind(this))
-    return input
-  }
-
+  @listen('input', 'input', true)
   onChange(input: HTMLInputElement) {
     this.classList.add('touched')
     this.valueChange.emit(input.value)
     this.touched = true
   }
 
-  onFocus(input: HTMLInputElement) {
+  @listen('input', 'focus')
+  onFocus() {
     this.classList.add('focused')
     this.focused = true
   }
 
-  onBlur(input: HTMLInputElement) {
+  @listen('input', 'blur')
+  onBlur() {
     this.classList.remove('focused')
     this.focused = false
+  }
+
+  connectedCallback() {
+    this.classList.add('devpr-textfield')
+    this.classList.add(this.getMode(this.mode))
+
+    const input = this.querySelector('input')
+
+    if (!input) {
+      throw Error('input element not founded')
+    }
+
+    input.setAttribute('placeholder', ' ')
   }
 
   getMode(mode: TextFieldMode) {
