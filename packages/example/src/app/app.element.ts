@@ -34,5 +34,7 @@ export class AppElement extends HTMLElement {
     <form-page></form-page>
   `
 
-  connectedCallback() {}
+  connectedCallback() {
+    console.log('example')
+  }
 }
