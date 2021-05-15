@@ -1,6 +1,8 @@
 {
   "version": 2,
-  "cli": { "defaultCollection": "@nrwl/web" },
+  "cli": {
+    "defaultCollection": "@nrwl/web"
+  },
   "defaultProject": "website",
   "generators": {
     "@nrwl/web:application": {
@@ -30,7 +32,9 @@
             "main": "packages/website/src/main.ts",
             "polyfills": "packages/website/src/polyfills.ts",
             "tsConfig": "packages/website/tsconfig.app.json",
-            "stylePreprocessorOptions": { "includePaths": ["design/styles"] },
+            "stylePreprocessorOptions": {
+              "includePaths": ["design/styles"]
+            },
             "assets": [
               "packages/website/src/favicon.png",
               "packages/website/src/robots.txt",
@@ -67,14 +71,20 @@
         },
         "serve": {
           "executor": "@nrwl/web:dev-server",
-          "options": { "buildTarget": "website:build" },
+          "options": {
+            "buildTarget": "website:build"
+          },
           "configurations": {
-            "production": { "buildTarget": "website:build:production" }
+            "production": {
+              "buildTarget": "website:build:production"
+            }
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": { "lintFilePatterns": ["packages/website/**/*.ts"] }
+          "options": {
+            "lintFilePatterns": ["packages/website/**/*.ts"]
+          }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
@@ -99,7 +109,9 @@
             "devServerTarget": "website:serve"
           },
           "configurations": {
-            "production": { "devServerTarget": "website:serve:production" }
+            "production": {
+              "devServerTarget": "website:serve:production"
+            }
           }
         },
         "lint": {
@@ -124,11 +136,17 @@
             "main": "packages/apps/recorder/src/main.ts",
             "polyfills": "packages/apps/recorder/src/polyfills.ts",
             "tsConfig": "packages/apps/recorder/tsconfig.app.json",
-            "stylePreprocessorOptions": { "includePaths": ["design/styles"] },
+            "stylePreprocessorOptions": {
+              "includePaths": ["design/styles"]
+            },
             "assets": [
               "packages/apps/recorder/src/favicon.png",
               "packages/apps/recorder/src/assets",
-              { "input": "design/assets", "glob": "**/*", "output": "assets" }
+              {
+                "input": "design/assets",
+                "glob": "**/*",
+                "output": "assets"
+              }
             ],
             "styles": ["packages/apps/recorder/src/styles.scss"],
             "scripts": []
@@ -160,14 +178,20 @@
         },
         "serve": {
           "executor": "@nrwl/web:dev-server",
-          "options": { "buildTarget": "apps-recorder:build" },
+          "options": {
+            "buildTarget": "apps-recorder:build"
+          },
           "configurations": {
-            "production": { "buildTarget": "apps-recorder:build:production" }
+            "production": {
+              "buildTarget": "apps-recorder:build:production"
+            }
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": { "lintFilePatterns": ["packages/apps/recorder/**/*.ts"] }
+          "options": {
+            "lintFilePatterns": ["packages/apps/recorder/**/*.ts"]
+          }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
@@ -222,13 +246,91 @@
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": { "lintFilePatterns": ["packages/common/web/**/*.ts"] }
+          "options": {
+            "lintFilePatterns": ["packages/common/web/**/*.ts"]
+          }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/packages/common/web"],
           "options": {
             "jestConfig": "packages/common/web/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "example": {
+      "projectType": "application",
+      "root": "packages/example",
+      "sourceRoot": "packages/example/src",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/packages/example",
+            "index": "packages/example/src/index.html",
+            "main": "packages/example/src/main.ts",
+            "polyfills": "packages/example/src/polyfills.ts",
+            "tsConfig": "packages/example/tsconfig.app.json",
+            "stylePreprocessorOptions": {
+              "includePaths": ["design/styles"]
+            },
+            "assets": [
+              "packages/example/src/favicon.png",
+              "packages/example/src/assets"
+            ],
+            "styles": ["packages/example/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "packages/example/src/environments/environment.ts",
+                  "with": "packages/example/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "example:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "example:build:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["packages/example/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/packages/example"],
+          "options": {
+            "jestConfig": "packages/example/jest.config.js",
             "passWithNoTests": true
           }
         }

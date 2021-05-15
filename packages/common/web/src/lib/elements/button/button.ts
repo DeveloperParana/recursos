@@ -2,8 +2,16 @@ import { BuiltInElement, prop } from '../../decorators'
 
 type ButtonMode = 'text' | 'outlined'
 
+/**
+ * Botão integrado com opção de aparência
+ * em dois modos: `text` e `outlined`
+ *
+ * @export
+ * @class Button
+ * @extends {HTMLButtonElement}
+ */
 @BuiltInElement('devpr-button', 'button')
-export class DevPRButton extends HTMLButtonElement {
+export class Button extends HTMLButtonElement {
   static get observedAttributes() {
     return ['mode']
   }

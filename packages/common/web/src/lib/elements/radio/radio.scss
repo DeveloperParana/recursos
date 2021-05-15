@@ -1,0 +1,130 @@
+.devpr-radio {
+  z-index: 0;
+  position: relative;
+  display: inline-block;
+  color: rgba($devpr-primary-500, 0.87);
+  font-size: 16px;
+  line-height: 1.5;
+
+  /* Circle */
+  > input {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    z-index: 1;
+    position: absolute;
+    display: block;
+    box-sizing: border-box;
+    margin: 2px 0;
+    border: solid 2px; /* Safari */
+    border-color: rgba($devpr-primary-500, 1);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.2s;
+  }
+
+  /* Span */
+  > input + span {
+    display: inline-block;
+    box-sizing: border-box;
+    padding-left: 30px;
+    width: inherit;
+    cursor: pointer;
+  }
+
+  /* Highlight */
+  > input + span::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: -8px;
+    display: block;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: $devpr-primary-500;
+    opacity: 0;
+    transform: scale(0);
+    pointer-events: none;
+    transition: opacity 0.3s, transform 0.2s;
+  }
+
+  /* Check Mark */
+  > input + span::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 2px;
+    left: 0;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: $devpr-on-primary-focused;
+    transform: translate(5px, 5px) scale(0);
+    transition: transform 0.2s;
+  }
+
+  /* Checked */
+  > input:checked {
+    border-color: $devpr-on-primary-focused;
+  }
+
+  > input:checked + span::before {
+    background-color: $devpr-on-primary-focused;
+  }
+
+  > input:checked + span::after {
+    transform: translate(5px, 5px) scale(1);
+  }
+
+  /* Hover, Focus */
+  &:hover > input + span::before {
+    transform: scale(1);
+    opacity: 0.04;
+  }
+
+  > input:focus + span::before {
+    transform: scale(1);
+    opacity: 0.12;
+  }
+
+  &:hover > input:focus + span::before {
+    transform: scale(1);
+    opacity: 0.16;
+  }
+
+  /* Active */
+  &:active > input {
+    border-color: $devpr-on-primary-focused;
+  }
+
+  &:active > input + span::before,
+  &:active:hover > input + span::before {
+    opacity: 1;
+    transform: scale(0);
+    transition: transform 0s, opacity 0s;
+  }
+
+  /* Disabled */
+  > input:disabled {
+    border-color: $devpr-on-primary-disabled;
+    cursor: initial;
+  }
+
+  > input:disabled + span {
+    color: $devpr-on-primary-disabled;
+    cursor: initial;
+  }
+
+  > input:disabled + span::before {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  > input:disabled + span::after {
+    background-color: currentColor;
+  }
+}

@@ -1,0 +1,37 @@
+@import 'theming/variables';
+@import 'mapped-tokens';
+@import 'responsive';
+
+@import 'scss/elements';
+// @import 'theming/palette';
+// @import 'styles/theming/vars';
+
+/* You can add global styles to this file, and also import other style files */
+
+:root {
+  --devpr-primary-500: $devpr-primary-500;
+
+}
+html,
+body {
+  height: 100%;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  font-family: 'Raleway', sans-serif;
+  background-color: #f0f0f0;
+  scroll-behavior: smooth;
+}
+
+a {
+  color: #000;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
