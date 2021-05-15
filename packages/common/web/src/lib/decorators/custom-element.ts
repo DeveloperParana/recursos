@@ -1,4 +1,7 @@
+import { Template } from '../abstracts'
 import { noop, tmpl } from '../core'
+
+type TemplateConstructor = CustomElementConstructor & typeof Template
 
 /**
  * Este decorator facilita a legibilidade ao
@@ -24,13 +27,26 @@ export function CustomElement(
   selector: string,
   options?: ElementDefinitionOptions
 ) {
-  return function (target: CustomElementConstructor) {
+  return function (target: TemplateConstructor) {
+    target['selector'] = selector
+
+    /**
+     * @todo
+     */
+    // const template = document.createElement('template')
+    // const element = document.querySelector(selector)
+    // template.append(document.createElement('slot'))
+    // template.setAttribute('id', selector)
+    // document.body.append(template)
+    // document.body.insertBefore(template.content.cloneNode(true), element)
+
     if (tmpl(selector)) {
       const connected = target.prototype.connectedCallback ?? noop
 
       target.prototype.connectedCallback = function (): void {
         const template = tmpl(selector).content.cloneNode(true)
         this.innerHTML = this.styles + this.template
+        console.log(template)
 
         this.attachShadow({ mode: 'open' }).append(template)
         connected.call(this)

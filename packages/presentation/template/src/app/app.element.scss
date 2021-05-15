@@ -1,0 +1,57 @@
+devpr-root {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  // flex-direction: column;
+  min-width: 300px;
+  margin: 0px auto;
+}
+
+.wrapper {
+  height: 100vh;
+  display: flex;
+  overflow: auto;
+  scroll-snap-type: x mandatory;
+}
+
+.section {
+  width: 100vw;
+  max-width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  scroll-snap-align: center;
+
+  h2,
+  h3 {
+    text-align: center;
+  }
+
+  &__header {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    max-width: 100vw;
+    overflow: hidden;
+  }
+  &__content {
+    flex: 1;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    max-width: 100vw;
+    overflow: hidden;
+    display: flex;
+    user-select: none;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    font-size: 60px;
+
+    p {
+      margin: 0.5em 1em;
+      text-align: center;
+    }
+  }
+}

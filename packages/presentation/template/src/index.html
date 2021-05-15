@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Template</title>
+    <base href="/" />
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <devpr-root></devpr-root>
+    <template id="devpr-root">
+      <slot></slot>
+    </template>
+    <template id="devpr-slide">
+      <slot></slot>
+    </template>
+    <template id="slide-control">
+      <slot></slot>
+    </template>
+    <template id="devpr-member">
+      <slot></slot>
+    </template>
+  </body>
+</html>

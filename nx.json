@@ -21,6 +21,13 @@
       "implicitDependencies": ["apps-recorder"]
     },
     "common-web": { "tags": [] },
-    "example": { "tags": [] }
+    "example": { "tags": [] },
+    "presentation-template": {
+      "tags": ["--scope:presentation", "type:template"]
+    },
+    "presentation-template-e2e": {
+      "tags": [],
+      "implicitDependencies": ["presentation-template"]
+    }
   }
 }

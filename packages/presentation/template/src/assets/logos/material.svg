@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <clipPath id="clip-Logo">
+      <rect width="512" height="512"/>
+    </clipPath>
+  </defs>
+  <g id="Logo" clip-path="url(#clip-Logo)">
+    <g id="Angular" transform="translate(18)">
+      <g id="Material">
+        <path id="Caminho_1" data-name="Caminho 1" d="M237.859,0h0L0,85.14,35.918,400.156,237.859,512.7h0L440.065,400.156,476.782,85.14Z" fill="#ffa726"/>
+        <path id="Caminho_2" data-name="Caminho 2" d="M89.4,0V56.937h0V315.815h0V512.7h0L291.607,400.156,328.323,85.14Z" transform="translate(148.459)" fill="#fb8c00"/>
+        <path id="Caminho_3" data-name="Caminho 3" d="M208.017,234.146,39.6,153l96.58-59.6,169.481,81.415Z" transform="translate(65.76 155.101)" fill="#ffe0b2"/>
+        <path id="Caminho_4" data-name="Caminho 4" d="M208.017,210.646,39.6,129.232,136.18,69.9l169.481,81.415Z" transform="translate(65.76 116.077)" fill="#fff3e0"/>
+        <path id="Caminho_5" data-name="Caminho 5" d="M208.017,187.312,39.6,105.9l96.58-59.6,169.481,81.415Z" transform="translate(65.76 76.886)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

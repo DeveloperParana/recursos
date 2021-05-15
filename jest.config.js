@@ -4,5 +4,6 @@ module.exports = {
     '<rootDir>/packages/apps/recorder',
     '<rootDir>/packages/shared/elements',
     '<rootDir>/packages/example',
+    '<rootDir>/packages/presentation/template',
   ],
 }
