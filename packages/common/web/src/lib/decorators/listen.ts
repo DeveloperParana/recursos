@@ -35,11 +35,19 @@ export function listen<T>(
     target.connectedCallback = function (): void {
       attachListener(this, target, propertyKey)
 
-      const observer = new MutationObserver(() => {
-        attachListener(this, target, propertyKey)
-      })
-      // observa alterações no elemento para manter-se ouvindo
-      observer.observe(this, { subtree: true, childList: true })
+      /**
+       * @todo
+       * O observer está fazendo criar listener duplicados
+       * Verificar uma forma melhor de remover listeners
+       * existentes e não duplica-los quando houverem
+       * alterações no DOM
+       */
+      // const observer = new MutationObserver(() => {
+      //   attachListener(this, target, propertyKey)
+      // })
+
+      // // observa alterações no elemento para manter-se ouvindo
+      // observer.observe(this, { subtree: true, childList: true })
 
       // connectedCallback
       connected.call(this)
@@ -58,6 +66,8 @@ export function listen<T>(
     const onEvent = (e: CustomEvent<T>) => {
       target[propertyKey].call(context, getTarget ? e.target : e)
     }
+
+    elements.forEach((el) => el.removeEventListener(event, onEvent))
 
     elements.forEach((el) => el.addEventListener(event, onEvent))
   }

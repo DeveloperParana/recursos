@@ -9,7 +9,10 @@ const whenDefined = (selector: string, fn: () => void) => {
 class Btn extends HTMLButtonElement {}
 
 @CustomElement('test-page')
-class Page extends HTMLElement {}
+class Page extends HTMLElement {
+  styles = ''
+  template = ''
+}
 
 describe('AppElement', () => {
   let btn: Btn

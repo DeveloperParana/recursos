@@ -40,7 +40,9 @@
     "@ungap/custom-elements": "^1.0.0",
     "core-js": "^3.6.5",
     "document-register-element": "1.13.1",
+    "highlight.js": "^10.7.2",
     "lodash.debounce": "^4.0.8",
+    "marked": "^2.0.6",
     "reflect-metadata": "^0.1.13",
     "regenerator-runtime": "0.13.7",
     "tslib": "^2.0.0"
@@ -54,9 +56,10 @@
     "@nrwl/jest": "12.1.1",
     "@nrwl/linter": "12.1.1",
     "@nrwl/tao": "12.1.1",
-    "@nrwl/web": "12.1.1",
+    "@nrwl/web": "^12.1.1",
     "@nrwl/workspace": "12.1.1",
     "@types/jest": "26.0.8",
+    "@types/marked": "^2.0.3",
     "@types/node": "14.14.33",
     "@typescript-eslint/eslint-plugin": "4.19.0",
     "@typescript-eslint/parser": "4.19.0",
@@ -75,7 +78,7 @@
     "typescript": "~4.1.4"
   },
   "engines": {
-    "node": ">=14"
+    "node": ">=12"
   },
   "repository": {
     "type": "git",

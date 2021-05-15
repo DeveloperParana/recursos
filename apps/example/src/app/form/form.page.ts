@@ -31,7 +31,9 @@ export class FormPage extends HTMLElement {
     this.valueChange.emit(detail)
   }
 
-  innerHTML = html`
+  styles = ''
+
+  template = html`
     <form is="devpr-form" data-submit="submit">
       <label is="devpr-textfield" standard>
         <input type="text" name="name" />
