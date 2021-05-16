@@ -1,4 +1,5 @@
-@devpr/shared-elements
+@devpr/common-web
+MIT
 
 @nrwl/web
 MIT
