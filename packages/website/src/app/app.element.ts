@@ -1,10 +1,4 @@
-import {
-  css,
-  html,
-  listen,
-  eventDetail,
-  CustomElement,
-} from '@devpr/common/web'
+import { css, html, listen, CustomElement } from '@devpr/common/web'
 
 import './app.element.scss'
 
@@ -41,14 +35,11 @@ export class AppElement extends HTMLElement {
             <h2>Apps</h2>
           </header>
           <article id="apps">
-            <img
-              src="assets/images/apps-como-recursos-devpr.svg"
-              alt="apps como recursos"
-            />
+            <img src="assets/images/kanban.svg" alt="apps como recursos" />
             <p>
-              Aplicativos disponíveis que facilitam a criação de slides e
-              organização de eventos
+              Facilitadores para preparação de talks e organização de meetups
             </p>
+            <p>Preocupe-se apenas com o conteúdo</p>
           </article>
         </section>
 
@@ -58,41 +49,27 @@ export class AppElement extends HTMLElement {
           </header>
           <article id="apoio">
             <img
-              src="assets/images/apoio-e-feedbacks-devpr.svg"
+              src="assets/images/mentorias.svg"
               alt="apoio e feedbacks devpr"
             />
-            <p>
-              Apoio na preparação, feedbacks e mentorias com membros experientes
-              da comunidade
-            </p>
+            <p>Feedbacks e mentorias com membros experientes da comunidade</p>
           </article>
         </section>
+
         <section is="devpr-section">
           <header>
-            <h2>Espaço</h2>
+            <h2>Comunicação</h2>
           </header>
           <article id="espaco">
             <img
-              src="assets/images/espaco-e-divulgacao-devpr.svg"
+              src="assets/images/comunicacao.svg"
               alt="espaco e divulgacao devpr"
             />
-            <p>
-              Todos temos o direito de espaço para propagação de conhecimento
-            </p>
+            <p>Alguns querem falar, outros querem ouvir</p>
+            <p>Nós divulgamos para a comunidade</p>
           </article>
         </section>
-        <section is="devpr-section">
-          <header>
-            <h2>Comunidade</h2>
-          </header>
-          <article id="comunidade">
-            <img
-              src="assets/images/comunidade-devpr.svg"
-              alt="comunidade devpr"
-            />
-            <p>Comunidade sempre disposta a participar</p>
-          </article>
-        </section>
+
         <section is="devpr-section">
           <header>
             <h2>Membro</h2>
@@ -102,21 +79,11 @@ export class AppElement extends HTMLElement {
               src="assets/images/membro-decolando-devpr.svg"
               alt="membro decolando devpr"
             />
-            <p>Tudo isso pra que você decole!</p>
-            <p>E ajude pra que também decolem.</p>
+            <p>Cresça e ajude crescer, o conhecimento é a base!</p>
             <div>Compartilhe 😉</div>
           </article>
         </section>
       </main>
     `
-  }
-
-  connectedCallback() {
-    const contact = this.querySelector('header')
-    contact.addEventListener('onContact', eventDetail(this.onContact))
-  }
-
-  onContact(detail: any) {
-    console.log('app: ', detail)
   }
 }

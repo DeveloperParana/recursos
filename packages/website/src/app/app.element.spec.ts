@@ -1,9 +1,5 @@
 import { AppElement } from './app.element'
 
-const whenDefined = (selector: string, fn: () => void) => {
-  customElements.whenDefined(selector).then(fn).catch(console.error)
-}
-
 describe('AppElement', () => {
   let app: AppElement
 
@@ -13,13 +9,5 @@ describe('AppElement', () => {
 
   it('should create successfully', () => {
     expect(app).toBeTruthy()
-  })
-
-  it('should call connected callback', () => {
-    spyOn(app, 'connectedCallback')
-    app.connectedCallback()
-    whenDefined('devpr-root', () => {
-      expect(app.connectedCallback).toHaveBeenCalledTimes(1)
-    })
   })
 })
