@@ -1,6 +1,6 @@
 {
   "name": "devpr",
-  "version": "0.0.0",
+  "version": "0.0.0-development",
   "license": "MIT",
   "scripts": {
     "nx": "nx",
@@ -25,9 +25,11 @@
     "design-tokens": "./scripts/design-tokens.sh",
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
-    "help": "nx help"
+    "help": "nx help",
+    "prepare": "husky install",
+    "semantic-release": "semantic-release"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@ungap/custom-elements": "^1.0.0",
     "core-js": "^3.6.5",
@@ -37,6 +39,7 @@
     "tslib": "^2.0.0"
   },
   "devDependencies": {
+    "@guiseek/tool-release": "^0.0.1",
     "@nrwl/cli": "12.1.1",
     "@nrwl/cypress": "12.1.1",
     "@nrwl/devkit": "12.1.1",
@@ -55,11 +58,17 @@
     "eslint": "7.22.0",
     "eslint-config-prettier": "8.1.0",
     "eslint-plugin-cypress": "^2.10.3",
+    "husky": "^6.0.0",
     "jest": "26.2.2",
     "prettier": "2.2.1",
+    "semantic-release": "^17.4.3",
     "style-dictionary": "^2.10.3",
     "ts-jest": "26.5.5",
     "ts-node": "~9.1.1",
     "typescript": "~4.1.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DeveloperParana/recursos.git"
   }
 }
