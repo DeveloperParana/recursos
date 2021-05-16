@@ -1,10 +1,14 @@
-import { BuiltInElement, prop } from '@devpr/common/web'
+import { BuiltInElement, css, html, prop } from '@devpr/common/web'
 
 import './section.scss'
 
 @BuiltInElement('devpr-section', 'section')
 export class DevPRSection extends HTMLElement {
   static observedAttributes = ['id']
+
+  styles = css``
+
+  template = html``
 
   @prop()
   id: string

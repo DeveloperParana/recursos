@@ -55,7 +55,6 @@ export class AppElement extends HTMLElement {
             <p>Feedbacks e mentorias com membros experientes da comunidade</p>
           </article>
         </section>
-
         <section is="devpr-section">
           <header>
             <h2>Comunicação</h2>
@@ -65,8 +64,11 @@ export class AppElement extends HTMLElement {
               src="assets/images/comunicacao.svg"
               alt="espaco e divulgacao devpr"
             />
-            <p>Alguns querem falar, outros querem ouvir</p>
-            <p>Nós divulgamos para a comunidade</p>
+            <p>
+              Alguns querem falar, outros querem ouvir
+              <br />
+              Nós divulgamos para a comunidade
+            </p>
           </article>
         </section>
 
@@ -79,7 +81,7 @@ export class AppElement extends HTMLElement {
               src="assets/images/membro-decolando-devpr.svg"
               alt="membro decolando devpr"
             />
-            <p>Cresça e ajude crescer, o conhecimento é a base!</p>
+            <p>Cresça e ajude crescer, o <br />conhecimento é a base!</p>
             <div>Compartilhe 😉</div>
           </article>
         </section>
