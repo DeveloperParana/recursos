@@ -21,6 +21,7 @@ devpr-root {
   flex-direction: column;
   height: calc(100vh - 60px);
   scroll-snap-align: center;
+  overflow: hidden;
 
   h2 {
     font-family: #{$devpr-header-1-font-family}, sans-serif;
@@ -32,7 +33,6 @@ devpr-root {
     letter-spacing: #{$devpr-header-1-letter-spacing}px;
     line-height: #{$devpr-header-1-line-height};
   }
-
 
   #home h2 {
     opacity: 0.1;
@@ -49,8 +49,8 @@ devpr-root {
 
   h2,
   h3 {
-    text-align: center;
     margin: 0;
+    text-align: center;
     font-weight: normal;
   }
   &__header {
@@ -67,13 +67,14 @@ devpr-root {
     align-items: center;
     flex-direction: column;
     justify-content: center;
+    padding: 1em;
 
     @include desktop {
       img {
         max-width: 640px;
+        max-height: 360px;
       }
       p {
-        padding: 2em;
         font-size: 36px;
       }
     }
@@ -81,16 +82,17 @@ devpr-root {
     @include tablet {
       img {
         max-width: 480px;
+        max-height: 320px;
       }
       p {
-        padding: 1em;
-        font-size: 36px;
+        font-size: 32px;
       }
     }
 
     @include mobile {
       img {
         max-width: 240px;
+        max-height: 160px;
       }
       p {
         padding: 0em;
@@ -99,7 +101,7 @@ devpr-root {
     }
 
     p {
-      margin: 0.5em 1em;
+      font-weight: 500;
       text-align: center;
     }
   }
