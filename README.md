@@ -54,7 +54,8 @@ Este repositório contém alguns facilitadores para organização de eventos e p
 
 Temos uma aplicação para gravação da tela, caso precise mostrar algo durante sua apresentação, você pode clonar o repositório e executar localmente ou acessar a versão web.
 
-[Link Web](http://devpr-recorder.surge.sh)
+<!-- Alterar sub-domínio rec.devparana.org -->
+[Link Web](https://devpr-recorder.surge.sh/)
 
 [Link do Código](./packages/apps/recorder/src/app/app.element.ts)
 
