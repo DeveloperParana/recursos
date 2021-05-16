@@ -1,5 +1,12 @@
-import { Emitter, event, listen } from '@devpr/common/web'
-import { html, css, prop, CustomElement } from '../shared'
+import {
+  html,
+  css,
+  prop,
+  event,
+  listen,
+  Emitter,
+  CustomElement,
+} from '@devpr/common/web'
 
 import './header.element.scss'
 
@@ -34,13 +41,8 @@ export class Header extends HTMLElement {
         <li><a data-href="#apps">Apps</a></li>
         <li><a data-href="#apoio">Apoio</a></li>
         <li><a data-href="#espaco">Espaço</a></li>
-        <li><a data-href="#comunidade">Comunidade</a></li>
         <li><a data-href="#membro">Membro</a></li>
       </ul>
     `
-  }
-
-  connectedCallback() {
-    this.classList.add('header')
   }
 }
