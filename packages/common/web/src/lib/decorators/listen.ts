@@ -5,6 +5,14 @@ import { noop } from '../core'
  * seletores e opção que determina caso
  * deva retornar o evento ou seu target
  *
+ * @example
+ * ```ts
+ * ＠listen('form', 'onChange')
+ * onChanged({ detail }: CustomEvent) {
+ *   // Faz algo
+ * }
+ * ```
+ *
  * @export
  * @template T
  * @param {string} selector

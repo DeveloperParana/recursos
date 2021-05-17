@@ -5,7 +5,7 @@
  *
  * @example
  * ```ts
- * _@BuiltInElement('devpr-table', 'table')
+ * ＠BuiltInElement('devpr-table', 'table')
  * export class Table<T> extends HTMLTableElement { }
  * ```
  *

@@ -4,6 +4,17 @@ import { Emitter } from '../core'
  * Usado em conjunto com `Emitter`
  * para emissão de eventos entre elementos
  *
+ * @example
+ * ```ts
+ * ＠event()
+ * onChange: Emitter
+ *
+ * ＠listen('form', 'onChange')
+ * onChanged({ detail }: CustomEvent) {
+ *   this.onChange.emit(detail)
+ * }
+ * ```
+ *
  * @export
  * @returns
  */

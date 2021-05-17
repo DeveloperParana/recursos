@@ -2,6 +2,7 @@ import { BuiltInElement, prop } from '../../decorators'
 import { handleTableData } from '../../core'
 
 /**
+ * @description
  * Tabela integrada com template handling
  * que adiciona valores de objetos em td's
  *

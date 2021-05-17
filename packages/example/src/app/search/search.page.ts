@@ -9,7 +9,6 @@ export class SearchPage extends HTMLTemplateElement {
 
   @listen('form', 'onSubmit')
   onSubmitted({ detail }: CustomEvent) {
-    console.log('form-page onSubmit: ', detail)
     this.onSubmit.emit(detail)
   }
 
@@ -18,7 +17,6 @@ export class SearchPage extends HTMLTemplateElement {
 
   @listen('form', 'onChange')
   onChanged({ detail }: CustomEvent) {
-    console.log('search-page onChange: ', detail)
     // this.onChange.emit(detail)
   }
 

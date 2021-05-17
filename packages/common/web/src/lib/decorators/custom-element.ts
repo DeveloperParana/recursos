@@ -8,10 +8,10 @@ import { noop, tmpl } from '../core'
  *
  * @example
  * ```ts
- * _@CustomElement('web-element')
+ * ＠CustomElement('web-element')
  * class WebElement extends HTMLElement { }
  *
- * _@CustomElement('web-text', { extends: 'p' })
+ * ＠CustomElement('web-text', { extends: 'p' })
  * class WebElement extends HTMLParagraphElement { }
  * ```
  *
