@@ -78,4 +78,7 @@ declare global {
   interface HTMLElementTagNameMap {
     'form-page': FormPage
   }
+  interface HTMLElementEventMap {
+    onSubmit: any
+  }
 }

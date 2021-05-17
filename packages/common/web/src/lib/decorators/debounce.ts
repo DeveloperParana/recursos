@@ -1,6 +1,6 @@
 import debounceFn from 'lodash.debounce'
 
-export function debounce(milliseconds: number = 0, options = {}): any {
+export function debounce(milliseconds = 0, options = {}): any {
   return function (
     target: any,
     propertyKey: string,

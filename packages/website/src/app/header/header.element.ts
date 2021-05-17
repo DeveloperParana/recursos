@@ -46,3 +46,12 @@ export class Header extends HTMLElement {
     `
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'devpr-header': Header
+  }
+  interface HTMLElementEventMap {
+    onClick: CustomEvent<string>
+  }
+}
