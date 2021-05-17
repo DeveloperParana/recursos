@@ -1,0 +1,146 @@
+.devpr-switch {
+  z-index: 0;
+  position: relative;
+  display: inline-block;
+  color: rgba($devpr-primary-500, 0.87);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Track */
+.devpr-switch > input {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  z-index: 1;
+  position: relative;
+  float: right;
+  display: inline-block;
+  margin: 0 0 0 5px;
+  border: solid 5px transparent;
+  border-radius: 12px;
+  width: 46px;
+  height: 24px;
+  background-clip: padding-box;
+  background-color: $devpr-primary-500;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.2s, opacity 0.2s;
+}
+
+/* Span */
+.devpr-switch > input + span {
+  display: inline-block;
+  box-sizing: border-box;
+  margin-right: -51px;
+  padding-right: 51px;
+  width: inherit;
+  cursor: pointer;
+}
+
+/* Highlight */
+.devpr-switch > input + span::before {
+  content: "";
+  position: absolute;
+  right: 11px;
+  top: -8px;
+  display: block;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background-color: $devpr-on-primary-focused;
+  opacity: 0;
+  transform: scale(1);
+  pointer-events: none;
+  transition: opacity 0.3s 0.1s, transform 0.2s 0.1s;
+}
+
+/* Thumb */
+.devpr-switch > input + span::after {
+  content: "";
+  z-index: 1;
+  position: absolute;
+  top: 2px;
+  right: 21px;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: $devpr-surface;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  pointer-events: none;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+/* Checked */
+.devpr-switch > input:checked {
+  background-color: rgba($devpr-primary-500, 0.6);
+}
+
+.devpr-switch > input:checked + span::before {
+  right: -5px;
+  background-color: $devpr-primary-500;
+}
+
+.devpr-switch > input:checked + span::after {
+  background-color: $devpr-primary-500;
+  transform: translateX(16px);
+}
+
+/* Hover, Focus */
+.devpr-switch:hover > input + span::before {
+  opacity: 0.04;
+}
+
+.devpr-switch > input:focus + span::before {
+  opacity: 0.12;
+}
+
+.devpr-switch:hover > input:focus + span::before {
+  opacity: 0.16;
+}
+
+/* Active */
+.devpr-switch:active > input {
+  background-color: rgba($devpr-primary-500, 0.6);
+}
+
+.devpr-switch:active > input:checked {
+  background-color: $devpr-primary-500;
+}
+
+.devpr-switch:active > input + span::before {
+  opacity: 1;
+  transform: scale(0);
+  transition: transform 0s, opacity 0s;
+}
+
+/* Disabled */
+.devpr-switch > input:disabled {
+  background-color: $devpr-primary-500;
+  opacity: 0.38;
+  cursor: default;
+}
+
+.devpr-switch > input:checked:disabled {
+  background-color: rgba($devpr-primary-500, 0.6);
+}
+
+.devpr-switch > input:disabled + span {
+  color: $devpr-on-primary-disabled;
+  cursor: default;
+}
+
+.devpr-switch > input:disabled + span::before {
+  z-index: 1;
+  margin: 10px;
+  width: 20px;
+  height: 20px;
+  background-color: $devpr-on-primary-disabled;
+  transform: scale(1);
+  opacity: 1;
+  transition: none;
+}
+
+.devpr-switch > input:disabled + span::after {
+  opacity: 0.38;
+}

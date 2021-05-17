@@ -14,7 +14,10 @@ export class AppElement extends HTMLElement {
       </a>
       <h1>Dev Paraná</h1>
     </header>
-
+    <label is="devpr-switch">
+      <input type="checkbox" name="switch" />
+      <span> Switch </span>
+    </label>
     <table-page></table-page>
   `
 
