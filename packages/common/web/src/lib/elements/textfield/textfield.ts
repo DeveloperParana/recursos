@@ -67,4 +67,7 @@ declare global {
   interface HTMLElementTagNameMap {
     'devpr-textfield': TextField
   }
+  interface HTMLElementEventMap {
+    valueChange: string
+  }
 }

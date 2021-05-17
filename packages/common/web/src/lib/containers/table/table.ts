@@ -58,8 +58,28 @@ export class Table<T> extends HTMLTableElement {
     handleTableData<T>(template, data)
   }
 
+  add(data: T[]) {
+    const template = this.querySelector('template')
+    handleTableData<T>(template, data)
+  }
+
+  async(url: string, handle?: (data: T[]) => T[]) {
+    fetch(url)
+      .then((res) => res.json())
+      .then((res: T[]) => {
+        const data = handle ? handle(res) : res
+        handleTableData(this.querySelector('template'), data)
+      })
+  }
+
+  reset() {
+    const template = this.querySelector('template')
+    this.querySelector('tbody').innerHTML = ''
+    this.querySelector('tbody').appendChild(template)
+  }
+
   private getDataFromContext(source: string) {
-    console.log(this.getRootNode());
+    console.log(this.getRootNode())
 
     return this.parentElement[source]
   }
