@@ -235,7 +235,7 @@
         "release": {
           "executor": "@nrwl/workspace:run-commands",
           "options": {
-            "command": "npx semantic-release -e ./packages/common/web/.releaserc.json --dry-run"
+            "command": "npx semantic-release -e ./packages/common/web/.releaserc.json"
           }
         }
       }

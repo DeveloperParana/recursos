@@ -89,3 +89,12 @@ export class AppElement extends HTMLElement {
     `
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'devpr-root': AppElement
+  }
+  interface HTMLElementEventMap {
+    onClick: CustomEvent<string>
+  }
+}
