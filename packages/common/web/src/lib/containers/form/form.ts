@@ -3,6 +3,7 @@ import { serializeForm } from '../../utilities'
 import { Emitter } from '../../core'
 
 /**
+ * @description
  * Formulário integrado com handling de dados
  * Emite eventos de alteração e submissão com
  * os dados já serializados como objeto JSON.

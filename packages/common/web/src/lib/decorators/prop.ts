@@ -6,10 +6,10 @@ import 'reflect-metadata'
  * marcar como entrada de dados em um
  * custom element
  *
- * @example
  * Marcando o atributo `text` como entrada de strings
- * ```
- * @property
+ * @example
+ * ```ts
+ * ＠prop()
  * text: string
  * ```
  *
