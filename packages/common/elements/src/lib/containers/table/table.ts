@@ -1,5 +1,4 @@
-import { BuiltInElement, prop } from '../../decorators'
-import { handleTableData } from '../../core'
+import { BuiltInElement, prop, handleTableData } from '@devpr/common/web'
 
 /**
  * @description

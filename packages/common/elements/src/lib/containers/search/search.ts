@@ -1,5 +1,11 @@
-import { CustomElement, event, listen } from '../../decorators'
-import { css, Emitter, html } from '../../core'
+import {
+  css,
+  html,
+  event,
+  listen,
+  Emitter,
+  CustomElement,
+} from '@devpr/common/web'
 
 /**
  * @description

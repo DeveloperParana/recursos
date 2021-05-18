@@ -1,5 +1,4 @@
-import { CustomElement } from '../decorators'
-import { css, html } from '../core'
+import { CustomElement, css, html } from '@devpr/common/web'
 
 @CustomElement('devpr-heading')
 export class Heading extends HTMLElement {
