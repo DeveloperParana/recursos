@@ -3,6 +3,43 @@
   <head>
     <base href="recursos">    <meta charset="utf-8" />
 
+    <meta
+      name="description"
+      content="Dar o empurrão que faltava para muitos desenvolvedores paranaenses começar a compartilhar conhecimentos, através de meetups, coding dojo, conferências e tudo mais que pudermos fazer."
+    />
+    <meta
+      name="keywords"
+      content="desenvolvimento de software, html, css, javascript, php, python, java, c#, c++, flutter, typescript, swift"
+    />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://devparana.org" />
+    <meta
+      property="og:title"
+      content="Member Experience — Comunidade Dev Paraná"
+    />
+    <meta property="og:image" content="assets/images/devparana.svg" />
+    <meta
+      property="og:description"
+      content="Dar o empurrão que faltava para muitos desenvolvedores paranaenses começar a compartilhar conhecimentos, através de meetups, coding dojo, conferências e tudo mais que pudermos fazer."
+    />
+    <meta
+      property="og:site_name"
+      content="Comunidade Paranaense de Desenvolvimento de Software"
+    />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@devparana" />
+    <meta name="twitter:creator" content="@guiseek" />
+    <meta
+      name="twitter:title"
+      content="Member Experience — Comunidade Dev Paraná"
+    />
+    <meta
+      name="twitter:description"
+      content="Dar o empurrão que faltava para muitos desenvolvedores paranaenses começar a compartilhar conhecimentos, através de meetups, coding dojo, conferências e tudo mais que pudermos fazer."
+    />
+    <meta name="twitter:image:src" content="assets/images/devparana.svg" />
     <meta name="description" content="DevParaná - De pessoas, para pessoas" />
 
     <title>DevParaná - De pessoas, para pessoas</title>
@@ -14,7 +51,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="favicon.png" />
-  <link rel="stylesheet" href="styles.e69ac6a7c25280103e68.css"></head>
+  <link rel="stylesheet" href="styles.fcc766b74c61cd30308c.css"></head>
   <body>
     <devpr-root></devpr-root>
 
@@ -38,6 +75,8 @@
     </template>
 
     <template id="devpr-header">
+      <slot name="link"></slot>
+
       <slot name="logo"></slot>
 
       <slot name="menu-btn"></slot>
@@ -45,5 +84,9 @@
 
       <slot name="menu"></slot>
     </template>
-  <script src="runtime.365178a7a0f8f038a0f1.js" type="module"></script><script src="polyfills.14cfd8f0526d87cedd22.esm.js" type="module"></script><script src="main.bcd576738aac175647ce.esm.js" type="module"></script></body>
+
+    <template id="devpr-social">
+      <slot></slot>
+    </template>
+  <script src="runtime.365178a7a0f8f038a0f1.js" type="module"></script><script src="polyfills.14cfd8f0526d87cedd22.esm.js" type="module"></script><script src="main.5ae5c75ff1eea3672a89.esm.js" type="module"></script></body>
 </html>
