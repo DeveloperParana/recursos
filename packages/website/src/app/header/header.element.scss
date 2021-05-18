@@ -19,6 +19,7 @@ devpr-header {
 
 devpr-header > svg {
   margin: 16px 0 0 0;
+  filter: drop-shadow(1px 4px 2px rgba($devpr-on-surface-medium, 0.3));
 }
 
 ul {
