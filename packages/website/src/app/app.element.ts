@@ -21,8 +21,8 @@ export class AppElement extends HTMLElement {
       <devpr-header text="DevParaná"></devpr-header>
 
       <main role="main" class="wrapper" tabindex="0">
-        <section is="devpr-section">
-          <article id="home">
+        <section is="devpr-section" id="home">
+          <article>
             <div>
               <devpr-heading> DevPR </devpr-heading>
             </div>
@@ -30,11 +30,11 @@ export class AppElement extends HTMLElement {
           </article>
         </section>
 
-        <section is="devpr-section">
+        <section is="devpr-section" id="apps">
           <header>
             <h2>Apps</h2>
           </header>
-          <article id="apps">
+          <article>
             <img src="assets/images/kanban.svg" alt="apps como recursos" />
             <p>
               Facilitadores para preparação de talks e organização de meetups
@@ -43,11 +43,11 @@ export class AppElement extends HTMLElement {
           </article>
         </section>
 
-        <section is="devpr-section">
+        <section is="devpr-section" id="apoio">
           <header>
             <h2>Apoio</h2>
           </header>
-          <article id="apoio">
+          <article>
             <img
               src="assets/images/mentorias.svg"
               alt="apoio e feedbacks devpr"
@@ -55,11 +55,11 @@ export class AppElement extends HTMLElement {
             <p>Feedbacks e mentorias com membros experientes da comunidade</p>
           </article>
         </section>
-        <section is="devpr-section">
+        <section is="devpr-section" id="espaco">
           <header>
             <h2>Comunicação</h2>
           </header>
-          <article id="espaco">
+          <article>
             <img
               src="assets/images/comunicacao.svg"
               alt="espaco e divulgacao devpr"
@@ -69,19 +69,23 @@ export class AppElement extends HTMLElement {
           </article>
         </section>
 
-        <section is="devpr-section">
+        <section is="devpr-section" id="membro">
           <header>
             <h2>Membro</h2>
           </header>
-          <article id="membro">
+          <article>
             <img
               src="assets/images/membro-decolando-devpr.svg"
               alt="membro decolando devpr"
             />
             <p>Cresça e ajude crescer, o <br />conhecimento é a base!</p>
-            <div>Compartilhe 😉</div>
+            <h2>Compartilhe 😉</h2>
           </article>
         </section>
+
+        <footer>
+          <devpr-social></devpr-social>
+        </footer>
       </main>
     `
   }
