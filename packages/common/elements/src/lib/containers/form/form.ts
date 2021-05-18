@@ -1,6 +1,9 @@
-import { BuiltInElement, event } from '../../decorators'
-import { serializeForm } from '../../utilities'
-import { Emitter } from '../../core'
+import {
+  event,
+  Emitter,
+  serializeForm,
+  BuiltInElement,
+} from '@devpr/common/web'
 
 /**
  * @description

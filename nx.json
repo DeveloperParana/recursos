@@ -21,6 +21,7 @@
       "implicitDependencies": ["apps-recorder"]
     },
     "common-web": { "tags": [] },
-    "example": { "tags": [] }
+    "example": { "tags": [] },
+    "common-elements": { "tags": [] }
   }
 }

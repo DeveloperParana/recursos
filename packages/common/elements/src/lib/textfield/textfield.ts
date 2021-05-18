@@ -1,5 +1,4 @@
-import { prop, BuiltInElement, event, listen } from '../../decorators'
-import { Emitter } from '../../core'
+import { prop, BuiltInElement, event, listen, Emitter } from '@devpr/common/web'
 
 type TextFieldMode = 'filled' | 'outlined' | 'standard'
 

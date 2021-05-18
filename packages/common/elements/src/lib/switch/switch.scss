@@ -40,7 +40,7 @@
 
 /* Highlight */
 .devpr-switch > input + span::before {
-  content: "";
+  content: '';
   position: absolute;
   right: 11px;
   top: -8px;
@@ -57,7 +57,7 @@
 
 /* Thumb */
 .devpr-switch > input + span::after {
-  content: "";
+  content: '';
   z-index: 1;
   position: absolute;
   top: 2px;
@@ -66,7 +66,8 @@
   width: 20px;
   height: 20px;
   background-color: $devpr-surface;
-  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
   pointer-events: none;
   transition: background-color 0.2s, transform 0.2s;
 }

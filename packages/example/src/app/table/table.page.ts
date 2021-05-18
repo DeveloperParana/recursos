@@ -1,7 +1,7 @@
+import { Table } from '@devpr/common/elements'
 import {
   css,
   html,
-  Table,
   listen,
   dataSearch,
   CustomElement,
