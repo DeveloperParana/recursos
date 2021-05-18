@@ -1,3 +1,6 @@
+@devpr/common-elements
+MIT
+
 @devpr/common-web
 MIT
 
