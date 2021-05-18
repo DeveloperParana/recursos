@@ -64,11 +64,8 @@ export class AppElement extends HTMLElement {
               src="assets/images/comunicacao.svg"
               alt="espaco e divulgacao devpr"
             />
-            <p>
-              Alguns querem falar, outros querem ouvir
-              <br />
-              Nós divulgamos para a comunidade
-            </p>
+            <p>Alguns querem falar, outros querem ouvir</p>
+            <p>Nós divulgamos para a comunidade</p>
           </article>
         </section>
 
