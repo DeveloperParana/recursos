@@ -17,6 +17,7 @@ export class MeetUp extends HTMLAnchorElement {
    */
   target = '_blank'
   rel = 'noopener'
+  alt = 'MeetUp'
 
   innerHTML = html`
     <svg
@@ -26,6 +27,7 @@ export class MeetUp extends HTMLAnchorElement {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>MeetUp</title>
       <rect width="128" height="128" fill="#F64060" />
       <path
         fill-rule="evenodd"

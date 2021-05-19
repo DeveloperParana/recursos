@@ -17,6 +17,7 @@ export class Twitter extends HTMLAnchorElement {
    */
   target = '_blank'
   rel = 'noopener'
+  alt = 'Twitter'
 
   innerHTML = html`
     <svg
@@ -26,6 +27,7 @@ export class Twitter extends HTMLAnchorElement {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>Twitter</title>
       <path
         fill-rule="evenodd"
         clip-rule="evenodd"
