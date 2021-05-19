@@ -3,4 +3,5 @@
 
 export const environment = {
   production: false,
+  googleTag: 'G-2F4LE1X95R'
 }
