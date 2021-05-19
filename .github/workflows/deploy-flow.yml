@@ -39,7 +39,7 @@ jobs:
         run: npm run affected:build -- --base origin/main --with-deps --prod
 
       - name: Build website
-        run: npm run build -- --prod
+        run: npm run build -- --with-deps --prod
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
