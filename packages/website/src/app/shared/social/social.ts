@@ -4,33 +4,32 @@ import { css, CustomElement, html } from '@devpr/common/web'
 export class SocialElement extends HTMLElement {
   styles = css`
     devpr-social {
-      bottom: 0;
+      transition: all 0.2s;
+      margin: 0 auto;
       display: flex;
-      position: absolute;
-      transform: translate(-50%, -50%);
+      z-index: 1;
     }
 
     /* Icons */
 
     devpr-social a {
       color: #fff;
-      background: var(--devpr-primary-50);
-      border-radius: 4px;
-      text-align: center;
-      text-decoration: none;
-      font-family: fontawesome;
-      position: relative;
-      display: inline-block;
       width: 40px;
-      height: 28px;
-      padding-top: 12px;
-      margin: 0 2px;
-      transition: all 0.5s;
+      display: inline-flex;
+      margin: 50px 10px 0 10px;
+      transition: all 0.2s;
+      text-align: center;
+      position: relative;
       -webkit-font-smoothing: antialiased;
+      border-radius: 5px;
+      overflow: hidden;
     }
 
     devpr-social a:hover {
-      background: var(--devpr-primary-500);
+      border-color: var(--devpr-primary-500);
+      background: var(--devpr-surface);
+      overflow: visible;
+      opacity: 1;
     }
 
     /* pop-up text */
@@ -38,14 +37,12 @@ export class SocialElement extends HTMLElement {
     devpr-social a span {
       color: #666;
       position: absolute;
-      font-family: sans-serif;
       bottom: 0;
       left: -25px;
       right: -25px;
       padding: 5px 7px;
       z-index: -1;
-      font-size: 14px;
-      border-radius: 2px;
+      border-radius: 5px;
       background: #fff;
       visibility: hidden;
       opacity: 0;
@@ -76,34 +73,15 @@ export class SocialElement extends HTMLElement {
       visibility: visible;
       opacity: 1;
     }
-
-    /* font awesome icons */
-
-    devpr-social a:nth-of-type(1):before {
-      content: '\f09a';
-    }
-    devpr-social a:nth-of-type(2):before {
-      content: '\f099';
-    }
-    devpr-social a:nth-of-type(3):before {
-      content: '\f0d5';
-    }
-    devpr-social a:nth-of-type(4):before {
-      content: '\f113';
-    }
-    devpr-social a:nth-of-type(5):before {
-      content: '\f17d';
-    }
-    devpr-social a:nth-of-type(6):before {
-      content: '\f1cb';
-    }
   `
 
   template = html`
     <div>
-      <a href="#"><span>Facebook</span></a>
-      <a href="#"><span>Twitter</span></a>
-      <a href="#"><span>Github</span></a>
+      <a is="devpr-facebook"> </a>
+      <a is="devpr-youtube"> </a>
+      <a is="devpr-twitter"> </a>
+      <a is="devpr-github"> </a>
+      <a is="devpr-meetup"> </a>
     </div>
   `
 }

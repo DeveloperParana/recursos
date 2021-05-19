@@ -1,4 +1,4 @@
-import { css, CustomElement, html, listen } from '@devpr/common/web'
+import { css, CustomElement, html } from '@devpr/common/web'
 
 import './app.element.scss'
 
@@ -18,7 +18,8 @@ export class AppElement extends HTMLElement {
       <input type="checkbox" name="switch" />
       <span> Switch </span>
     </label>
-    <table-page></table-page>
+    <form-page></form-page>
+    <!-- <table-page></table-page> -->
   `
 
   connectedCallback() {

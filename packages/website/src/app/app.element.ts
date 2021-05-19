@@ -27,6 +27,8 @@ export class AppElement extends HTMLElement {
               <devpr-heading> DevPR </devpr-heading>
             </div>
             <h2>Member Experience</h2>
+
+            <devpr-social></devpr-social>
           </article>
         </section>
 
@@ -82,10 +84,6 @@ export class AppElement extends HTMLElement {
             <h2>Compartilhe 😉</h2>
           </article>
         </section>
-
-        <footer>
-          <devpr-social></devpr-social>
-        </footer>
       </main>
     `
   }
