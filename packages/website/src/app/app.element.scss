@@ -48,7 +48,9 @@ devpr-root {
     text-decoration: $devpr-header-2-text-decoration;
     line-height: #{$devpr-header-2-line-height};
   }
-
+  figure caption {
+    text-align: center;
+  }
   h2,
   h3 {
     margin: 0;
@@ -64,7 +66,7 @@ devpr-root {
     justify-content: center;
     align-items: flex-end;
     padding: 0 5px 10px;
-    color: $devpr-primary-400;
+    color: $devpr-on-surface-medium;
     background: $devpr-surface;
   }
   &__content {
@@ -77,7 +79,7 @@ devpr-root {
     padding: 1em;
 
     > h2 {
-      color: $devpr-primary-400;
+      color: $devpr-on-surface-medium;
     }
 
     @include desktop {

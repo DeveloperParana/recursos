@@ -17,6 +17,7 @@ export class GitHub extends HTMLAnchorElement {
    */
   target = '_blank'
   rel = 'noopener'
+  alt = 'GitHub'
 
   innerHTML = html`
     <svg
@@ -26,6 +27,7 @@ export class GitHub extends HTMLAnchorElement {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>GitHub</title>
       <path
         fill-rule="evenodd"
         clip-rule="evenodd"

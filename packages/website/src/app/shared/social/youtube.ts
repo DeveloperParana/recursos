@@ -17,6 +17,7 @@ export class Youtube extends HTMLAnchorElement {
    */
   target = '_blank'
   rel = 'noopener'
+  alt = 'YouTube'
 
   innerHTML = html`
     <svg
@@ -26,6 +27,7 @@ export class Youtube extends HTMLAnchorElement {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>YouTube</title>
       <path
         fill-rule="evenodd"
         clip-rule="evenodd"

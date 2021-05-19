@@ -17,6 +17,7 @@ export class Facebook extends HTMLAnchorElement {
    */
   target = '_blank'
   rel = 'noopener'
+  alt = 'Facebook'
 
   innerHTML = html`
     <svg
@@ -26,6 +27,7 @@ export class Facebook extends HTMLAnchorElement {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>Facebook</title>
       <g clip-path="url(#clip0)">
         <path
           fill-rule="evenodd"

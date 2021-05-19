@@ -37,7 +37,12 @@ export class AppElement extends HTMLElement {
             <h2>Apps</h2>
           </header>
           <article>
-            <img src="assets/images/kanban.svg" alt="apps como recursos" />
+            <!-- <img src="assets/images/kanban.svg" alt="apps como recursos" /> -->
+            <figure
+              is="devpr-figure"
+              src="assets/images/kanban.svg"
+              caption="apps como recursos"
+            ></figure>
             <p>
               Facilitadores para preparação de talks e organização de meetups
             </p>
@@ -50,10 +55,12 @@ export class AppElement extends HTMLElement {
             <h2>Apoio</h2>
           </header>
           <article>
-            <img
+            <figure
+              is="devpr-figure"
               src="assets/images/mentorias.svg"
-              alt="apoio e feedbacks devpr"
-            />
+              caption="apoio e feedbacks devpr"
+            ></figure>
+
             <p>Feedbacks e mentorias com membros experientes da comunidade</p>
           </article>
         </section>
@@ -62,10 +69,11 @@ export class AppElement extends HTMLElement {
             <h2>Comunicação</h2>
           </header>
           <article>
-            <img
+            <figure
+              is="devpr-figure"
               src="assets/images/comunicacao.svg"
-              alt="espaco e divulgacao devpr"
-            />
+              caption="espaco e divulgacao devpr"
+            ></figure>
             <p>Alguns querem falar, outros querem ouvir</p>
             <p>Nós divulgamos para a comunidade</p>
           </article>
@@ -76,10 +84,11 @@ export class AppElement extends HTMLElement {
             <h2>Membro</h2>
           </header>
           <article>
-            <img
+            <figure
+              is="devpr-figure"
               src="assets/images/membro-decolando-devpr.svg"
-              alt="membro decolando devpr"
-            />
+              caption="membro decolando devpr"
+            ></figure>
             <p>Cresça e ajude crescer, o <br />conhecimento é a base!</p>
             <h2>Compartilhe 😉</h2>
           </article>
