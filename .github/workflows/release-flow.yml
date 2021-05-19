@@ -44,7 +44,7 @@ jobs:
       - name: Test
         run: npm run affected:test -- --base=${{ steps.last_successful_commit.outputs.commit_hash }}
       - name: Build
-        run: npm run affected:build -- --base=${{ steps.last_successful_commit.outputs.commit_hash }}
+        run: npm run affected:build -- --base=${{ steps.last_successful_commit.outputs.commit_hash }} --with-deps --prod
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
