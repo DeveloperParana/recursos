@@ -28,9 +28,7 @@ export class Header extends HTMLElement {
 
   get template() {
     return html`
-      <a slot="link" data-href="#home" class="logo" role="link">
-        ${this.text}
-      </a>
+      <a slot="link" data-href="#mx" class="logo" role="link"> ${this.text} </a>
 
       <svg
         slot="logo"

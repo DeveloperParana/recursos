@@ -16,7 +16,7 @@ export class SocialElement extends HTMLElement {
       color: #fff;
       width: 40px;
       display: inline-flex;
-      margin: 50px 10px 0 10px;
+      margin: 50px 5px 0 5px;
       transition: all 0.2s;
       text-align: center;
       position: relative;

@@ -3,7 +3,7 @@ import { BuiltInElement, css, html, prop } from '@devpr/common/web'
 import './section.scss'
 
 @BuiltInElement('devpr-section', 'section')
-export class DevPRSection extends HTMLElement {
+export class Section extends HTMLElement {
   static observedAttributes = ['id']
 
   styles = css``
@@ -25,6 +25,6 @@ export class DevPRSection extends HTMLElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'devpr-section': DevPRSection
+    'devpr-section': Section
   }
 }
