@@ -15,6 +15,11 @@ devpr-root {
   height: calc(100vh - 60px);
   overflow: auto;
   scroll-snap-type: y mandatory;
+  position: relative;
+}
+
+devpr-header {
+  z-index: 20;
 }
 
 .section {
@@ -35,6 +40,26 @@ devpr-root {
     line-height: #{$devpr-header-1-line-height};
   }
 
+  &#mx > devpr-member {
+    z-index: 1;
+  }
+  &#mx > article {
+    position: absolute;
+    margin: 0 auto;
+    bottom: 20px;
+    left: 20px;
+
+    z-index: 1;
+
+    > div {
+      z-index: 20;
+    }
+  }
+  @include mobile {
+    &#mx > article {
+      left: 0;
+    }
+  }
   #home h2 {
     opacity: 0.2;
     color: $devpr-on-surface-high;

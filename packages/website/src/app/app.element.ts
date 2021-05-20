@@ -19,7 +19,8 @@ export class AppElement extends HTMLElement {
       <devpr-header text="DevParaná"></devpr-header>
 
       <main role="main" class="wrapper" tabindex="0">
-        <section is="devpr-section" id="home">
+        <section is="devpr-section" id="mx">
+          <devpr-member></devpr-member>
           <article>
             <div>
               <devpr-heading> DevPR </devpr-heading>
