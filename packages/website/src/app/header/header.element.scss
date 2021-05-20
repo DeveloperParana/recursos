@@ -1,3 +1,4 @@
+@import 'mixins/media-query';
 @import 'theming/variables';
 
 devpr-header {
@@ -25,13 +26,22 @@ devpr-header > svg {
 ul {
   margin: 0;
   padding: 0;
-  width: 100%;
-  z-index: -1;
   list-style: none;
   overflow: hidden;
-  position: absolute;
-  margin-top: -40px;
   background-color: $devpr-surface;
+}
+
+devpr-header {
+  @include mobile {
+    ul {
+      margin-top: -40px;
+    }
+  }
+  @include tablet {
+    ul {
+      margin-top: -40px;
+    }
+  }
 }
 
 li a {
