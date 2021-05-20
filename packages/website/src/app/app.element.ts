@@ -25,6 +25,7 @@ export class AppElement extends HTMLElement {
             <div>
               <devpr-heading> DevPR </devpr-heading>
             </div>
+
             <h2>Member Experience</h2>
 
             <devpr-social></devpr-social>

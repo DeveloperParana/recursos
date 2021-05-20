@@ -47,7 +47,7 @@ devpr-header {
     position: absolute;
     margin: 0 auto;
     bottom: 20px;
-    left: 20px;
+    right: 20px;
 
     z-index: 1;
 
@@ -55,12 +55,18 @@ devpr-header {
       z-index: 20;
     }
   }
-  @include mobile {
+  @include tablet {
     &#mx > article {
-      left: 0;
+      position: initial;
     }
   }
-  #home h2 {
+  @include mobile {
+    &#mx > article {
+      position: initial;
+    }
+  }
+
+  #mx h2 {
     opacity: 0.2;
     color: $devpr-on-surface-high;
   }
@@ -73,28 +79,42 @@ devpr-header {
     text-decoration: $devpr-header-2-text-decoration;
     line-height: #{$devpr-header-2-line-height};
   }
-  figure figcaption {
-    opacity: 0.3;
-    text-align: center;
+
+  figure {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    img {
+      width: 100%;
+      flex: 1;
+    }
+
+    figcaption {
+      opacity: 0.3;
+      text-align: center;
+    }
   }
+
   h2,
   h3 {
     margin: 0;
     text-align: center;
     font-weight: normal;
   }
+
   &__header {
-    position: sticky;
     top: 0;
     height: 80px;
-    // padding: 1em;
     display: flex;
+    position: sticky;
     justify-content: center;
     align-items: flex-end;
     padding: 0 5px 10px;
     color: $devpr-on-surface-medium;
     background: $devpr-surface;
   }
+
   &__content {
     flex: 1;
     display: flex;
@@ -132,6 +152,9 @@ devpr-header {
     }
 
     @include mobile {
+      h2 {
+        font-size: 32px;
+      }
       img {
         max-width: 240px;
         max-height: 160px;

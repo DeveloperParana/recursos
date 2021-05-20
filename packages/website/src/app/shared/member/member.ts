@@ -27,8 +27,8 @@ export class Member extends HTMLElement {
     devpr-member #lib,
     devpr-member #lang {
       content: ' ';
-      width: 100%;
-      height: 100%;
+      width: 60%;
+      height: 80%;
       position: absolute;
       padding-top: 20%;
       background-size: 80%;
@@ -95,7 +95,7 @@ export class Member extends HTMLElement {
     <div id="c-plus-plus"></div>
   `
 
-  static LIMIT = 120 // pixel movement
+  static LIMIT = 60 // pixel movement
 
   swapPositions: (pos: Record<'x' | 'y', number>) => void
 
