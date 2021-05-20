@@ -48,7 +48,8 @@ devpr-root {
     text-decoration: $devpr-header-2-text-decoration;
     line-height: #{$devpr-header-2-line-height};
   }
-  figure caption {
+  figure figcaption {
+    opacity: 0.3;
     text-align: center;
   }
   h2,
@@ -79,6 +80,9 @@ devpr-root {
     padding: 1em;
 
     > h2 {
+      color: $devpr-on-surface-medium;
+    }
+    > h3 span {
       color: $devpr-on-surface-medium;
     }
 

@@ -4,8 +4,6 @@ import './app.element.scss'
 
 @CustomElement('devpr-root')
 export class AppElement extends HTMLElement {
-  title = 'mx'
-
   @listen('devpr-header', 'onClick')
   header({ detail }: CustomEvent<string>) {
     const section = this.querySelector(detail)
@@ -37,11 +35,10 @@ export class AppElement extends HTMLElement {
             <h2>Apps</h2>
           </header>
           <article>
-            <!-- <img src="assets/images/kanban.svg" alt="apps como recursos" /> -->
             <figure
               is="devpr-figure"
               src="assets/images/kanban.svg"
-              caption="apps como recursos"
+              caption="Apps como recursos"
             ></figure>
             <p>
               Facilitadores para preparação de talks e organização de meetups
@@ -58,7 +55,7 @@ export class AppElement extends HTMLElement {
             <figure
               is="devpr-figure"
               src="assets/images/mentorias.svg"
-              caption="apoio e feedbacks devpr"
+              caption="Apoio e feedbacks"
             ></figure>
 
             <p>Feedbacks e mentorias com membros experientes da comunidade</p>
@@ -72,7 +69,7 @@ export class AppElement extends HTMLElement {
             <figure
               is="devpr-figure"
               src="assets/images/comunicacao.svg"
-              caption="espaco e divulgacao devpr"
+              caption="Espaço e divulgação"
             ></figure>
             <p>Alguns querem falar, outros querem ouvir</p>
             <p>Nós divulgamos para a comunidade</p>
@@ -87,10 +84,10 @@ export class AppElement extends HTMLElement {
             <figure
               is="devpr-figure"
               src="assets/images/membro-decolando-devpr.svg"
-              caption="membro decolando devpr"
+              caption="Membro em constante evolução"
             ></figure>
             <p>Cresça e ajude crescer, o <br />conhecimento é a base!</p>
-            <h2>Compartilhe 😉</h2>
+            <h3><span>Compartilhe</span> 😉</h3>
           </article>
         </section>
       </main>
