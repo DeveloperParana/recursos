@@ -5,7 +5,7 @@ export class Heading extends HTMLElement {
   styles = css`
     h1 {
       margin-top: 20px;
-      font-size: 84px;
+      font-size: 48px;
       margin-bottom: 0;
       text-align: center;
       color: transparent;
@@ -18,7 +18,7 @@ export class Heading extends HTMLElement {
     }
     @media (min-width: 600px) {
       h1 {
-        font-size: 200px;
+        font-size: 90px;
         transition: text-shadow 200ms ease-in-out;
       }
     }

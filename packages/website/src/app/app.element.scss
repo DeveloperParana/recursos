@@ -43,6 +43,12 @@ devpr-header {
   &#mx > devpr-member {
     z-index: 1;
   }
+  @include mobileLandscape {
+    &#mx > devpr-member {
+      display: none;
+    }
+  }
+
   &#mx > article {
     position: absolute;
     margin: 0 auto;
@@ -133,7 +139,7 @@ devpr-header {
 
     @include desktop {
       img {
-        max-width: 640px;
+        max-width: 800px;
         max-height: 360px;
       }
       p {
@@ -143,8 +149,8 @@ devpr-header {
 
     @include tablet {
       img {
-        max-width: 480px;
-        max-height: 320px;
+        max-width: 640px;
+        max-height: 480px;
       }
       p {
         font-size: 32px;

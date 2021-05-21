@@ -24,8 +24,8 @@ body > *:first-child {
 }
 
 header {
-  padding: 5px;
-  border-radius: 3px;
+  display: flex;
+  justify-content: center;
 }
 
 main {

@@ -8,6 +8,12 @@ $desktop-width: 1024px;
   }
 }
 
+@mixin mobileLandscape {
+  @media (min-width: #{$mobile-width}) and (max-width: #{$tablet-width - 1px}) and (orientation: landscape) {
+    @content;
+  }
+}
+
 @mixin tablet {
   @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
     @content;

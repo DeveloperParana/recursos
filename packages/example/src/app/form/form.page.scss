@@ -1,6 +1,13 @@
 form {
-  margin: 20px;
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+  fieldset {
+    border-width: 1px;
+    border-color: rgba(0, 0, 0, 0.1);
+    legend {
+      color: rgba(0, 0, 0, 0.5);
+    }
+  }
 }

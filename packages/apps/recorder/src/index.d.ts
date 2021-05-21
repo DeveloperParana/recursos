@@ -64,7 +64,7 @@ declare class MediaRecorder extends EventTarget {
 
   addEventListener<K extends keyof MediaRecorderEventMap>(
     type: K,
-    listener: (this: MediaRecorder, ev: MediaRecorderEventMap[K]) => any,
+    listener: (this: MediaRecorder, ev: MediaRecorderEventMap[K]) => unknown,
     options?: boolean | AddEventListenerOptions
   ): void
   addEventListener(
@@ -74,7 +74,7 @@ declare class MediaRecorder extends EventTarget {
   ): void
   removeEventListener<K extends keyof MediaRecorderEventMap>(
     type: K,
-    listener: (this: MediaRecorder, ev: MediaRecorderEventMap[K]) => any,
+    listener: (this: MediaRecorder, ev: MediaRecorderEventMap[K]) => unknown,
     options?: boolean | EventListenerOptions
   ): void
   removeEventListener(

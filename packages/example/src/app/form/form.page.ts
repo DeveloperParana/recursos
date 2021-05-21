@@ -59,12 +59,8 @@ export class FormPage extends HTMLElement {
         </label>
         <br />
       </fieldset>
-      <label is="devpr-checkbox">
-        <input type="checkbox" name="check" value="concordo" />
-        <span>Aceito os termos</span>
-      </label>
       <footer>
-        <button is="devpr-button">Enviar</button>
+        <button is="devpr-button" mode="outlined">Enviar</button>
       </footer>
     </form>
   `
@@ -79,6 +75,6 @@ declare global {
     'form-page': FormPage
   }
   interface HTMLElementEventMap {
-    onSubmit: any
+    onSubmit: unknown
   }
 }
