@@ -42,6 +42,12 @@ Auxiliar nas comunidades e movimentos nas suas ações, não competindo com os m
 
 Este repositório contém alguns facilitadores para organização de eventos e preparações de talks, caso tenha algo a colaborar, sinta-se a vontade para enviar um pull request contribuindo.
 
+<a id="repositorio-serve-website"></a>
+
+### website
+
+![website](docs/serve-website.gif)
+
 ---
 
 <a id="aplicativos"></a>
@@ -55,9 +61,38 @@ Este repositório contém alguns facilitadores para organização de eventos e p
 Temos uma aplicação para gravação da tela, caso precise mostrar algo durante sua apresentação, você pode clonar o repositório e executar localmente ou acessar a versão web.
 
 <!-- Alterar sub-domínio rec.devparana.org -->
+
 [Link Web](https://devpr-recorder.surge.sh/)
 
 [Link do Código](./packages/apps/recorder/src/app/app.element.ts)
+
+### Para desenvolvimento
+
+```bash
+npm run recorder
+```
+
+### Para servidor web
+
+Faça o build
+
+```bash
+npm run recorder:build
+```
+
+Execute com algum servidor web de preferência, neste exemplo usarei http-server
+
+```bash
+http-server dist/packages/apps/recorder -o
+```
+
+---
+
+### Para simular um deploy execute
+
+```bash
+npm run simulate:deploy
+```
 
 ---
 

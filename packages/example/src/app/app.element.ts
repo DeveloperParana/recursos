@@ -10,16 +10,15 @@ export class AppElement extends HTMLElement {
   innerHTML = html`
     <header>
       <a>
-        <img src="assets/devparana.svg" width="60" alt="Dev Paraná" />
+        <img src="assets/devparana.svg" width="100" alt="Dev Paraná" />
       </a>
-      <h1>Dev Paraná</h1>
     </header>
-    <label is="devpr-switch">
-      <input type="checkbox" name="switch" />
-      <span> Switch </span>
-    </label>
+
     <form-page></form-page>
-    <!-- <table-page></table-page> -->
+
+    <hr />
+
+    <table-page></table-page>
   `
 
   connectedCallback() {

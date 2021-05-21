@@ -27,7 +27,7 @@ export class Member extends HTMLElement {
     devpr-member #lib,
     devpr-member #lang {
       content: ' ';
-      width: 60%;
+      width: 80%;
       height: 80%;
       position: absolute;
       padding-top: 20%;
