@@ -4,5 +4,5 @@
 export const environment = {
   production: false,
   googleTag: 'G-2F4LE1X95R',
-  verification: '8TM5AQawtQDlUAY0Yh3xu4A2vt5wpCXvEx-UtaFC27U',
+  verification: '5qnY64q9o7MOpjp3UyU6KMJghD_obKPVlIRacJ081H4',
 }
