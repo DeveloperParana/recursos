@@ -1,50 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head is="devpr-head">
-    <base href="recursos">    <meta charset="utf-8" />
-
+  <head>
+    <base href="recursos">
     <script is="devpr-analytics"></script>
 
     <meta
-      name="description"
-      content="Dar o empurrão que faltava para muitos desenvolvedores paranaenses começar a compartilhar conhecimentos, através de meetups, coding dojo, conferências e tudo mais que pudermos fazer."
-    />
-    <meta
-      name="keywords"
-      content="desenvolvimento de software, html, css, javascript, php, python, java, c#, c++, flutter, typescript, swift"
+      name="google-site-verification"
+      content="5qnY64q9o7MOpjp3UyU6KMJghD_obKPVlIRacJ081H4"
     />
 
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://devparana.org" />
-    <meta
-      property="og:title"
-      content="Member Experience — Comunidade Dev Paraná"
-    />
-    <meta property="og:image" content="assets/images/devparana.svg" />
-    <meta
-      property="og:description"
-      content="Dar o empurrão que faltava para muitos desenvolvedores paranaenses começar a compartilhar conhecimentos, através de meetups, coding dojo, conferências e tudo mais que pudermos fazer."
-    />
-    <meta
-      property="og:site_name"
-      content="Comunidade Paranaense de Desenvolvimento de Software"
-    />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@devparana" />
-    <meta name="twitter:creator" content="@guiseek" />
-    <meta
-      name="twitter:title"
-      content="Member Experience — Comunidade Dev Paraná"
-    />
-    <meta
-      name="twitter:description"
-      content="Dar o empurrão que faltava para muitos desenvolvedores paranaenses começar a compartilhar conhecimentos, através de meetups, coding dojo, conferências e tudo mais que pudermos fazer."
-    />
-    <meta name="twitter:image:src" content="assets/images/devparana.svg" />
-    <meta name="description" content="DevParaná - De pessoas, para pessoas" />
-
-    <title>DevParaná - De pessoas, para pessoas</title>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;1,400&display=swap"
@@ -55,35 +19,14 @@
     <link rel="icon" type="image/x-icon" href="favicon.png" />
   <link rel="stylesheet" href="styles.fcc766b74c61cd30308c.css"></head>
   <body>
-    <devpr-root></devpr-root>
+    <devpr-root> </devpr-root>
 
+    <!-- Template principal -->
     <template id="devpr-root">
       <slot></slot>
     </template>
 
-    <template id="devpr-heading">
-      <slot></slot>
-    </template>
-
-    <template id="devpr-member">
-      <slot></slot>
-    </template>
-
-    <template id="devpr-section">
-      <section class="section">
-        <slot slot="content"></slot>
-        <slot slot="header"></slot>
-      </section>
-    </template>
-
-    <template id="devpr-figure">
-      <slot></slot>
-    </template>
-
-    <template id="devpr-c4p-button">
-      <slot></slot>
-    </template>
-
+    <!-- Template header -->
     <template id="devpr-header">
       <slot name="link"></slot>
 
@@ -95,12 +38,42 @@
       <slot name="menu"></slot>
     </template>
 
+    <!-- Template animado -->
+    <template id="devpr-member">
+      <slot></slot>
+    </template>
+
+    <!-- Template DevPR -->
+    <template id="devpr-heading">
+      <slot></slot>
+    </template>
+
+    <!-- Template Redes sociais -->
     <template id="devpr-social">
       <slot></slot>
     </template>
 
+    <!-- Template seções -->
+    <template id="devpr-section">
+      <section class="section">
+        <slot slot="content"></slot>
+        <slot slot="header"></slot>
+      </section>
+    </template>
+
+    <!-- Template imagens -->
+    <template id="devpr-figure">
+      <slot></slot>
+    </template>
+
+    <!-- Template imagens -->
     <template id="devpr-footer">
       <slot></slot>
     </template>
-  <script src="runtime.365178a7a0f8f038a0f1.js" type="module"></script><script src="polyfills.14cfd8f0526d87cedd22.esm.js" type="module"></script><script src="main.419b8de0dd9b0008bb39.esm.js" type="module"></script></body>
+
+    <!-- Template analytics -->
+    <template id="devpr-analytics">
+      <slot></slot>
+    </template>
+  <script src="runtime.365178a7a0f8f038a0f1.js" type="module"></script><script src="polyfills.14cfd8f0526d87cedd22.esm.js" type="module"></script><script src="main.00ad6a919049c87aefbd.esm.js" type="module"></script></body>
 </html>
