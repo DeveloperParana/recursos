@@ -41,26 +41,26 @@ import { BuiltInElement, prop, handleTableData } from '@devpr/common/web'
 export class Table<T> extends HTMLTableElement {
   static observedAttributes = ['source']
 
+  private template: HTMLTemplateElement
+
   @prop()
   source: string
 
   connectedCallback() {
-    const template = this.querySelector('template')
+    this.template = this.querySelector('template')
 
-    if (template && this.source) {
+    if (this.template && this.source) {
       this.updateRows()
     }
   }
 
   updateRows() {
-    const template = this.querySelector('template')
     const data = this.getDataFromContext(this.source)
-    handleTableData<T>(template, data)
+    handleTableData<T>(this.template, data)
   }
 
   add(data: T[]) {
-    const template = this.querySelector('template')
-    handleTableData<T>(template, data)
+    handleTableData<T>(this.template, data)
   }
 
   async(url: string, handle?: (data: T[]) => T[]) {
@@ -68,14 +68,13 @@ export class Table<T> extends HTMLTableElement {
       .then((res) => res.json())
       .then((res: T[]) => {
         const data = handle ? handle(res) : res
-        handleTableData(this.querySelector('template'), data)
+        handleTableData(this.template, data)
       })
   }
 
   reset() {
-    const template = this.querySelector('template')
     this.querySelector('tbody').innerHTML = ''
-    this.querySelector('tbody').appendChild(template)
+    this.querySelector('tbody').appendChild(this.template)
   }
 
   private getDataFromContext(source: string) {

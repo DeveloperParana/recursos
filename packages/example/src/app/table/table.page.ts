@@ -44,11 +44,16 @@ export class TablePage extends HTMLElement {
     console.log(value)
   }
 
-  @debounce(400)
+  // @debounce(400)
   @listen('devpr-search', 'onChange')
   formChange({ detail }) {
     this.table.reset()
-    this.table.add(dataSearch(this.data, detail))
+
+    const results = dataSearch(this.data, detail)
+
+    console.log(results.length)
+
+    this.table.add(results)
   }
 
   template = html`

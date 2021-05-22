@@ -14,9 +14,9 @@ export class AppElement extends HTMLElement {
       </a>
     </header>
 
-    <form-page></form-page>
+    <!-- <form-page></form-page> -->
 
-    <hr />
+    <!-- <hr /> -->
 
     <table-page></table-page>
   `
