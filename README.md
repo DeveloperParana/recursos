@@ -1,12 +1,17 @@
 # Comunidade DevParaná
 
-- [Repositório](#repositorio)
-
-  - [Objetivo](#repositorio-objetivo)
-
 - [Aplicativos](#aplicativos)
 
   - [Gravação da tela](#aplicativos-gravacao-da-tela)
+
+- [Repositório](#repositorio)
+
+  - [Objetivo](#repositorio-objetivo)
+  - [Mantendo](#repositorio-mantendo)
+    - [Serve](#repositorio-serve)
+    - [Build](#repositorio-build)
+    - [Simule](#repositorio-simulate)
+    - [Commit](#repositorio-commit)
 
 - [DevParaná](#devparana)
 
@@ -32,24 +37,6 @@ Auxiliar nas comunidades e movimentos nas suas ações, não competindo com os m
 
 ---
 
-<a id="repositorio"></a>
-
-## Repositório
-
-<a id="repositorio-objetivo"></a>
-
-### Objetivo do repositório
-
-Este repositório contém alguns facilitadores para organização de eventos e preparações de talks, caso tenha algo a colaborar, sinta-se a vontade para enviar um pull request contribuindo.
-
-<a id="repositorio-serve-website"></a>
-
-### website
-
-![website](docs/serve-website.gif)
-
----
-
 <a id="aplicativos"></a>
 
 ## Aplicativos
@@ -66,13 +53,41 @@ Temos uma aplicação para gravação da tela, caso precise mostrar algo durante
 
 [Link do Código](./packages/apps/recorder/src/app/app.element.ts)
 
-### Para desenvolvimento
+---
+
+<a id="repositorio"></a>
+
+## Repositório
+
+<a id="repositorio-objetivo"></a>
+
+### Objetivo do repositório
+
+Este repositório contém alguns facilitadores para organização de eventos e preparações de talks, caso tenha algo a colaborar, sinta-se a vontade para enviar um pull request contribuindo.
+
+<a id="repositorio-mantendo"></a>
+
+### Mantendo o repositório
+
+Aqui estão alguns exemplos de como podemos usar, alterar e submeter alterações para o repositório.
+
+> **Importante!**
+>
+> Abaixo estão alguns exemplos, mas antes de submeter uma grande mudança, por favor, leia atentamente nosso [guia de contribuição](./CONTRIBUTING.md).
+
+<a id="repositorio-serve"></a>
+
+#### Para desenvolvimento
 
 ```bash
 npm run recorder
 ```
 
+![](docs/run-recorder.gif)
+
 ### Para servidor web
+
+<a id="repositorio-build"></a>
 
 Faça o build
 
@@ -80,19 +95,37 @@ Faça o build
 npm run recorder:build
 ```
 
+![npm run recorder build](docs/run-recorder-build.gif)
+
 Execute com algum servidor web de preferência, neste exemplo usarei http-server
 
 ```bash
 http-server dist/packages/apps/recorder -o
 ```
 
----
+<a id="repositorio-simulate"></a>
 
 ### Para simular um deploy execute
 
 ```bash
 npm run simulate:deploy
 ```
+
+![npm run simulate:deploy](docs/run-simulate-deploy.gif)
+
+---
+
+<a id="repositorio-commit"></a>
+
+### Escrevendo mensagem de commit
+
+```bash
+npm run commit
+```
+
+## ![npm run commit](docs/run-commit.gif)
+
+[Saiba mais sobre como contribuir](./CONTRIBUTING.md)
 
 ---
 

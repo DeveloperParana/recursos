@@ -1,5 +1,5 @@
-import { AppDocument } from './app.document'
 import { css, html, listen, CustomElement } from '@devpr/common/web'
+import { AppDocument } from './app.document'
 
 import './app.element.scss'
 
@@ -31,6 +31,10 @@ export class AppElement extends AppDocument {
         <section is="devpr-membro-section" id="membro"></section>
       </main>
     `
+  }
+
+  connectedCallback() {
+    onpopstate = console.log
   }
 }
 
