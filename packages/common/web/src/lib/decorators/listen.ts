@@ -32,17 +32,32 @@ export function listen<T>(
     const connected = target.connectedCallback ?? noop
 
     target.connectedCallback = function (): void {
-      const elements: HTMLElement[] = this.querySelectorAll(selector)
+      attachListener(this, target, propertyKey)
 
-      const onEvent = (e: CustomEvent<T>) => {
-        target[propertyKey].call(this, getTarget ? e.target : e)
-      }
+      const observer = new MutationObserver(() => {
+        attachListener(this, target, propertyKey)
+      })
+      // observa alterações no elemento para manter-se ouvindo
+      observer.observe(this, { subtree: true, childList: true })
 
-      elements.forEach((el) => el.addEventListener(event, onEvent))
-
+      // connectedCallback
       connected.call(this)
     }
 
     return descriptor
+  }
+
+  function attachListener(
+    context: HTMLElement,
+    target: any,
+    propertyKey: string
+  ) {
+    const elements = context.querySelectorAll(selector)
+
+    const onEvent = (e: CustomEvent<T>) => {
+      target[propertyKey].call(context, getTarget ? e.target : e)
+    }
+
+    elements.forEach((el) => el.addEventListener(event, onEvent))
   }
 }
