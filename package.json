@@ -74,6 +74,9 @@
     "ts-node": "~9.1.1",
     "typescript": "~4.1.4"
   },
+  "engines": {
+    "node": ">=14"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/DeveloperParana/recursos.git"
