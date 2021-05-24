@@ -14,7 +14,7 @@ export interface EventOptions {
  * @class EventEmitter
  * @template T
  */
-export class Emitter<T = any> {
+export class Emitter<T = unknown> {
   constructor(private target: HTMLElement, private eventName: string) {}
 
   emit(value: T, options?: EventOptions) {

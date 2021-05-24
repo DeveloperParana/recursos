@@ -1,3 +1,5 @@
+import { noop } from './../core/noop'
+import { CustomConstructor } from '../types/custom'
 import 'reflect-metadata'
 
 /**
@@ -14,10 +16,9 @@ import 'reflect-metadata'
  * ```
  *
  * @export
- * @returns {*}
  */
 export function prop(): any {
-  return (target: any) => {
+  return (target?: CustomConstructor) => {
     target.attributeChangedCallback = function (
       name: string,
       prev: string,

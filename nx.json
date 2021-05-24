@@ -1,27 +1,46 @@
 {
   "implicitDependencies": {
-    "package.json": { "dependencies": "*", "devDependencies": "*" },
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
     ".eslintrc.json": "*"
   },
-  "affected": { "defaultBase": "main" },
+  "affected": {
+    "defaultBase": "main"
+  },
   "npmScope": "devpr",
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
-      "options": { "cacheableOperations": ["build", "lint", "test", "e2e"] }
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      }
     }
   },
-  "workspaceLayout": { "appsDir": "packages", "libsDir": "packages" },
+  "workspaceLayout": {
+    "appsDir": "apps",
+    "libsDir": "packages"
+  },
   "projects": {
-    "website": { "tags": ["type:app", "preset:web"] },
-    "website-e2e": { "tags": [], "implicitDependencies": ["website"] },
-    "apps-recorder": { "tags": ["type:app"] },
-    "apps-recorder-e2e": {
-      "tags": [],
-      "implicitDependencies": ["apps-recorder"]
+    "common-web": {
+      "tags": ["type:package"]
     },
-    "common-web": { "tags": [] },
-    "example": { "tags": [] },
-    "common-elements": { "tags": [] }
+    "common-elements": {
+      "tags": ["type:package"]
+    },
+    "recorder": {
+      "tags": ["type:app", "preset:web"]
+    },
+    "recorder-e2e": {
+      "tags": ["type:e2e"],
+      "implicitDependencies": ["recorder"]
+    },
+    "website": {
+      "tags": ["type:app", "preset:web"]
+    },
+    "example": {
+      "tags": ["type:app", "preset:web"]
+    }
   }
 }

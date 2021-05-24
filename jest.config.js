@@ -1,9 +1,9 @@
 module.exports = {
   projects: [
-    '<rootDir>/packages/website',
-    '<rootDir>/packages/apps/recorder',
-    '<rootDir>/packages/shared/elements',
-    '<rootDir>/packages/example',
+    '<rootDir>/apps/website',
+    '<rootDir>/apps/recorder',
+    '<rootDir>/apps/example',
+    '<rootDir>/packages/common/web',
     '<rootDir>/packages/common/elements',
   ],
 }

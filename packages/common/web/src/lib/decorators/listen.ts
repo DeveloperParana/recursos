@@ -1,3 +1,4 @@
+import { CustomConstructor } from '../types/custom'
 import { noop } from '../core'
 
 /**
@@ -25,7 +26,7 @@ export function listen<T>(
   getTarget = false
 ) {
   return function (
-    target: any,
+    target: CustomConstructor,
     propertyKey: string,
     descriptor: PropertyDescriptor
   ) {
@@ -49,7 +50,7 @@ export function listen<T>(
 
   function attachListener(
     context: HTMLElement,
-    target: any,
+    target: CustomConstructor,
     propertyKey: string
   ) {
     const elements = context.querySelectorAll(selector)
