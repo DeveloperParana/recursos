@@ -10,3 +10,5 @@ for f in assets/images/**/*.svg; do
   echo "![${f}](${f}) " >> IMAGES.md;
 
 done;
+
+npx prettier IMAGES.md --write

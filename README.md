@@ -53,7 +53,7 @@ Temos uma aplicação para gravação da tela, caso precise mostrar algo durante
 
 [Link Web](https://devpr-recorder.surge.sh/)
 
-[Link do Código](./packages/apps/recorder/src/app/app.element.ts)
+[Link do Código](./apps/recorder/src/app/app.element.ts)
 
 ---
 
@@ -102,7 +102,7 @@ npm run recorder:build
 Execute com algum servidor web de preferência, neste exemplo usarei http-server
 
 ```bash
-http-server dist/packages/apps/recorder -o
+http-server dist/apps/recorder -o
 ```
 
 <a id="repositorio-simulate"></a>

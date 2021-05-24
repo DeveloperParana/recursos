@@ -19,7 +19,7 @@ import { Emitter } from '../core'
  * @returns
  */
 export function event() {
-  return (protoOrDescriptor: any, name: string): any => {
+  return (protoOrDescriptor: HTMLElement & { key?: string }, name: string) => {
     const descriptor = {
       get(this: HTMLElement) {
         return new Emitter(
