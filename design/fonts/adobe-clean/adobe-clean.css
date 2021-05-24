@@ -1,0 +1,41 @@
+@font-face {
+  font-family: 'Adobe Clean Regular';
+  src: url('AdobeClean-Regular.eot');
+  src: url('AdobeClean-Regular.eot?#iefix') format('embedded-opentype'),
+    url('AdobeClean-Regular.woff') format('woff'),
+    url('AdobeClean-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.adobe-clean-regular {
+  font-family: 'Adobe Clean Regular';
+}
+
+@font-face {
+  font-family: 'Adobe Clean Light';
+  src: url('AdobeClean-Light.eot');
+  src: url('AdobeClean-Light.eot?#iefix') format('embedded-opentype'),
+    url('AdobeClean-Light.woff') format('woff'),
+    url('AdobeClean-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.adobe-clean-light {
+  font-family: 'Adobe Clean Light';
+}
+
+@font-face {
+  font-family: 'Adobe Clean Light Italic';
+  src: url('AdobeClean-LightIt.eot');
+  src: url('AdobeClean-LightIt.eot?#iefix') format('embedded-opentype'),
+    url('AdobeClean-LightIt.woff') format('woff'),
+    url('AdobeClean-LightIt.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.adobe-clean-light-italic {
+  font-family: 'Adobe Clean Light Italic';
+}
