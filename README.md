@@ -4,6 +4,8 @@
 
   - [Gravação da tela](#aplicativos-gravacao-da-tela)
 
+- [Banco de imagens](./IMAGES.md)
+
 - [Repositório](#repositorio)
 
   - [Objetivo](#repositorio-objetivo)
