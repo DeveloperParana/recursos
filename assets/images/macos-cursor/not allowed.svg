@@ -1,0 +1,24 @@
+<svg width="24" height="37" viewBox="0 0 24 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="20" height="32" transform="translate(2 1)" fill="white" fill-opacity="0.01"/>
+<g filter="url(#filter0_d)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12 30.0931C8.416 30.0931 5.5 27.1771 5.5 23.5931C5.5 22.3731 5.837 21.2021 6.48 20.1721L15.421 29.1131C14.391 29.7561 13.22 30.0931 12 30.0931ZM8.607 18.0561C9.63 17.4241 10.792 17.0931 12 17.0931C15.584 17.0931 18.5 20.0091 18.5 23.5931C18.5 24.8011 18.169 25.9631 17.537 26.9861L8.607 18.0561ZM12 14.0931C6.762 14.0931 2.5 18.3551 2.5 23.5931C2.5 28.8311 6.762 33.0931 12 33.0931C17.238 33.0931 21.5 28.8311 21.5 23.5931C21.5 18.3551 17.238 14.0931 12 14.0931Z" fill="white"/>
+<path d="M3 23.5931C3 28.5631 7.03 32.5931 12 32.5931C16.97 32.5931 21 28.5631 21 23.5931C21 18.6221 16.97 14.5931 12 14.5931C7.03 14.5931 3 18.6221 3 23.5931ZM7.826 17.9831C8.993 17.1141 10.434 16.5931 12 16.5931C15.866 16.5931 19 19.7271 19 23.5931C19 25.1601 18.48 26.6011 17.61 27.7671L7.826 17.9831ZM5 23.5931C5 22.0151 5.529 20.5641 6.409 19.3941L16.199 29.1841C15.028 30.0651 13.577 30.5931 12 30.5931C8.134 30.5931 5 27.4591 5 23.5931Z" fill="url(#paint0_linear)"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M2 17.015V1L13.591 12.619H6.55L6.399 12.743L2 17.015Z" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M3 3.4071V14.5951L5.969 11.7291L6.129 11.5901H11.165L3 3.4071Z" fill="black"/>
+</g>
+<defs>
+<filter id="filter0_d" x="0" y="0" width="23.5" height="36.0931" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+<feOffset dy="1"/>
+<feGaussianBlur stdDeviation="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.4 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+</filter>
+<linearGradient id="paint0_linear" x1="12" y1="14.5931" x2="12" y2="32.5931" gradientUnits="userSpaceOnUse">
+<stop stop-color="#F0F0F0"/>
+<stop offset="1" stop-color="#D5D5D5"/>
+</linearGradient>
+</defs>
+</svg>
