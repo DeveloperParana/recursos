@@ -1,0 +1,27 @@
+@import 'assets/adobe-clean/adobe-clean.scss';
+@import 'theming/variables';
+@import 'scss/elements';
+
+/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Adobe Clean Regular';
+  // font-family: 'Raleway', sans-serif;
+  // background-color: #f0f0f0;
+  scroll-behavior: smooth;
+}
+
+a {
+  color: #000;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

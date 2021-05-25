@@ -5,5 +5,6 @@ module.exports = {
     '<rootDir>/apps/example',
     '<rootDir>/packages/common/web',
     '<rootDir>/packages/common/elements',
+    '<rootDir>/apps/devector',
   ],
 }

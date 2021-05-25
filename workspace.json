@@ -352,6 +352,92 @@
           }
         }
       }
+    },
+    "devector": {
+      "projectType": "application",
+      "root": "apps/devector",
+      "sourceRoot": "apps/devector/src",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/devector",
+            "index": "apps/devector/src/index.html",
+            "main": "apps/devector/src/main.ts",
+            "polyfills": "apps/devector/src/polyfills.ts",
+            "tsConfig": "apps/devector/tsconfig.app.json",
+            "stylePreprocessorOptions": {
+              "includePaths": ["design/styles"]
+            },
+            "assets": [
+              "apps/devector/src/favicon.ico",
+              "apps/devector/src/assets",
+              {
+                "input": "assets/images",
+                "glob": "**/*",
+                "output": "images"
+              },
+              {
+                "input": "design/fonts",
+                "glob": "**/*",
+                "output": "fonts"
+              }
+            ],
+            "styles": ["apps/devector/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/devector/src/environments/environment.ts",
+                  "with": "apps/devector/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "devector:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "devector:build:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/devector/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/devector"],
+          "options": {
+            "jestConfig": "apps/devector/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }

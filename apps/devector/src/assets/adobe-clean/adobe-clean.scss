@@ -1,0 +1,44 @@
+@font-face {
+  font-family: 'Adobe Clean Regular';
+  src: url('./assets/adobe-clean/AdobeClean-Regular.eot');
+  src: url('./assets/adobe-clean/AdobeClean-Regular.eot?#iefix')
+      format('embedded-opentype'),
+    url('./assets/adobe-clean/AdobeClean-Regular.woff') format('woff'),
+    url('./assets/adobe-clean/AdobeClean-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.adobe-clean-regular {
+  font-family: 'Adobe Clean Regular';
+}
+
+@font-face {
+  font-family: 'Adobe Clean Light';
+  src: url('./assets/adobe-clean/AdobeClean-Light.eot');
+  src: url('./assets/adobe-clean/AdobeClean-Light.eot?#iefix')
+      format('embedded-opentype'),
+    url('./assets/adobe-clean/AdobeClean-Light.woff') format('woff'),
+    url('./assets/adobe-clean/AdobeClean-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.adobe-clean-light {
+  font-family: 'Adobe Clean Light';
+}
+
+@font-face {
+  font-family: 'Adobe Clean Light Italic';
+  src: url('./assets/adobe-clean/AdobeClean-LightIt.eot');
+  src: url('./assets/adobe-clean/AdobeClean-LightIt.eot?#iefix')
+      format('embedded-opentype'),
+    url('./assets/adobe-clean/AdobeClean-LightIt.woff') format('woff'),
+    url('./assets/adobe-clean/AdobeClean-LightIt.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.adobe-clean-light-italic {
+  font-family: 'Adobe Clean Light Italic';
+}
