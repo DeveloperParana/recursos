@@ -41,6 +41,9 @@
     },
     "example": {
       "tags": ["type:app", "preset:web"]
+    },
+    "devector": {
+      "tags": ["type:app", "preset:web"]
     }
   }
 }

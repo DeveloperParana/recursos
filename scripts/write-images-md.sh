@@ -11,4 +11,6 @@ for f in assets/images/**/*.svg; do
 
 done;
 
+tree -L 3 -J assets/images > assets/images.json
+
 npx prettier IMAGES.md --write
