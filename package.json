@@ -54,7 +54,7 @@
     "@nrwl/jest": "12.1.1",
     "@nrwl/linter": "12.1.1",
     "@nrwl/tao": "12.1.1",
-    "@nrwl/web": "^12.1.1",
+    "@nrwl/web": "12.1.1",
     "@nrwl/workspace": "12.1.1",
     "@types/jest": "26.0.8",
     "@types/node": "14.14.33",
