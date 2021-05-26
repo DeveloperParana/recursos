@@ -30,23 +30,14 @@ jobs:
         with:
           node-version: '12'
       - run: npm ci
-      - id: get_branch_name
-        run: echo ::set-output name=short_ref::${GITHUB_REF#refs/*/}
-      - name: Get last successful commit
-        uses: nrwl/last-successful-commit-action@v1
-        id: last_successful_commit
-        with:
-          branch: ${{ steps.get_branch_name.outputs.short_ref }}
-          workflow_id: release-flow.yml
-          github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Lint
-        run: npm run affected:lint -- --base=${{ steps.last_successful_commit.outputs.commit_hash }}
+        run: npm run affected:lint -- --base=origin/${{ github.base_ref }}
       - name: Test
-        run: npm run affected:test -- --base=${{ steps.last_successful_commit.outputs.commit_hash }}
+        run: npm run affected:test -- --base=origin/${{ github.base_ref }}
       - name: Build
-        run: npm run affected:build -- --base=${{ steps.last_successful_commit.outputs.commit_hash }}
+        run: npm run affected:build -- --base=origin/${{ github.base_ref }}
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npx nx affected --target release --base=${{ steps.last_successful_commit.outputs.commit_hash }}
+        run: npx nx affected --target release --base=origin/${{ github.base_ref }}
