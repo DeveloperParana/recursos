@@ -1,8 +1,6 @@
 {
   "version": 2,
-  "cli": {
-    "defaultCollection": "@nrwl/web"
-  },
+  "cli": { "defaultCollection": "@nrwl/web" },
   "defaultProject": "website",
   "generators": {
     "@nrwl/web:application": {
@@ -35,9 +33,7 @@
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["packages/common/web/**/*.ts"]
-          }
+          "options": { "lintFilePatterns": ["packages/common/web/**/*.ts"] }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
@@ -106,17 +102,11 @@
             "main": "apps/recorder/src/main.ts",
             "polyfills": "apps/recorder/src/polyfills.ts",
             "tsConfig": "apps/recorder/tsconfig.app.json",
-            "stylePreprocessorOptions": {
-              "includePaths": ["design/styles"]
-            },
+            "stylePreprocessorOptions": { "includePaths": ["design/styles"] },
             "assets": [
               "apps/recorder/src/favicon.png",
               "apps/recorder/src/assets",
-              {
-                "input": "design/assets",
-                "glob": "**/*",
-                "output": "assets"
-              }
+              { "input": "design/assets", "glob": "**/*", "output": "assets" }
             ],
             "styles": ["apps/recorder/src/styles.scss"],
             "scripts": []
@@ -148,20 +138,14 @@
         },
         "serve": {
           "executor": "@nrwl/web:dev-server",
-          "options": {
-            "buildTarget": "recorder:build"
-          },
+          "options": { "buildTarget": "recorder:build" },
           "configurations": {
-            "production": {
-              "buildTarget": "recorder:build:production"
-            }
+            "production": { "buildTarget": "recorder:build:production" }
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/recorder/**/*.ts"]
-          }
+          "options": { "lintFilePatterns": ["apps/recorder/**/*.ts"] }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
@@ -186,16 +170,12 @@
             "devServerTarget": "recorder:serve"
           },
           "configurations": {
-            "production": {
-              "devServerTarget": "recorder:serve:production"
-            }
+            "production": { "devServerTarget": "recorder:serve:production" }
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/recorder-e2e/**/*.{js,ts}"]
-          }
+          "options": { "lintFilePatterns": ["apps/recorder-e2e/**/*.{js,ts}"] }
         }
       }
     },
@@ -213,9 +193,7 @@
             "main": "apps/website/src/main.ts",
             "polyfills": "apps/website/src/polyfills.ts",
             "tsConfig": "apps/website/tsconfig.app.json",
-            "stylePreprocessorOptions": {
-              "includePaths": ["design/styles"]
-            },
+            "stylePreprocessorOptions": { "includePaths": ["design/styles"] },
             "assets": [
               "apps/website/src/favicon.png",
               "apps/website/src/robots.txt",
@@ -252,20 +230,14 @@
         },
         "serve": {
           "executor": "@nrwl/web:dev-server",
-          "options": {
-            "buildTarget": "website:build"
-          },
+          "options": { "buildTarget": "website:build" },
           "configurations": {
-            "production": {
-              "buildTarget": "website:build:production"
-            }
+            "production": { "buildTarget": "website:build:production" }
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/website/**/*.ts"]
-          }
+          "options": { "lintFilePatterns": ["apps/website/**/*.ts"] }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
@@ -291,9 +263,7 @@
             "main": "apps/example/src/main.ts",
             "polyfills": "apps/example/src/polyfills.ts",
             "tsConfig": "apps/example/tsconfig.app.json",
-            "stylePreprocessorOptions": {
-              "includePaths": ["design/styles"]
-            },
+            "stylePreprocessorOptions": { "includePaths": ["design/styles"] },
             "assets": [
               "apps/example/src/favicon.png",
               "apps/example/src/assets"
@@ -328,20 +298,14 @@
         },
         "serve": {
           "executor": "@nrwl/web:dev-server",
-          "options": {
-            "buildTarget": "example:build"
-          },
+          "options": { "buildTarget": "example:build" },
           "configurations": {
-            "production": {
-              "buildTarget": "example:build:production"
-            }
+            "production": { "buildTarget": "example:build:production" }
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/example/**/*.ts"]
-          }
+          "options": { "lintFilePatterns": ["apps/example/**/*.ts"] }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
@@ -350,6 +314,11 @@
             "jestConfig": "apps/example/jest.config.js",
             "passWithNoTests": true
           }
+        },
+        "deploy": {
+          "executor": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": { "command": "npm run deploy" }
         }
       }
     },
@@ -367,22 +336,12 @@
             "main": "apps/devector/src/main.ts",
             "polyfills": "apps/devector/src/polyfills.ts",
             "tsConfig": "apps/devector/tsconfig.app.json",
-            "stylePreprocessorOptions": {
-              "includePaths": ["design/styles"]
-            },
+            "stylePreprocessorOptions": { "includePaths": ["design/styles"] },
             "assets": [
               "apps/devector/src/favicon.ico",
               "apps/devector/src/assets",
-              {
-                "input": "assets/images",
-                "glob": "**/*",
-                "output": "images"
-              },
-              {
-                "input": "design/fonts",
-                "glob": "**/*",
-                "output": "fonts"
-              }
+              { "input": "assets/images", "glob": "**/*", "output": "images" },
+              { "input": "design/fonts", "glob": "**/*", "output": "fonts" }
             ],
             "styles": ["apps/devector/src/styles.scss"],
             "scripts": []
@@ -414,20 +373,14 @@
         },
         "serve": {
           "executor": "@nrwl/web:dev-server",
-          "options": {
-            "buildTarget": "devector:build"
-          },
+          "options": { "buildTarget": "devector:build" },
           "configurations": {
-            "production": {
-              "buildTarget": "devector:build:production"
-            }
+            "production": { "buildTarget": "devector:build:production" }
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/devector/**/*.ts"]
-          }
+          "options": { "lintFilePatterns": ["apps/devector/**/*.ts"] }
         },
         "test": {
           "executor": "@nrwl/jest:jest",

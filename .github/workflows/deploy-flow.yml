@@ -1,48 +1,51 @@
-name: Publish Website
+# This is a basic workflow to help you get started with Actions
+
+name: Deploy Flow
+
+env:
+  CI: true
+
+# Controls when the action will run.
 
 on:
   push:
     branches:
       - main
+      - beta
+  pull_request:
+    branches:
+      - main
+      - beta
 
-env:
-  CI: true
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  release:
-    name: Format, Lint, Test, Build & Publish
-    if: "!contains(github.event.head_commit.message, 'skip ci')"
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
     runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Checkout Project
-        uses: actions/checkout@v1
-
-      - name: Install Dependencies
-        run: npm ci
-
-      - name: Check Format
-        run: npm run format:check -- --base origin/main
-
-      - name: Lint Workspace & Code
-        run: npm run affected:lint -- --base origin/main
-
-      - name: Unit Tests
-        run: npm run affected:test -- --base origin/main
-
-      # - name: Build, Release on GitHub & Publish to NPM
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      #   run: npm run release
-
-      - name: Build affected projects
-        run: npm run affected:build -- --base origin/main --with-deps --prod
-
-      - name: Build website
-        run: npm run build -- --with-deps --prod
-
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist/apps/website
+          fetch-depth: 0
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+      - name: Install
+        run: npm ci
+      - name: Lint
+        run: npm run affected:lint -- --base=origin/main
+      - name: Test
+        run: npm run affected:test -- --base=origin/main
+      - name: Build
+        run: npm run affected:build -- --base=origin/main --prod
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npx nx affected --target release --base=origin/main
