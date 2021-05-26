@@ -7,12 +7,12 @@ html,
 body {
   height: 100%;
 }
-
+:root {
+  --devpr-primary-500: #{$devpr-primary-500};
+}
 body {
   margin: 0;
   font-family: 'Adobe Clean Regular';
-  // font-family: 'Raleway', sans-serif;
-  // background-color: #f0f0f0;
   scroll-behavior: smooth;
 }
 

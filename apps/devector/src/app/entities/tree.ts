@@ -1,32 +1,16 @@
-// prettier-ignore
 export interface Tree {
-  type:         string
-  name?:        string
-  contents?:    TreeContent[]
+  type: string
+  name?: string
+  contents?: Content[]
   directories?: number
-  files?:       number
+  files?: number
 }
 
-// prettier-ignore
-export interface TreeContent {
-  type:     Type
-  name:     string
-  contents: TreeContent[]
-}
-
-export interface TreeFile {
+export interface Content {
   type: Type
   name: string
 }
 
-export interface TreeReport {
-  type: Type
-  directories: number
-  files: number
-}
-
 export enum Type {
-  Directory = 'directory',
-  Report = 'report',
   File = 'file',
 }
