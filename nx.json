@@ -1,49 +1,27 @@
 {
   "implicitDependencies": {
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
-    },
+    "package.json": { "dependencies": "*", "devDependencies": "*" },
     ".eslintrc.json": "*"
   },
-  "affected": {
-    "defaultBase": "main"
-  },
+  "affected": { "defaultBase": "main" },
   "npmScope": "devpr",
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
-      "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
-      }
+      "options": { "cacheableOperations": ["build", "lint", "test", "e2e"] }
     }
   },
-  "workspaceLayout": {
-    "appsDir": "apps",
-    "libsDir": "packages"
-  },
+  "workspaceLayout": { "appsDir": "apps", "libsDir": "packages" },
   "projects": {
-    "common-web": {
-      "tags": ["type:package"]
-    },
-    "common-elements": {
-      "tags": ["type:package"]
-    },
-    "recorder": {
-      "tags": ["type:app", "preset:web"]
-    },
+    "common-web": { "tags": ["type:package"] },
+    "common-elements": { "tags": ["type:package"] },
+    "recorder": { "tags": ["type:app", "preset:web"] },
     "recorder-e2e": {
       "tags": ["type:e2e"],
       "implicitDependencies": ["recorder"]
     },
-    "website": {
-      "tags": ["type:app", "preset:web"]
-    },
-    "example": {
-      "tags": ["type:app", "preset:web"]
-    },
-    "devector": {
-      "tags": ["type:app", "preset:web"]
-    }
+    "website": { "tags": ["type:app", "preset:web"] },
+    "example": { "tags": ["type:app", "preset:web"] },
+    "devector": { "tags": ["type:app", "preset:web"] }
   }
 }

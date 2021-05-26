@@ -1,3 +1,4 @@
-export * from './core'
-export * from './core/utils'
 export * from './textfield'
+export * from './gallery'
+export * from './icon'
+export * from './core'

@@ -1,8 +1,7 @@
 import { css, Element, html, debounce, listen } from './elements/core'
 import { HttpDataService } from './data-access/http-data.service'
 import { Gallery, Photo } from './elements/gallery'
-
-import { Tree, TreeContent } from './entities/tree'
+import { Tree, Content } from './entities/tree'
 
 @Element({
   selector: 'devpr-root',
@@ -16,7 +15,7 @@ export class AppElement extends HTMLElement {
   gallery: Gallery<Photo>
   images: Photo[] = []
 
-  loadEvery = 100
+  loadEvery = 33
   loaded = 0
 
   @debounce(600)
@@ -41,6 +40,7 @@ export class AppElement extends HTMLElement {
   template = html`
     <header>
       <img height="86px" src="assets/images/logo.svg" alt="DevParaná" />
+      <devpr-icon name="add-r"></devpr-icon>
       <text-field>
         <input type="text" disabled />
         <label>Pesquisar</label>
@@ -48,7 +48,7 @@ export class AppElement extends HTMLElement {
     </header>
 
     <main>
-      <ul is="devpr-gallery"></ul>
+      <devpr-gallery></devpr-gallery>
     </main>
 
     <footer>
@@ -62,26 +62,24 @@ export class AppElement extends HTMLElement {
   }
 
   async findImages() {
-    const res = await fetch('assets/images.json')
+    const res = await fetch('assets/undraw.json')
     return await res.json()
   }
 
   connectedCallback() {
-    import('./elements/gallery').then(() => {
-      this.gallery = this.find<Gallery<Photo>>('ul')
+    this.gallery = this.find<Gallery<Photo>>('devpr-gallery')
 
-      this.find('button').onclick = () => {
+    this.find('button').onclick = () => {
+      this.loadMore(this.loaded, this.loaded + this.loadEvery)
+    }
+
+    this.findImages().then(([images, report]: Tree[]) => {
+      this.handleImages(images, images.name)
+      queueMicrotask(() => {
         this.loadMore(this.loaded, this.loaded + this.loadEvery)
-      }
-
-      this.findImages().then(([root, report]: Tree[]) => {
-        this.handleTree(root)
-        queueMicrotask(() => {
-          this.loadMore(this.loaded, this.loaded + this.loadEvery)
-        })
-        // const label = this.find('label')
-        // label.textContent = `Pesquisar em ${report.files} imagens`
       })
+      // const label = this.find('label')
+      // label.textContent = `Pesquisar em ${report.files} imagens`
     })
   }
 
@@ -92,19 +90,11 @@ export class AppElement extends HTMLElement {
     this.loaded = end
   }
 
-  handleTree({ contents }: Tree) {
-    contents.map(({ type, name, contents }) => {
-      if (type === 'directory' && name == 'undraw') {
-        this.handleImages(contents, name)
-      }
-    })
-  }
-
-  handleImages(contents: TreeContent[], name: string) {
+  handleImages({ contents }: Tree, name: string) {
     contents.map((content) => {
-      if (content.type === 'file' && content.name != 'LICENSE') {
+      if (content.type === 'file') {
         const title = content.name
-        const image = `images/${name}/${title}`
+        const image = `${name}/${title}`
         this.images.push({ title, image })
       }
     })
