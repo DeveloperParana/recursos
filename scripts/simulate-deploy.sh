@@ -10,7 +10,7 @@ echo 'Unit Tests'
 npm run affected:test -- --base origin/main
 
 echo 'Build affected projects'
-npm run affected:build  -- --base origin/main --with-deps --prod
+npm run affected:build  -- --base origin/main --prod
 
 echo 'Release affected libraries'
 npm run affected -- --target release --debug --dry-run --base origin/main
