@@ -2,7 +2,7 @@ import { BuiltInElement, html } from '@devpr/common/web'
 
 @BuiltInElement('devpr-twitter', 'a')
 export class Twitter extends HTMLAnchorElement {
-  href = 'https://twitter.com/developerparana'
+  href = 'https://twitter.com/devparana'
 
   /**
    * O uso do atributo target como _blank
