@@ -64,6 +64,7 @@
     "@typescript-eslint/eslint-plugin": "4.19.0",
     "@typescript-eslint/parser": "4.19.0",
     "cypress": "^6.0.1",
+    "cz-customizable": "^6.3.0",
     "dotenv": "8.2.0",
     "eslint": "7.22.0",
     "eslint-config-prettier": "8.1.0",
@@ -83,5 +84,10 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/DeveloperParana/recursos.git"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    }
   }
 }
