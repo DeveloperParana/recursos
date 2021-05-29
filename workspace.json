@@ -197,7 +197,8 @@
             "assets": [
               "apps/website/src/favicon.png",
               "apps/website/src/robots.txt",
-              "apps/website/src/assets"
+              "apps/website/src/assets",
+              "apps/website/src/CNAME"
             ],
             "styles": ["apps/website/src/styles.scss"],
             "scripts": []
