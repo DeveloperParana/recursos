@@ -9,21 +9,20 @@ export class Navigator extends HTMLElement {
   slidesChangedEvent: CustomEvent<unknown>
 
   /**
-   *
-   *
+   * Responsável pela animação
    * @type {Animator}
    * @memberof Navigator
    */
   _animator: Animator
 
   /**
-   * The related router control
+   * O controle do roteador relacionado
    * @type {Router}
    */
   _router: Router
 
   /**
-   * The last known route
+   * A última rota conhecida
    * @type {string}
    */
   _route: string
@@ -41,7 +40,7 @@ export class Navigator extends HTMLElement {
     this._route = this._router.getRoute()
 
     /**
-     * Custom event raised when the current slide changes
+     * CustomEvent emitido quando o slide atual é alterado
      */
     const eventInit = { bubbles: true, cancelable: false }
     this.slidesChangedEvent = new CustomEvent('slideschanged', eventInit)

@@ -7,9 +7,9 @@ export class Slide {
 
   private _dataBinding: DataBinding<string>
   private _html: HTMLDivElement
-  private _title: any
-  private _transition: any
   private _nextSlideName: any
+  private _transition: any
+  private _title: any
 
   constructor(text: string) {
     this._text = text

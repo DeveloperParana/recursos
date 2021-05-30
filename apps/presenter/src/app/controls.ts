@@ -1,29 +1,77 @@
+import { Autonomous, css, html } from '../core'
 import { Navigator } from './navigator'
 
 type ButtonCtrl = 'first' | 'prev' | 'next' | 'last' | 'pos'
 
+@Autonomous({
+  selector: 'slide-controls',
+  mode: 'open',
+})
 export class Controls extends HTMLElement {
-  static observedAttributes = ['deck']
+  static observed = ['deck']
 
   private _ctrl: Record<ButtonCtrl, HTMLButtonElement>
 
+  private deck: string
   private _deck: Navigator
 
-  async connectedCallback() {
-    const response = await fetch('assets/templates/controls.html')
-    const template = await response.text()
-    this.innerHTML = ''
+  styles = css`
+    :host {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+    button {
+      border: 0;
+      cursor: pointer;
+      background-color: transparent;
+    }
+  `
 
-    const host = document.createElement('div')
-    host.innerHTML = template
-    this.appendChild(host)
+  template = html`
+    <button id="first">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px">
+        <path d="M0 0h24v24H0V0z" fill="none" />
+        <path
+          d="M6 6h2v12H6zm3.5 6l8.5 6V6l-8.5 6zm6.5 2.14L12.97 12 16 9.86v4.28z"
+        />
+      </svg>
+    </button>
+    <button id="prev">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px">
+        <path d="M0 0h24v24H0V0z" fill="none" />
+        <path d="M15.61 7.41L14.2 6l-6 6 6 6 1.41-1.41L11.03 12l4.58-4.59z" />
+      </svg>
+    </button>
+    <span id="position">?/?</span>
+    <button id="next">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px">
+        <path d="M0 0h24v24H0V0z" fill="none" />
+        <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z" />
+      </svg>
+    </button>
+    <button id="last">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px">
+        <path d="M0 0h24v24H0V0z" fill="none" />
+        <path
+          d="M6 18l8.5-6L6 6v12zm2-8.14L11.03 12 8 14.14V9.86zM16 6h2v12h-2z"
+        />
+      </svg>
+    </button>
+  `
 
+  async connected() {
     this._ctrl = {
-      first: document.querySelector('#ctrlFirst'),
-      prev: document.querySelector('#ctrlPrevious'),
-      next: document.querySelector('#ctrlNext'),
-      last: document.querySelector('#ctrlLast'),
-      pos: document.querySelector('#position'),
+      first: this.shadowRoot.querySelector('#first'),
+      prev: this.shadowRoot.querySelector('#prev'),
+      next: this.shadowRoot.querySelector('#next'),
+      last: this.shadowRoot.querySelector('#last'),
+      pos: this.shadowRoot.querySelector('#position'),
+    }
+
+    this._deck = this.parentElement.querySelector(`#${this.deck}`)
+    if (this._deck) {
+      this._deck.addEventListener('slideschanged', () => this.refreshState())
     }
 
     this._ctrl.first.addEventListener('click', () => this._deck.jumpTo(0))
@@ -33,20 +81,8 @@ export class Controls extends HTMLElement {
     this._ctrl.last.addEventListener('click', () =>
       this._deck.jumpTo(this._deck.totalSlides - 1)
     )
-    this.refreshState()
-  }
 
-  async attributeChangedCallback(
-    attrName: string,
-    oldVal: string,
-    newVal: string
-  ) {
-    if (attrName === 'deck') {
-      if (oldVal !== newVal) {
-        this._deck = document.querySelector(`${newVal}`)
-        this._deck.addEventListener('slideschanged', () => this.refreshState())
-      }
-    }
+    this.refreshState()
   }
 
   /**
@@ -69,5 +105,5 @@ export class Controls extends HTMLElement {
   }
 }
 
-export const registerControls = () =>
-  customElements.define('slide-controls', Controls)
+// export const registerControls = () =>
+//   customElements.define('slide-controls', Controls)

@@ -10,8 +10,8 @@ export class DataBinding<T> {
   }
 
   /**
-   * Evaluates JavaScript with a constrained context (scope)
-   * @param {string} src The JavaScript to evaluate
+   * Avalia o código em um contexto restrito (escopo)
+   * @param {string} src O código a ser avaliado
    * @param {Record<string, unknown>} context
    */
   executeInContext(
@@ -28,30 +28,33 @@ export class DataBinding<T> {
   }
 
   /**
-   * A simple observable implementation
+   * Implementa um observable
+   * de forma simplificada
    */
   observable(value: T) {
     return new Observable(value)
   }
 
   /**
-   * Creates an observed computed property
-   * @param {function} calculation Calculated value
-   * @param {Observable[]} deps The list of dependent observables
+   * Cria uma propriedade com valor em observable
+   * @param {() => T} calculation Valor computado
+   * @param {Observable<T>[]} deps Lista de observables
+   * @returns
+   * @memberof DataBinding
    */
   computed(calculation: () => T, deps: Observable<T>[]) {
     return new Computed(calculation, deps)
   }
 
   /**
-   * Binds an input element to an observable value
+   * Vincula um elemento de input a um observable
    */
   bindValue(input: HTMLInputElement, observable: Observable<string>) {
     const initialValue: string = observable.value
     input.value = initialValue
     observable.subscribe(() => (input.value = observable.value))
     /**
-     * Converts the values
+     * Faz a conversão de valores
      */
     let converter = (value: number | string) => value
     if (typeof initialValue === 'number') {
@@ -68,7 +71,7 @@ export class DataBinding<T> {
   }
 
   /**
-   * Searches for "data-bind" attribute to data-bind observables
+   * Procura o atributos "data-bind" para criar seus observables
    */
   bindObservables(elem: HTMLDivElement, context: Record<string, any>) {
     const dataBinding = elem.querySelectorAll<HTMLInputElement>('[data-bind]')
@@ -78,7 +81,8 @@ export class DataBinding<T> {
   }
 
   /**
-   * Searches for "repeat" attribute to data-bind lists
+   * Procura por atributos "repeat" para criar
+   * o binding em listas de dados
    */
   bindLists(elem: HTMLElement, context: Record<string, any>) {
     const listBinding = elem.querySelectorAll('[repeat]')
