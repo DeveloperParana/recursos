@@ -1,5 +1,6 @@
-# GitHub
+---
+title: GitHub
+nextSlide: google
+---
 
 ![GitHub](assets/images/github.svg)
-
-[google](#9 'next-slide')

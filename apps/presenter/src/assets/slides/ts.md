@@ -1,5 +1,6 @@
-# TypeScript
+---
+title: TypeScript
+nextSlide: web-components
+---
 
 ![TypeScript](assets/images/ts.svg)
-
-[web-components](#23 'next-slide')

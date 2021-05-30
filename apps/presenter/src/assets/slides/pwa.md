@@ -1,5 +1,6 @@
-# PWA
+---
+title: PWA
+nextSlide: react
+---
 
 ![PWA](assets/images/pwa.svg)
-
-[react](#19 'next-slide')

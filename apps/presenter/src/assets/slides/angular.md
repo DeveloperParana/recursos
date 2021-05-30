@@ -1,5 +1,6 @@
-# Angular
+---
+title: Angular
+nextSlide: css
+---
 
 ![Angular](assets/images/angular.svg)
-
-[css](#6 'next-slide')

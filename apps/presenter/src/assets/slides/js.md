@@ -1,5 +1,6 @@
-# JavaScript
+---
+title: JavaScript
+nextSlide: material
+---
 
 ![JavaScript](assets/images/js.svg)
-
-[material](#13 'next-slide')
