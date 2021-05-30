@@ -1,9 +1,15 @@
-import { registerDeck, registerControls, registerKeyHandler } from './app'
+import {
+  registerDeck,
+  // registerControls,
+  // registerKeyHandler,
+} from './app'
 
 const loadShow = async () => {
+  // registerControls()
   registerDeck()
-  registerControls()
-  registerKeyHandler()
+  // registerKeyHandler()
+  await import('./app/controls')
+  await import('./app/key-handler')
 }
 
 document.addEventListener('DOMContentLoaded', loadShow)

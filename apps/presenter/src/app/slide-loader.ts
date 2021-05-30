@@ -45,16 +45,19 @@ export async function loadSlides(start: string) {
  * @param {string} name
  * @internal
  */
+export async function load(name: string) {
+  const response = await fetch(`assets/slides/${name}.md`)
+  const slide = await response.text()
+  return new Slide(parse(slide))
+}
+/**
+ * Carrega slide em HTML, porém ainda
+ * em desuso, até que markdown esteja ok
+ * @param {string} name
+ * @internal
+ */
 async function loadSlide(name: string) {
   const response = await fetch(`assets/slides/${name}.html`)
   const slide = await response.text()
   return new Slide(slide)
-}
-
-export async function load(name: string) {
-  console.log('name: ', name)
-
-  const response = await fetch(`assets/slides/${name}.md`)
-  const slide = await response.text()
-  return new Slide(parse(slide))
 }

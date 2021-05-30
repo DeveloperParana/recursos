@@ -1,28 +1,30 @@
 import { Navigator } from './navigator'
+import { Autonomous } from '../core'
 
+@Autonomous({
+  selector: 'key-handler',
+  mode: 'open',
+})
 export class KeyHandler extends HTMLElement {
-  static observedAttributes = ['deck']
+  static observed = ['deck']
 
   private _deck: Navigator
+  private deck: string
 
-  async attributeChangedCallback(name: string, prev: string, next: string) {
-    if (name === 'deck') {
-      if (prev !== next) {
-        console.log(next)
-        this._deck = document.querySelector(`#${next}`)
-
-        this._deck.parentElement.addEventListener('keydown', (kev) => {
-          if (kev.code == 'ArrowRight' || kev.code == 'Space') {
-            this._deck.next()
-          } else if (kev.code == 'ArrowLeft') {
-            this._deck.previous()
-          }
-        })
-      }
+  connected() {
+    if (this.deck) {
+      const parent = this.parentElement
+      this._deck = parent.querySelector(`#${this.deck}`)
+    }
+    if (this._deck) {
+      const parent = this._deck.parentElement
+      parent.addEventListener('keydown', (kev) => {
+        if (kev.code == 'ArrowRight' || kev.code == 'Space') {
+          this._deck.next()
+        } else if (kev.code == 'ArrowLeft') {
+          this._deck.previous()
+        }
+      })
     }
   }
-}
-
-export const registerKeyHandler = () => {
-  customElements.define('key-handler', KeyHandler)
 }
