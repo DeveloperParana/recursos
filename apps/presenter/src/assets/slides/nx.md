@@ -1,5 +1,6 @@
-# nx
+---
+title: NX
+nextSlide: pwa
+---
 
 ![nx](assets/images/nx.svg)
-
-[pwa](#18 'next-slide')

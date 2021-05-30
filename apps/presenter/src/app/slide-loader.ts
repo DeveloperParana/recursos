@@ -1,18 +1,4 @@
-import { setOptions, Renderer, parse } from 'marked'
-import * as hljs from 'highlight.js'
 import { Slide } from './slide'
-
-/**
- * Configura syntax highlight com
- * a biblioteca marked
- */
-setOptions({
-  renderer: new Renderer(),
-  highlight: (code, lang) => {
-    const language = hljs.getLanguage(lang) ? lang : 'plaintext'
-    return hljs.highlight(code, { language }).value
-  },
-})
 
 /**
  * Carrega os slides pouco a pouco (lazy load)
@@ -48,7 +34,8 @@ export async function loadSlides(start: string) {
 export async function load(name: string) {
   const response = await fetch(`assets/slides/${name}.md`)
   const slide = await response.text()
-  return new Slide(parse(slide))
+  return new Slide(slide)
+  // return new Slide(parse(slide))
 }
 /**
  * Carrega slide em HTML, porém ainda

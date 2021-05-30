@@ -1,5 +1,5 @@
 import { parseValue } from './utilities'
-import 'reflect-metadata'
+// import 'reflect-metadata'
 
 /**
  * Esta função é utilizada como decorator

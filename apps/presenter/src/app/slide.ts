@@ -1,4 +1,19 @@
 import { DataBinding } from './data-binding'
+import * as hljs from 'highlight.js'
+import { parse } from './metadata'
+import * as marked from 'marked'
+
+/**
+ * Configura syntax highlight com
+ * a biblioteca marked
+ */
+marked.setOptions({
+  renderer: new marked.Renderer(),
+  highlight: (code, lang) => {
+    const language = hljs.getLanguage(lang) ? lang : 'plaintext'
+    return hljs.highlight(code, { language }).value
+  },
+})
 
 export class Slide {
   public _text: string
@@ -12,16 +27,19 @@ export class Slide {
   private _title: any
 
   constructor(text: string) {
-    this._text = text
+    const { content, metadata } = parse(text)
+
+    this._text = content
 
     this._context = {}
 
     this._dataBinding = new DataBinding()
 
     this._html = document.createElement('div')
-    this._html.innerHTML = text
+    this._html.innerHTML = marked.parse(content)
 
-    this._title = this._html.querySelector('h1')?.innerText
+    this._title = metadata.title
+    // this._html.querySelector('h1')?.innerText
     const transition = this._html.querySelectorAll<HTMLElement>('transition')
 
     if (transition.length) {
@@ -30,10 +48,8 @@ export class Slide {
       this._transition = null
     }
 
-    const selector = 'a[title="next-slide"]'
-    const hasNext = this._html.querySelector<HTMLAnchorElement>(selector)
-    if (hasNext) {
-      this._nextSlideName = this.getSlideByLink(hasNext)
+    if (metadata.nextSlide) {
+      this._nextSlideName = metadata.nextSlide
     } else {
       this._nextSlideName = null
     }

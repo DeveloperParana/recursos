@@ -1,5 +1,6 @@
-# npm
+---
+title: npm
+nextSlide: nx
+---
 
 ![npm](assets/images/npm.svg)
-
-[nx](#18 'next-slide')

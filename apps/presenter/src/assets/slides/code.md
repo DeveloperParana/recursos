@@ -1,6 +1,7 @@
-# Code
-
-## Bootstrap
+---
+title: Code
+nextSlide: lorem
+---
 
 ```ts
 import { registerDeck, registerControls, registerKeyHandler } from './show'
@@ -14,5 +15,3 @@ const loadShow = async () => {
 
 document.addEventListener('DOMContentLoaded', loadShow)
 ```
-
-[040](#4 'next-slide')
