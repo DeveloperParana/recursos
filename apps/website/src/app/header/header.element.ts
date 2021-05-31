@@ -10,6 +10,8 @@ import {
 
 import './header.element.scss'
 
+type EventAsTarget<T = HTMLElement, E = Event> = E & { target: T }
+
 @CustomElement('devpr-header')
 export class Header extends HTMLElement {
   static observedAttributes = ['text']
@@ -17,7 +19,9 @@ export class Header extends HTMLElement {
   @event() onClick: Emitter<string>
 
   @listen('a', 'click')
-  onClicked({ target }) {
+  onClicked(event: EventAsTarget) {
+    event.preventDefault()
+    const { target } = event
     this.onClick.emit(target.dataset.href)
   }
 
@@ -28,7 +32,9 @@ export class Header extends HTMLElement {
 
   get template() {
     return html`
-      <a slot="link" data-href="#mx" class="logo" role="link"> ${this.text} </a>
+      <a slot="link" href="#" data-href="#mx" class="logo" role="link">
+        ${this.text}
+      </a>
 
       <svg
         slot="logo"
@@ -52,10 +58,10 @@ export class Header extends HTMLElement {
       </label>
 
       <ul slot="menu" part="menu" class="menu">
-        <li><a data-href="#apps">Apps</a></li>
-        <li><a data-href="#apoio">Apoio</a></li>
-        <li><a data-href="#espaco">Espaço</a></li>
-        <li><a data-href="#membro">Membro</a></li>
+        <li><a href="#" data-href="#apps">Apps</a></li>
+        <li><a href="#" data-href="#apoio">Apoio</a></li>
+        <li><a href="#" data-href="#espaco">Espaço</a></li>
+        <li><a href="#" data-href="#membro">Membro</a></li>
       </ul>
     `
   }
