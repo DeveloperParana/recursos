@@ -1,10 +1,9 @@
 import { css, html, listen, CustomElement } from '@devpr/common/web'
-import { AppDocument } from './app.document'
 
 import './app.element.scss'
 
 @CustomElement('devpr-root')
-export class AppElement extends AppDocument {
+export class AppElement extends HTMLElement {
   @listen('devpr-header', 'onClick')
   header({ detail }: CustomEvent<string>) {
     const section = this.querySelector(detail)
