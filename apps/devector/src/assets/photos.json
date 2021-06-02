@@ -1,0 +1,72 @@
+[
+  {
+    "type": "directory",
+    "name": "assets/photos",
+    "contents": [
+      {
+        "type": "directory",
+        "name": "history",
+        "contents": [
+          { "type": "file", "name": "5-mb_storage-1956.jpeg" },
+          { "type": "file", "name": "a-106-year-old_warrior.jpeg" },
+          { "type": "file", "name": "a-private_jazz-concert-1961.jpeg" },
+          { "type": "file", "name": "a-roaring_backdrop-1989.jpeg" },
+          { "type": "file", "name": "ali-vs_liston.jpeg" },
+          { "type": "file", "name": "animals-seek_shelter-1945-.jpeg" },
+          { "type": "file", "name": "awestruck-by_tv-1948.jpeg" },
+          { "type": "file", "name": "birthday-in_iran-1973.jpeg" },
+          { "type": "file", "name": "brooklyn-supreme_1930s.jpeg" },
+          { "type": "file", "name": "but-first_selfie-1938.jpeg" },
+          { "type": "file", "name": "competitive-nasa_scientists-1961.jpeg" },
+          { "type": "file", "name": "connecting-with_family-1970s.jpeg" },
+          { "type": "file", "name": "disney-studio.jpeg" },
+          { "type": "file", "name": "dream-of_flying.jpeg" },
+          { "type": "file", "name": "einstein--_funny-scientist.jpeg" },
+          { "type": "file", "name": "einstein--_two-popular-faces-1931.jpeg" },
+          { "type": "file", "name": "exploring-an_outfit-1944.jpeg" },
+          {
+            "type": "file",
+            "name": "famous-lion_form-the-mgm-opening-credits.jpeg"
+          },
+          { "type": "file", "name": "first-selfie_ever.jpeg" },
+          { "type": "file", "name": "fishing-at_night-in-hawaii.jpeg" },
+          {
+            "type": "file",
+            "name": "freddie-mercury’s_feline-friend-1988.jpeg"
+          },
+          { "type": "file", "name": "freedom-on_sugar-1953.jpeg" },
+          { "type": "file", "name": "green-symbol_in-the-making-1970.jpeg" },
+          { "type": "file", "name": "helmet-testing.jpeg" },
+          { "type": "file", "name": "hit-by_snowstorm-1966.jpeg" },
+          { "type": "file", "name": "home-for_jewish-refugees-1946.jpeg" },
+          { "type": "file", "name": "human-chess_.jpeg" },
+          { "type": "file", "name": "i-have_a-dream.jpeg" },
+          { "type": "file", "name": "landing-craft_from-the-inside.jpeg" },
+          { "type": "file", "name": "lumberjacks.jpeg" },
+          { "type": "file", "name": "michael-jackson_2000.jpeg" },
+          { "type": "file", "name": "moon-landing.jpeg" },
+          { "type": "file", "name": "moonshiners-in_action-1926.jpeg" },
+          { "type": "file", "name": "mowing-with_comfort-1950s.jpeg" },
+          { "type": "file", "name": "nikola-tesla.jpeg" },
+          { "type": "file", "name": "part-of_titanic-1910.jpeg" },
+          { "type": "file", "name": "phone-booth_stuffing.jpeg" },
+          { "type": "file", "name": "rms-titanic.jpeg" },
+          { "type": "file", "name": "salvador-dali’s_pet.jpeg" },
+          { "type": "file", "name": "sight-seeing-in_cairo-1920s.jpeg" },
+          { "type": "file", "name": "sport-and_smoking.jpeg" },
+          { "type": "file", "name": "submarine-armor.jpeg" },
+          { "type": "file", "name": "susan-kare’s_habitat-1984.jpeg" },
+          { "type": "file", "name": "thanking-the_animals-1918.jpeg" },
+          { "type": "file", "name": "the-bulletproof_vest-testing.jpeg" },
+          { "type": "file", "name": "the-empire_state-building-1941.jpeg" },
+          { "type": "file", "name": "the-face_of-war-1941.jpeg" },
+          { "type": "file", "name": "the-first_mcdonald’s-store.jpeg" },
+          { "type": "file", "name": "the-first_photo-ever.jpeg" },
+          { "type": "file", "name": "the-seal_on-tutankhamen’s-tomb.jpeg" },
+          { "type": "file", "name": "women-in_medicine-1885.jpeg" }
+        ]
+      }
+    ]
+  },
+  { "type": "report", "directories": 1, "files": 51 }
+]

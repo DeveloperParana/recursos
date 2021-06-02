@@ -389,6 +389,11 @@
             "jestConfig": "apps/devector/jest.config.js",
             "passWithNoTests": true
           }
+        },
+        "mapper": {
+          "executor": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": { "command": "npm run devector:mapper" }
         }
       }
     },
