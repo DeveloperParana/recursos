@@ -27,10 +27,15 @@ echo "|____/ \___| \_/ |_|   \__,_|_|  \__,_|_| |_|\__,_|"
 
 echo ''
 echo ''
-echo '🔥 - Iniciando normalização de arquivos para mapeamento'
+
+echo '🔥 - Iniciando normalização para mapeamento'
 echo ''
 
 sleep 2
+
+
+echo '🔥 - Normalizando fotos'
+sleep 1
 
 for f in assets/photos/**/*.jpeg; do
   file=$(echo $f | sed 's/ /\-/' | sed 's/,//' | sed 's/ /_/' | sed 's/ /-/' | tr ' ' "-" | tr '[:upper:]' '[:lower:]')
@@ -38,14 +43,42 @@ for f in assets/photos/**/*.jpeg; do
   mv "$f" "$file"
 done
 
+echo '🔥 - Normalizando imagens'
+sleep 1
+
+for f in assets/images/**/*.svg; do
+  file=$(echo $f | sed 's/ /\-/' | sed 's/,//' | sed 's/ /_/' | sed 's/ /-/' | tr ' ' "-" | tr '[:upper:]' '[:lower:]')
+  echo "$f" "$file"
+  mv "$f" "$file"
+done
+
+echo '🔥 - Normalizando ícones'
+sleep 1
+
+for f in assets/icons/**/*.svg; do
+  file=$(echo $f | sed 's/ /\-/' | sed 's/,//' | sed 's/ /_/' | sed 's/ /-/' | tr ' ' "-" | tr '[:upper:]' '[:lower:]')
+  echo "$f" "$file"
+  mv "$f" "$file"
+done
+
 echo ''
-echo '✅  Base de dados normalizada'
+echo '✅  Sistema de arquivos normalizado'
 echo ''
 echo ''
 echo '🔥 - Iniciando mapeamento'
 echo ''
 
+echo '🔥 - Mapeando fotos'
 tree -L 3 -J assets/photos > apps/devector/src/assets/photos.json
+sleep 1
+
+tree -L 3 -J assets/images > apps/devector/src/assets/images.json
+echo '🔥 - Mapeando imagens'
+sleep 1
+
+tree -L 3 -J assets/icons > apps/devector/src/assets/icons.json
+echo '🔥 - Mapeando icones'
+sleep 1
 
 echo '✅  Mapeamento concluído'
 echo ''
@@ -53,8 +86,10 @@ echo ''
 echo '🔥  Formatando mapa de arquivos'
 echo ''
 npx prettier apps/devector/src/assets/photos.json --write
+npx prettier apps/devector/src/assets/images.json --write
+npx prettier apps/devector/src/assets/icons.json --write
 echo ''
-echo '✅ - Tudo pronto!'
+echo '✅ - Concluído!'
 echo ''
 echo ''
 echo 'Bye ;)'
