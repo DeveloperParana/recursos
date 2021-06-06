@@ -1,5 +1,5 @@
 import { Section } from './../section/section'
-import { BuiltInElement, html } from '@devpr/common/web'
+import { BuiltInElement, html } from '@devpr/common-web'
 
 @BuiltInElement('devpr-espaco-section', 'section')
 export class EspacoSection extends Section {

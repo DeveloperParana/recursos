@@ -3,10 +3,10 @@
   "compilerOptions": {
     "outDir": "../../../dist/out-tsc",
     "declaration": true,
-    "types": [],
-    "paths": {
-      "@devpr/common/web": ["dist/packages/common/web"]
-    }
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "target": "es5",
+    "types": []
   },
   "include": ["**/*.ts"],
   "exclude": ["**/*.spec.ts"]

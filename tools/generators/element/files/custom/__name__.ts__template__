@@ -6,7 +6,7 @@ import {
   listen,
   Emitter,
   CustomElement
-} from '@devpr/common/web'
+} from '@devpr/common-web'
 
 @CustomElement('devpr-<%= selector %>')
 export class <%= classify( selector ) %>Element extends HTMLElement {

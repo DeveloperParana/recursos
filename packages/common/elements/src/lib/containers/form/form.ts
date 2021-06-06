@@ -3,7 +3,7 @@ import {
   Emitter,
   serializeForm,
   BuiltInElement,
-} from '@devpr/common/web'
+} from '@devpr/common-web'
 
 /**
  * @description

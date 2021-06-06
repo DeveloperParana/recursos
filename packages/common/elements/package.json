@@ -4,7 +4,8 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
-    "@ungap/custom-elements": "^1.0.0"
+    "@ungap/custom-elements": "^1.0.0",
+    "@devpr/common-web": "^1.0.0"
   },
   "publishConfig": {
     "access": "public"

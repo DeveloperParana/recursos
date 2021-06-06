@@ -1,4 +1,4 @@
-import { html, event, listen, Emitter, CustomElement } from '@devpr/common/web'
+import { html, event, listen, Emitter, CustomElement } from '@devpr/common-web'
 
 import './form.page.scss'
 
@@ -78,5 +78,6 @@ declare global {
   }
   interface HTMLElementEventMap {
     onSubmit: unknown
+    onChange: unknown
   }
 }

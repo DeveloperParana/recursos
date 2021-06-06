@@ -1,4 +1,4 @@
-import { BuiltInElement } from '@devpr/common/web'
+import { BuiltInElement } from '@devpr/common-web'
 import { environment } from './../../../envs/env'
 
 type WindowAnalytic = Window & {

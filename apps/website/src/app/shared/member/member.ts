@@ -1,4 +1,4 @@
-import { css, CustomElement, html } from '@devpr/common/web'
+import { css, CustomElement, html } from '@devpr/common-web'
 
 @CustomElement('devpr-member')
 export class Member extends HTMLElement {

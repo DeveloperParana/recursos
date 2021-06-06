@@ -1,4 +1,4 @@
-import { css, CustomElement, html } from '@devpr/common/web'
+import { css, CustomElement, html } from '@devpr/common-web'
 
 @CustomElement('devpr-ticked')
 export class TickedElement extends HTMLElement {

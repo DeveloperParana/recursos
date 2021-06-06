@@ -20,7 +20,7 @@ import { noop } from '../core'
  * @param {string} event
  * @returns
  */
-export function listen<T>(
+export function listen<T = any>(
   selector: keyof HTMLElementTagNameMap | string,
   event: keyof HTMLElementEventMap,
   getTarget = false

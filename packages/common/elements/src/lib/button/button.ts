@@ -1,4 +1,4 @@
-import { BuiltInElement, prop } from '@devpr/common/web'
+import { BuiltInElement, prop } from '@devpr/common-web'
 
 type ButtonMode = 'text' | 'outlined'
 
@@ -12,9 +12,7 @@ type ButtonMode = 'text' | 'outlined'
  */
 @BuiltInElement('devpr-button', 'button')
 export class Button extends HTMLButtonElement {
-  static get observedAttributes() {
-    return ['mode']
-  }
+  static observedAttributes = ['mode']
 
   @prop()
   mode: ButtonMode

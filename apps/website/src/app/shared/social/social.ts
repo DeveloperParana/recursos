@@ -1,4 +1,4 @@
-import { css, CustomElement, html } from '@devpr/common/web'
+import { css, CustomElement, html } from '@devpr/common-web'
 
 @CustomElement('devpr-social')
 export class SocialElement extends HTMLElement {

@@ -5,7 +5,7 @@ import {
   listen,
   Emitter,
   CustomElement,
-} from '@devpr/common/web'
+} from '@devpr/common-web'
 
 /**
  * @description
