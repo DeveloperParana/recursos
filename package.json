@@ -11,7 +11,7 @@
     "recorder:build": "nx build recorder --prod",
     "devector": "nx serve devector",
     "devector:build": "nx build devector --prod",
-    "devector:mapper": "./scripts/replace-filenames.sh",
+    "devector:mapper": "./scripts/images-mapper.sh",
     "presenter": "nx serve presenter",
     "presenter:build": "nx build presenter --prod",
     "example": "nx serve example",

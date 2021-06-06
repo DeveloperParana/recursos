@@ -1,4 +1,4 @@
-import { css, html, listen, CustomElement } from '@devpr/common/web'
+import { css, html, listen, CustomElement } from '@devpr/common-web'
 
 import './app.element.scss'
 

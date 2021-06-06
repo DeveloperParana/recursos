@@ -1,4 +1,4 @@
-import { BuiltInElement } from '@devpr/common/web'
+import { BuiltInElement } from '@devpr/common-web'
 
 /**
  * Checkbox integrado, usa o elemento label

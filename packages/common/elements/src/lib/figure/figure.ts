@@ -1,4 +1,4 @@
-import { BuiltInElement, html, prop } from 'dist/packages/common/web/src'
+import { BuiltInElement, html, prop } from '@devpr/common-web'
 
 @BuiltInElement('devpr-figure', 'figure')
 export class Figure extends HTMLElement {

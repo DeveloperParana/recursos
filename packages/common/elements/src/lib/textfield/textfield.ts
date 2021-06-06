@@ -1,12 +1,10 @@
-import { prop, BuiltInElement, event, listen, Emitter } from '@devpr/common/web'
+import { prop, BuiltInElement, event, listen, Emitter } from '@devpr/common-web'
 
 type TextFieldMode = 'filled' | 'outlined' | 'standard'
 
 @BuiltInElement('devpr-textfield', 'label')
 export class TextField extends HTMLLabelElement {
-  static get observedAttributes() {
-    return ['mode']
-  }
+  static observedAttributes = ['mode']
 
   public input: HTMLInputElement
 

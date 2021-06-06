@@ -1,4 +1,5 @@
 export * from './textfield'
 export * from './gallery'
+export * from './search'
 export * from './icon'
 export * from './core'

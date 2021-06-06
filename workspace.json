@@ -22,13 +22,14 @@
       "projectType": "library",
       "targets": {
         "build": {
-          "executor": "@nrwl/workspace:tsc",
+          "executor": "@nrwl/web:package",
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/packages/common/web",
+            "project": "packages/common/web/package.json",
+            "entryFile": "packages/common/web/src/index.ts",
             "main": "packages/common/web/src/index.ts",
-            "tsConfig": "packages/common/web/tsconfig.lib.json",
-            "assets": ["packages/common/web/*.md"]
+            "tsConfig": "packages/common/web/tsconfig.lib.json"
           }
         },
         "lint": {
@@ -57,13 +58,14 @@
       "projectType": "library",
       "targets": {
         "build": {
-          "executor": "@nrwl/workspace:tsc",
+          "executor": "@nrwl/web:package",
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/packages/common/elements",
+            "project": "packages/common/elements/package.json",
+            "entryFile": "packages/common/elements/src/index.ts",
             "main": "packages/common/elements/src/index.ts",
-            "tsConfig": "packages/common/elements/tsconfig.lib.json",
-            "assets": ["packages/common/elements/*.md"]
+            "tsConfig": "packages/common/elements/tsconfig.lib.json"
           }
         },
         "lint": {
@@ -339,7 +341,7 @@
               { "input": "assets", "glob": "*.json", "output": "assets" },
               {
                 "input": "assets/images",
-                "glob": "undraw/*.svg",
+                "glob": "**/*.svg",
                 "output": "assets/images"
               }
             ],

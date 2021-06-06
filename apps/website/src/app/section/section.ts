@@ -1,4 +1,4 @@
-import { BuiltInElement, css, html, prop } from '@devpr/common/web'
+import { BuiltInElement, css, html, prop } from '@devpr/common-web'
 
 import './section.scss'
 

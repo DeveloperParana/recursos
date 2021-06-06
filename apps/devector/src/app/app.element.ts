@@ -15,7 +15,7 @@ export class AppElement extends HTMLElement {
   gallery: Gallery<Photo>
   images: Photo[] = []
 
-  loadEvery = 33
+  loadEvery = 99
   loaded = 0
 
   @debounce(600)
@@ -62,7 +62,7 @@ export class AppElement extends HTMLElement {
   }
 
   async findImages() {
-    const res = await fetch('assets/undraw.json')
+    const res = await fetch('assets/images.json')
     return await res.json()
   }
 
@@ -74,7 +74,7 @@ export class AppElement extends HTMLElement {
     }
 
     this.findImages().then(([images, report]: Tree[]) => {
-      this.handleImages(images, images.name)
+      images.contents.map((content) => this.handleImages(content, content.name))
       queueMicrotask(() => {
         this.loadMore(this.loaded, this.loaded + this.loadEvery)
       })
@@ -91,10 +91,12 @@ export class AppElement extends HTMLElement {
   }
 
   handleImages({ contents }: Tree, name: string) {
+    console.log(contents)
     contents.map((content) => {
       if (content.type === 'file') {
         const title = content.name
-        const image = `${name}/${title}`
+
+        const image = `assets/images/${name}/${title}`
         this.images.push({ title, image })
       }
     })

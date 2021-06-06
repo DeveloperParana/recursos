@@ -1,4 +1,4 @@
-import { BuiltInElement, html } from '@devpr/common/web'
+import { BuiltInElement, html } from '@devpr/common-web'
 
 @BuiltInElement('devpr-youtube', 'a')
 export class Youtube extends HTMLAnchorElement {

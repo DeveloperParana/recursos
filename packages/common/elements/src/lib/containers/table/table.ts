@@ -1,4 +1,4 @@
-import { BuiltInElement, prop, handleTableData } from '@devpr/common/web'
+import { BuiltInElement, prop, handleTableData } from '@devpr/common-web'
 
 /**
  * @description

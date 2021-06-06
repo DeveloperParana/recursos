@@ -1,4 +1,4 @@
-import { Table } from '@devpr/common/elements'
+import { Table } from '@devpr/common-elements'
 import {
   css,
   html,
@@ -6,7 +6,7 @@ import {
   dataSearch,
   CustomElement,
   debounce,
-} from '@devpr/common/web'
+} from '@devpr/common-web'
 
 import './table.page.scss'
 
@@ -96,5 +96,6 @@ export class TablePage extends HTMLElement {
 declare global {
   interface HTMLElementTagNameMap {
     'table-page': TablePage
+    onChange: unknown
   }
 }

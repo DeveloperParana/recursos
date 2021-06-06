@@ -1,4 +1,4 @@
-import { BuiltInElement } from '@devpr/common/web'
+import { BuiltInElement } from '@devpr/common-web'
 
 @BuiltInElement('devpr-switch', 'label')
 export class SwitchElement extends HTMLLabelElement {

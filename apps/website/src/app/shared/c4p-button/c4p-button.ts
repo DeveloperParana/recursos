@@ -1,4 +1,4 @@
-import { css, CustomElement, html } from '@devpr/common/web'
+import { css, CustomElement, html } from '@devpr/common-web'
 
 @CustomElement('devpr-c4p-button')
 export class DevPRC4PButton extends HTMLElement {

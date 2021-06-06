@@ -1,4 +1,4 @@
-import { BuiltInElement, html } from '@devpr/common/web'
+import { BuiltInElement, html } from '@devpr/common-web'
 import { Section } from './../section/section'
 
 @BuiltInElement('devpr-apoio-section', 'section')

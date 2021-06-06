@@ -6,7 +6,7 @@ import {
   listen,
   Emitter,
   CustomElement,
-} from '@devpr/common/web'
+} from '@devpr/common-web'
 
 import './header.element.scss'
 
