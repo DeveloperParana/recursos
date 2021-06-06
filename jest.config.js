@@ -7,5 +7,6 @@ module.exports = {
     '<rootDir>/packages/common/elements',
     '<rootDir>/apps/devector',
     '<rootDir>/apps/presenter',
+    '<rootDir>/packages/web/core',
   ],
 }

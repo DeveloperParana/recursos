@@ -1,14 +1,34 @@
 module.exports = {
   types: [
-    { value: '💍 test', name: '💍  test:       Adicionando testes que faltavam' },
+    {
+      value: '💍 test',
+      name: '💍  test:       Adicionando testes que faltavam',
+    },
     { value: '🎸 feat', name: '🎸  feat:       Uma nova feature' },
     { value: '🐛 fix', name: '🐛  fix:        Uma correção de bug' },
-    { value: '🤖 chore', name: '🤖  chore:      Processo de build ou mudanças de tooling' },
-    { value: '📝 docs', name: '📝  docs:       Alterações apenas na documentação' },
-    { value: '💡 refactor', name: '💡  refactor:   Uma mudança de código que não corrige um bug nem adiciona um recurso' },
-    { value: '💄 style', name: '💄  style:      Marcações, espaços em branco, formatação, ponto e vírgula faltando...' },
+    {
+      value: '🤖 chore',
+      name: '🤖  chore:      Processo de build ou mudanças de tooling',
+    },
+    {
+      value: '📝 docs',
+      name: '📝  docs:       Alterações apenas na documentação',
+    },
+    {
+      value: '💡 refactor',
+      name:
+        '💡  refactor:   Uma mudança de código que não corrige um bug nem adiciona um recurso',
+    },
+    {
+      value: '💄 style',
+      name:
+        '💄  style:      Marcações, espaços em branco, formatação, ponto e vírgula faltando...',
+    },
     { value: '🎡 ci', name: '🎡  ci:         Mudanças relacionadas a CI' },
-    { value: '🚀 perf', name: '🚀  perf:       Uma mudança de código que melhora o desempenho' },
+    {
+      value: '🚀 perf',
+      name: '🚀  perf:       Uma mudança de código que melhora o desempenho',
+    },
   ],
 
   scopes: [
@@ -17,20 +37,30 @@ module.exports = {
     { name: 'devector', description: 'O app Devector foi alterado' },
     { name: 'presenter', description: 'O app Presenter foi alterado' },
     { name: 'example', description: 'O app Example foi alterado' },
+    { name: 'web-core', description: 'A lib Web Core foi alterada' },
     { name: 'common-web', description: 'A lib Common Web foi alterada' },
-    { name: 'common-elements', description: 'A lib Common Elements foi alterada' },
+    {
+      name: 'common-elements',
+      description: 'A lib Common Elements foi alterada',
+    },
     { name: 'infra', description: 'Documentações de gerenciamento' },
-    { name: 'scss', description: 'Ajustes na estilização ou libs front externas' },
+    {
+      name: 'scss',
+      description: 'Ajustes na estilização ou libs front externas',
+    },
     { name: 'image', description: 'Imagens foram alteradas' },
     { name: 'specs', description: 'Especificações de design foram alteradas' },
     { name: 'tokens', description: 'Valores de design tokens alterados' },
     { name: 'scripts', description: 'Scripts auxiliares alterados' },
-    { name: 'config', description: 'Configurações relacionadas ao tipo selecionado' },
+    {
+      name: 'config',
+      description: 'Configurações relacionadas ao tipo selecionado',
+    },
   ],
 
   // override the messages, defaults are as follows
   messages: {
-    type: "Selecione o tipo de alteração que você está enviando:",
+    type: 'Selecione o tipo de alteração que você está enviando:',
     scope: '\nIndique o ESCOPO desta alteração (opcional):',
     // used if allowCustomScopes is true
     customScope: 'Indique o escopo desta alteração:',
@@ -50,4 +80,4 @@ module.exports = {
 
   // limit subject length
   subjectLimit: 100,
-};
+}

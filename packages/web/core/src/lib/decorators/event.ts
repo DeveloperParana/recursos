@@ -1,0 +1,47 @@
+import { Emitter } from '../emitter'
+
+/**
+ * Usado em conjunto com `Emitter`
+ * para emissão de eventos entre elementos
+ *
+ * @example
+ * ```ts
+ * ＠event()
+ * onChange: Emitter
+ *
+ * ＠listen('form', 'onChange')
+ * onChanged({ detail }: CustomEvent) {
+ *   this.onChange.emit(detail)
+ * }
+ * ```
+ *
+ * @export
+ * @returns
+ */
+export function event() {
+  return (protoOrDescriptor: HTMLElement & { key?: string }, name: string) => {
+    const descriptor = {
+      get(this: HTMLElement) {
+        return new Emitter(
+          this,
+          (name !== undefined ? name : protoOrDescriptor.key) as string
+        )
+      },
+      enumerable: true,
+      configurable: true,
+    }
+
+    if (name !== undefined) {
+      // legacy TS decorator
+      return Object.defineProperty(protoOrDescriptor, name, descriptor)
+    } else {
+      // TC39 Decorators proposal
+      return {
+        kind: 'method',
+        placement: 'prototype',
+        key: protoOrDescriptor.key,
+        descriptor,
+      }
+    }
+  }
+}
