@@ -48,6 +48,7 @@
     "core-js": "^3.6.5",
     "document-register-element": "1.13.1",
     "highlight.js": "^10.7.2",
+    "json5": "^2.2.0",
     "lodash.debounce": "^4.0.8",
     "marked": "^2.0.6",
     "reflect-metadata": "^0.1.13",

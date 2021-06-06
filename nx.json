@@ -23,6 +23,7 @@
     "website": { "tags": ["type:app", "preset:web"] },
     "example": { "tags": ["type:app", "preset:web"] },
     "devector": { "tags": ["type:app", "preset:web"] },
-    "presenter": { "tags": ["type:app"] }
+    "presenter": { "tags": ["type:app"] },
+    "web-core": { "tags": [] }
   }
 }

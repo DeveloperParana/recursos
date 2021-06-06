@@ -465,6 +465,42 @@
           }
         }
       }
+    },
+    "web-core": {
+      "root": "packages/web/core",
+      "sourceRoot": "packages/web/core/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/packages/web/core",
+            "project": "packages/web/core/package.json",
+            "entryFile": "packages/web/core/src/index.ts",
+            "main": "packages/web/core/src/index.ts",
+            "tsConfig": "packages/web/core/tsconfig.lib.json"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": { "lintFilePatterns": ["packages/web/core/**/*.ts"] }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/packages/web/core"],
+          "options": {
+            "jestConfig": "packages/web/core/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "release": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "npx semantic-release -e ./packages/web/core/.releaserc.json"
+          }
+        }
+      }
     }
   }
 }
