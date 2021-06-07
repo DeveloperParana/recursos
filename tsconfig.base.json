@@ -17,7 +17,9 @@
     "paths": {
       "@devpr/common-web": ["packages/common/web/src/index.ts"],
       "@devpr/common-elements": ["packages/common/elements/src/index.ts"],
-      "@devpr/web-core": ["packages/web/core/src/index.ts"]
+      "@devpr/web-core": ["packages/web/core/src/index.ts"],
+      "@devpr/web-buttons": ["packages/web/buttons/src/index.ts"],
+      "@devpr/web-icons": ["packages/web/icons/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
