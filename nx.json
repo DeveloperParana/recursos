@@ -24,6 +24,8 @@
     "example": { "tags": ["type:app", "preset:web"] },
     "devector": { "tags": ["type:app", "preset:web"] },
     "presenter": { "tags": ["type:app"] },
-    "web-core": { "tags": [] }
+    "web-core": { "tags": [] },
+    "web-buttons": { "tags": [] },
+    "web-icons": { "tags": [] }
   }
 }

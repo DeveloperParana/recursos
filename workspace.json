@@ -501,6 +501,66 @@
           }
         }
       }
+    },
+    "web-buttons": {
+      "root": "packages/web/buttons",
+      "sourceRoot": "packages/web/buttons/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/packages/web/buttons",
+            "project": "packages/web/buttons/package.json",
+            "entryFile": "packages/web/buttons/src/index.ts",
+            "main": "packages/web/buttons/src/index.ts",
+            "tsConfig": "packages/web/buttons/tsconfig.lib.json"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": { "lintFilePatterns": ["packages/web/buttons/**/*.ts"] }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/packages/web/buttons"],
+          "options": {
+            "jestConfig": "packages/web/buttons/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-icons": {
+      "root": "packages/web/icons",
+      "sourceRoot": "packages/web/icons/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/packages/web/icons",
+            "project": "packages/web/icons/package.json",
+            "entryFile": "packages/web/icons/src/index.ts",
+            "main": "packages/web/icons/src/index.ts",
+            "tsConfig": "packages/web/icons/tsconfig.lib.json"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": { "lintFilePatterns": ["packages/web/icons/**/*.ts"] }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/packages/web/icons"],
+          "options": {
+            "jestConfig": "packages/web/icons/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }

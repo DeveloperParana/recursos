@@ -1,4 +1,4 @@
-import { CustomConstructor } from '../types'
+import { CustomConstructor } from '../types/custom-constructor'
 import { noop } from '../utilities'
 
 /**

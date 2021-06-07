@@ -14,6 +14,8 @@ export class AppElement extends HTMLElement {
       </a>
     </header>
 
+    <demo-buttons></demo-buttons>
+
     <!-- <form-page></form-page> -->
 
     <!-- <hr /> -->

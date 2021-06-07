@@ -6,3 +6,5 @@ export * from './lib/mixins'
 export * from './lib/form'
 export * from './lib/html'
 export * from './lib/css'
+
+export * from './lib/types'

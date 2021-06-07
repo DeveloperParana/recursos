@@ -8,5 +8,7 @@ module.exports = {
     '<rootDir>/apps/devector',
     '<rootDir>/apps/presenter',
     '<rootDir>/packages/web/core',
+    '<rootDir>/packages/web/buttons',
+    '<rootDir>/packages/web/icons',
   ],
 }
