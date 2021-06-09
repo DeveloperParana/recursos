@@ -41,13 +41,17 @@ export function Autonomous({ selector, ...opts }: AutonomousOptions) {
         shadow.appendChild(cloneTemplate(template || this.template))
       }
 
+      shadow.querySelectorAll('slot').forEach(({ name }) => {
+        const assignable = this.querySelector(name)
+        if (assignable && !assignable.slot) {
+          assignable.setAttribute('slot', name)
+        }
+      })
+
       if (this.connected) {
         this.connected.call(this)
       }
       connected.call(this)
-      // if (this.render) {
-      //   shadow.append(cloneTemplate(this.render.call(this)));
-      // }
     }
 
     target.prototype.disconnectedCallback = function (): void {
