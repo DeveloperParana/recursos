@@ -561,6 +561,36 @@
           }
         }
       }
+    },
+    "web-avatars": {
+      "root": "packages/web/avatars",
+      "sourceRoot": "packages/web/avatars/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/packages/web/avatars",
+            "project": "packages/web/avatars/package.json",
+            "entryFile": "packages/web/avatars/src/index.ts",
+            "main": "packages/web/avatars/src/index.ts",
+            "tsConfig": "packages/web/avatars/tsconfig.lib.json"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": { "lintFilePatterns": ["packages/web/avatars/**/*.ts"] }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/packages/web/avatars"],
+          "options": {
+            "jestConfig": "packages/web/avatars/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }

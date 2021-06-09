@@ -40,6 +40,7 @@ module.exports = {
     { name: 'web-core', description: 'A lib Web Core foi alterada' },
     { name: 'web-icons', description: 'A lib Web Icons foi alterada' },
     { name: 'web-buttons', description: 'A lib Web Buttons foi alterada' },
+    { name: 'web-avatars', description: 'A lib Web Avatars foi alterada' },
     { name: 'common-web', description: 'A lib Common Web foi alterada' },
     {
       name: 'common-elements',
