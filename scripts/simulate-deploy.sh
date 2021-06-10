@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 echo 'Check Format'
 npm run format:check -- --base origin/main
 
