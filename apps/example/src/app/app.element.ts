@@ -1,12 +1,145 @@
-import { css, CustomElement, html } from '@devpr/common-web'
+import { css, listen, Autonomous, html } from '@devpr/web-core'
 
 import './app.element.scss'
 
-@CustomElement('devpr-root')
+@Autonomous({
+  selector: 'devpr-root',
+  mode: 'open',
+})
 export class AppElement extends HTMLElement {
   public static observedAttributes = []
 
-  styles = css``
+  styles = css`
+    :host {
+      display: block;
+      font-family: sans-serif;
+      min-width: 300px;
+      max-width: 600px;
+      margin: 50px auto;
+    }
+
+    .gutter-left {
+      margin-left: 9px;
+    }
+
+    .col-span-2 {
+      grid-column: span 2;
+    }
+
+    .flex {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    header {
+      display: flex;
+      justify-content: center;
+    }
+
+    main {
+      padding: 0 36px;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    h1 {
+      text-align: center;
+      margin-left: 18px;
+      font-size: 24px;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 20px;
+      margin: 40px 0 10px 0;
+    }
+
+    .resources {
+      text-align: center;
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-gap: 9px;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .resource {
+      color: #0094ba;
+      height: 36px;
+      background-color: rgba(0, 0, 0, 0);
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      border-radius: 4px;
+      padding: 3px 9px;
+      text-decoration: none;
+    }
+
+    .resource:hover {
+      background-color: rgba(68, 138, 255, 0.04);
+    }
+
+    pre {
+      padding: 9px;
+      border-radius: 4px;
+      background-color: black;
+      color: #eee;
+    }
+
+    details {
+      border-radius: 4px;
+      color: #333;
+      background-color: rgba(0, 0, 0, 0);
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      padding: 3px 9px;
+      margin-bottom: 9px;
+    }
+
+    summary {
+      cursor: pointer;
+      outline: none;
+      height: 36px;
+      line-height: 36px;
+    }
+
+    .github-star-container {
+      margin-top: 12px;
+      line-height: 20px;
+    }
+
+    .github-star-container a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: #333;
+    }
+
+    .github-star-badge {
+      color: #24292e;
+      display: flex;
+      align-items: center;
+      font-size: 12px;
+      padding: 3px 10px;
+      border: 1px solid rgba(27, 31, 35, 0.2);
+      border-radius: 3px;
+      background-image: linear-gradient(-180deg, #fafbfc, #eff3f6 90%);
+      margin-left: 4px;
+      font-weight: 600;
+    }
+
+    .github-star-badge:hover {
+      background-image: linear-gradient(-180deg, #f0f3f6, #e6ebf1 90%);
+      border-color: rgba(27, 31, 35, 0.35);
+      background-position: -0.5em;
+    }
+    .github-star-badge .material-icons {
+      height: 16px;
+      width: 16px;
+      margin-right: 4px;
+    }
+  `
+
   template = html`
     <header>
       <a>
@@ -14,15 +147,26 @@ export class AppElement extends HTMLElement {
       </a>
     </header>
 
-    <demo-avatars> </demo-avatars>
+    <!-- <img src="assets/talk-show.svg" />
+    <h1 contenteditable spellcheck="false">DevPR Talk Show</h1> -->
 
-    <demo-buttons></demo-buttons>
+    <section>
+      <h3>Avatars</h3>
+      <demo-avatars> </demo-avatars>
+    </section>
+    <section>
+      <h3>Form field</h3>
+      <demo-forms></demo-forms>
+    </section>
+
+    <section>
+      <h3>Buttons</h3>
+
+      <demo-buttons></demo-buttons>
+    </section>
 
     <!-- <form-page></form-page> -->
-
-    <!-- <hr /> -->
-
-    <table-page></table-page>
+    <!-- <table-page></table-page> -->
   `
 
   connectedCallback() {

@@ -7,6 +7,7 @@ import {
   Connected,
   Component,
   Autonomous,
+  // EventWithTarget,
 } from '@devpr/web-core'
 
 @Autonomous({

@@ -1,22 +1,10 @@
-import {
-  css,
-  html,
-  event,
-  listen,
-  Emitter,
-  Connected,
-  Component,
-  Autonomous,
-  // EventWithTarget,
-} from '@devpr/web-core'
+import { css, html, event, listen, Emitter, Autonomous } from '@devpr/web-core'
 
 @Autonomous({
-  selector: 'demo-avatars',
+  selector: 'demo-forms',
   mode: 'open',
 })
-export class AvatarsElement
-  extends Component(HTMLElement)
-  implements Connected {
+export class FormsElement extends HTMLElement {
   static observed = []
 
   @event()
@@ -85,23 +73,39 @@ export class AvatarsElement
   template = html`
     <div>
       <section>
-        <image-avatar>
-          <img slot="src" src="assets/avatar.jpeg" />
-        </image-avatar>
-        <image-avatar>
-          <!-- <img slot="src" src="assets/avatar.jpeg" /> -->
-        </image-avatar>
-        <image-avatar name="Guilherme Siquinelli"> </image-avatar>
+        <form>
+          <form-field>
+            <label> Name </label>
+            <input
+              type="text"
+              validate-on="submit"
+              name="name"
+              required
+              placeholder="Default input"
+            />
+            <small>Helper</small>
+            <output>Nome obrigatório</output>
+          </form-field>
+
+          <form-field>
+            <label> Email </label>
+            <input
+              required
+              type="email"
+              name="email"
+              placeholder="Ex.: name@provider.dev"
+            />
+            <small>Endereço de e-mail válido</small>
+            <output>E-mail inválido</output>
+          </form-field>
+
+          <form-field>
+            <label> Name </label>
+            <input type="text" name="surname" placeholder="Default input" />
+            <small>Helper</small>
+          </form-field>
+        </form>
       </section>
     </div>
   `
-
-  connected() {
-    // const webButton = this.shadowRoot.querySelector('web-button');
-    // console.log(webButton);
-  }
-
-  public emitClick<D = unknown>(detail: D) {
-    this.onClick.emit(detail)
-  }
 }
