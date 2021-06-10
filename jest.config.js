@@ -11,5 +11,6 @@ module.exports = {
     '<rootDir>/packages/web/buttons',
     '<rootDir>/packages/web/icons',
     '<rootDir>/packages/web/avatars',
+    '<rootDir>/packages/web/forms',
   ],
 }

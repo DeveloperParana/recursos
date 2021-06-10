@@ -27,6 +27,7 @@
     "web-core": { "tags": [] },
     "web-buttons": { "tags": [] },
     "web-icons": { "tags": [] },
-    "web-avatars": { "tags": [] }
+    "web-avatars": { "tags": [] },
+    "web-forms": { "tags": [] }
   }
 }
