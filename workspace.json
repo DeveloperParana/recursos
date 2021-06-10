@@ -591,6 +591,36 @@
           }
         }
       }
+    },
+    "web-forms": {
+      "root": "packages/web/forms",
+      "sourceRoot": "packages/web/forms/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/packages/web/forms",
+            "project": "packages/web/forms/package.json",
+            "entryFile": "packages/web/forms/src/index.ts",
+            "main": "packages/web/forms/src/index.ts",
+            "tsConfig": "packages/web/forms/tsconfig.lib.json"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": { "lintFilePatterns": ["packages/web/forms/**/*.ts"] }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/packages/web/forms"],
+          "options": {
+            "jestConfig": "packages/web/forms/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }
