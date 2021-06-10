@@ -1,3 +1,4 @@
+import { Emitter } from './../emitter'
 import { CustomConstructor } from '../types/custom-constructor'
 import { noop } from '../utilities'
 
@@ -51,11 +52,10 @@ export function listen<T>(
 
     if (elements) {
       elements.forEach((el) => {
-        if (el) {
-          el.addEventListener(event, (e: CustomEvent<T>) => {
-            target[propertyKey].call(context, getTarget ? e.target : e)
-          })
-        }
+        // if (!(typeof el[`on${event.toLowerCase()}`] === 'undefined')) {}
+        el.addEventListener(event, (e: CustomEvent<T>) => {
+          target[propertyKey].call(context, getTarget ? e.target : e)
+        })
       })
     }
   }
@@ -68,13 +68,14 @@ export function listen<T>(
     const connected = target.connectedCallback ?? noop
 
     target.connectedCallback = function (): void {
-      attachListener(this, target, propertyKey)
-
       const observer = new MutationObserver(() => {
         attachListener(this, target, propertyKey)
+        // if (!(typeof this[`on${event}`] === 'function')) {}
       })
       // observa alterações no elemento para manter-se ouvindo
-      observer.observe(this, { subtree: true, childList: true })
+      // observer.observe(this, { subtree: true, childList: true })
+
+      attachListener(this, target, propertyKey)
 
       // connectedCallback
       connected.call(this)
