@@ -32,6 +32,7 @@ module.exports = {
   ],
 
   scopes: [
+    { name: 'talk-show', description: 'Pauta do talk show' },
     { name: 'website', description: 'O website foi alterado' },
     { name: 'recorder', description: 'O app Recorder foi alterado' },
     { name: 'devector', description: 'O app Devector foi alterado' },
