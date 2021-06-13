@@ -1,83 +1,45 @@
+import { elementMap } from './utilities';
+import { Schema } from './schema';
 import {
   Tree,
   names,
-  formatFiles,
+  readJson,
   generateFiles,
-  offsetFromRoot,
-  getWorkspaceLayout,
-  updateProjectConfiguration,
-  readProjectConfiguration,
-  addDependenciesToPackageJson,
-  installPackagesTask,
-} from '@nrwl/devkit'
-import * as path from 'path'
-import { NormalizedSchema, Schema } from './schema'
+  joinPathFragments,
+} from '@nrwl/devkit';
 
-function addFiles(host: Tree, options: NormalizedSchema) {
-  const templateOptions = {
-    ...options,
-    ...names(options.project),
-    offsetFromRoot: offsetFromRoot(options.projectRoot),
-    template: '',
-    dot: '.',
+export default async function (tree: Tree, opts: Schema) {
+
+  const workspace = readJson(tree, 'workspace.json');
+
+  if (!opts.project) {
+    opts.project = workspace.defaultProject;
   }
 
-  if (!host.exists('.releaserc.json')) {
-    generateFiles(
-      host,
-      path.join(__dirname, 'root-files'),
-      '.',
-      templateOptions
-    )
+  const project = workspace.projects[opts.project];
+
+  const projectType = project.projectType === 'application' ? 'app' : 'lib';
+
+  const classInherit = elementMap[opts.inherit || 'html'];
+
+  if (opts.path === undefined) {
+    opts.path = `${project.sourceRoot}/${projectType}`;
   }
+
+  const _files = (opts.inherit) ? './files/built-in' : './files/autonomous'
+
+  const { className, fileName } = names(opts.name);
 
   generateFiles(
-    host,
-    path.join(__dirname, 'files'),
-    options.projectRoot,
-    templateOptions
-  )
-}
-
-export default async function (
-  host: Tree,
-  options: Schema
-) {
-  const config = readProjectConfiguration(host, options.project)
-  const { build } = config.targets
-  if (config.projectType !== 'library' || !build) {
-    console.log('This generator can only be run against buildable libraries.')
-  } else {
-    // prettier-ignore
-    // config.targets.release = { executor: '@nrwl/workspace:run-commands', options: {
-    //   command: `npx semantic-release -e ./${config.root}/.releaserc.json` }
-    // }
-
-    // updateProjectConfiguration(host, options.project, config)
-
-    const { libsDir } = getWorkspaceLayout(host)
-
-    // prettier-ignore
-    const normalizedOptions: NormalizedSchema = { ...options, projectRoot: config.root,
-      projectDist: build.options.outputPath || `dist/${libsDir}/${options.project}`,
+    tree,
+    joinPathFragments(__dirname, _files),
+    joinPathFragments(opts.path),
+    {
+      className,
+      classInherit,
+      name: fileName,
+      inherit: opts.inherit,
+      tpl: '',
     }
-
-    addFiles(host, normalizedOptions)
-    await formatFiles(host)
-
-    return () => {
-      installPackagesTask(host)
-    }
-  }
+  );
 }
-
-// import { Tree, formatFiles, installPackagesTask } from '@nrwl/devkit'
-// import { libraryGenerator } from '@nrwl/workspace/generators'
-
-// export default async function (host: Tree, schema: any) {
-//   await libraryGenerator(host, { name: schema.name })
-//   await formatFiles(host)
-//   return () => {
-//     installPackagesTask(host)
-//   }
-// }
