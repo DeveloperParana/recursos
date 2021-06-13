@@ -28,6 +28,7 @@
     "web-buttons": { "tags": [] },
     "web-icons": { "tags": [] },
     "web-avatars": { "tags": [] },
-    "web-forms": { "tags": [] }
+    "web-forms": { "tags": [] },
+    "web-flows": { "tags": [] }
   }
 }

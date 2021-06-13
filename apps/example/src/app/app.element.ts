@@ -14,7 +14,7 @@ export class AppElement extends HTMLElement {
       display: block;
       font-family: sans-serif;
       min-width: 300px;
-      max-width: 600px;
+      max-width: 1024px;
       margin: 50px auto;
     }
 
@@ -146,6 +146,8 @@ export class AppElement extends HTMLElement {
         <img src="assets/devparana.svg" width="100" alt="Dev Paraná" />
       </a>
     </header>
+
+    <demo-flows></demo-flows>
 
     <!-- <img src="assets/talk-show.svg" />
     <h1 contenteditable spellcheck="false">DevPR Talk Show</h1> -->
