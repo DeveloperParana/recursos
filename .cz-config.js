@@ -43,6 +43,7 @@ module.exports = {
     { name: 'web-buttons', description: 'A lib Web Buttons foi alterada' },
     { name: 'web-avatars', description: 'A lib Web Avatars foi alterada' },
     { name: 'web-forms', description: 'A lib Web Forms foi alterada' },
+    { name: 'web-flows', description: 'A lib Web Flows foi alterada' },
     { name: 'common-web', description: 'A lib Common Web foi alterada' },
     {
       name: 'common-elements',

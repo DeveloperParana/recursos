@@ -621,6 +621,36 @@
           }
         }
       }
+    },
+    "web-flows": {
+      "root": "packages/web/flows",
+      "sourceRoot": "packages/web/flows/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/packages/web/flows",
+            "project": "packages/web/flows/package.json",
+            "entryFile": "packages/web/flows/src/index.ts",
+            "main": "packages/web/flows/src/index.ts",
+            "tsConfig": "packages/web/flows/tsconfig.lib.json"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": { "lintFilePatterns": ["packages/web/flows/**/*.ts"] }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/packages/web/flows"],
+          "options": {
+            "jestConfig": "packages/web/flows/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }

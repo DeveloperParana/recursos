@@ -21,7 +21,8 @@
       "@devpr/web-buttons": ["packages/web/buttons/src/index.ts"],
       "@devpr/web-icons": ["packages/web/icons/src/index.ts"],
       "@devpr/web-avatars": ["packages/web/avatars/src/index.ts"],
-      "@devpr/web-forms": ["packages/web/forms/src/index.ts"]
+      "@devpr/web-forms": ["packages/web/forms/src/index.ts"],
+      "@devpr/web-flows": ["packages/web/flows/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
