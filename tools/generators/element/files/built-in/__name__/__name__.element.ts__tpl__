@@ -1,0 +1,45 @@
+import {
+  css,
+  html,
+  event,
+  listen,
+  Emitter,
+  BuiltIn,
+  Connected,
+  Component,
+} from '@devpr/web-core';
+
+@BuiltIn({
+  selector: '<%= name %>',
+  extends: '<%= inherit %>'
+})
+export class <%= className %>Element
+  extends Component(<%= classInherit %>)
+  implements Connected {
+  static observed = ['param'];
+
+  public param: string
+
+  @event()
+  onClick: Emitter<MouseEvent>;
+
+  @listen('button', 'click')
+  onClicked(event: Event) {
+    this.onClick.emit(event.target);
+  }
+
+  styles = css`
+    :host {
+      display: inline-flex;
+    }
+  `
+
+  template = html`
+    <!-- <span></span> -->
+  `
+
+  connected() {
+    // Do something
+    console.log(this.param)
+  }
+}

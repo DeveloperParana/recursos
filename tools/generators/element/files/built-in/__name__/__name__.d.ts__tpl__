@@ -1,0 +1,11 @@
+import { <%= className %>Element } from './<%= name %>.element';
+
+declare global {
+  interface HTMLElementTagNameMap {
+    '<%= name %>': <%= className %>Element;
+  }
+
+  interface HTMLElementEventMap {
+    onClick: ElementClickEvent<<%= className %>Element>;
+  }
+}

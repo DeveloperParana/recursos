@@ -3,13 +3,10 @@
   "id": "element",
   "type": "object",
   "properties": {
-    "selector": {
+    "name": {
       "type": "string",
-      "description": "Element selector"
-    },
-    "inherit": {
-      "type": "string",
-      "description": "Element inherit"
+      "description": "Nome do elemento",
+      "order": 1
     },
     "project": {
       "type": "string",
@@ -18,8 +15,18 @@
         "$source": "argv",
         "index": 0
       },
-      "x-prompt": "Which project do you want to add element to?"
-    }
+      "x-prompt": "Qual projeto quer criar o elemento?"
+    },
+    "order": 2
   },
-  "required": ["selector", "project"]
+  "inherit": {
+    "type": "string",
+    "description": "Elemento a ser integrado"
+  },
+  "path": {
+    "type": "string",
+    "format": "path",
+    "description": "Caminho do diretório"
+  },
+  "required": ["name", "project"]
 }

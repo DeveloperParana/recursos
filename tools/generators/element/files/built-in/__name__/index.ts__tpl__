@@ -1,0 +1,3 @@
+import './<%= name %>.d';
+
+export * from './<%= name %>.element';
