@@ -29,6 +29,7 @@
     "web-icons": { "tags": [] },
     "web-avatars": { "tags": [] },
     "web-forms": { "tags": [] },
-    "web-flows": { "tags": [] }
+    "web-flows": { "tags": [] },
+    "shared-util-collection": { "tags": [] }
   }
 }
