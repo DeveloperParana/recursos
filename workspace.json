@@ -651,6 +651,37 @@
           }
         }
       }
+    },
+    "shared-util-collection": {
+      "root": "packages/shared/util-collection",
+      "sourceRoot": "packages/shared/util-collection/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/workspace:tsc",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/packages/shared/util-collection",
+            "main": "packages/shared/util-collection/src/index.ts",
+            "tsConfig": "packages/shared/util-collection/tsconfig.lib.json",
+            "assets": ["packages/shared/util-collection/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["packages/shared/util-collection/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/packages/shared/util-collection"],
+          "options": {
+            "jestConfig": "packages/shared/util-collection/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }

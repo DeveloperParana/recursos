@@ -13,5 +13,6 @@ module.exports = {
     '<rootDir>/packages/web/avatars',
     '<rootDir>/packages/web/forms',
     '<rootDir>/packages/web/flows',
+    '<rootDir>/packages/shared/util-collection',
   ],
 }
