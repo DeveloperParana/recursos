@@ -14,7 +14,16 @@ export class MembroSection extends Section {
         caption="Evolução contrínua"
       ></figure>
       <p>Cresça e ajude crescer, o <br />conhecimento é a base!</p>
-      <h3><span>Compartilhe</span> 😉</h3>
+      <h3>
+        <a
+          target="_blank"
+          class="twitter-share-button"
+          href="https://twitter.com/intent/tweet?text=Conheçam o DevParaná Member Experience. https://devparana.mx/"
+        >
+          Compartilhe
+        </a>
+        😉
+      </h3>
     </article>
   `
 
