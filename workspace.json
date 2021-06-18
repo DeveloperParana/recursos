@@ -415,7 +415,8 @@
             "tsConfig": "apps/presenter/tsconfig.app.json",
             "assets": [
               "apps/presenter/src/favicon.ico",
-              "apps/presenter/src/assets"
+              "apps/presenter/src/assets",
+              "apps/presenter/src/content"
             ],
             "styles": ["apps/presenter/src/styles.scss"],
             "scripts": []

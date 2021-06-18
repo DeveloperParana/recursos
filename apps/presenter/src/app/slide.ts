@@ -22,9 +22,10 @@ export class Slide {
 
   private _dataBinding: DataBinding<string>
   private _html: HTMLDivElement
-  private _nextSlideName: any
-  private _transition: any
-  private _title: any
+  private _nextSlideName: string
+  private _transition: string
+  private _title: string
+  private _styles: string
 
   constructor(text: string) {
     const { content, metadata } = parse(text)
@@ -39,6 +40,10 @@ export class Slide {
     this._html.innerHTML = marked.parse(content)
 
     this._title = metadata.title
+    this._styles = metadata.styles
+
+    this._html.classList.add(this._styles)
+
     // this._html.querySelector('h1')?.innerText
     const transition = this._html.querySelectorAll<HTMLElement>('transition')
 

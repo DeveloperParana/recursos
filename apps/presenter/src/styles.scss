@@ -46,6 +46,23 @@ slide-controls {
   right: 20px;
 }
 
+.justify-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.align-center {
+  text-align: center;
+}
+
+h1 {
+  font-size: clamp(100%, 400%, 500%);
+}
+h2 {
+  font-size: clamp(100%, 300%, 400%);
+}
+
 // @include mobile {
 //   slide-deck {
 //     width: 320px;

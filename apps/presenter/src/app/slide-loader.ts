@@ -32,7 +32,7 @@ export async function loadSlides(start: string) {
  * @internal
  */
 export async function load(name: string) {
-  const response = await fetch(`assets/slides/${name}.md`)
+  const response = await fetch(`/content/${name}.md`)
   const slide = await response.text()
   return new Slide(slide)
   // return new Slide(parse(slide))
@@ -44,7 +44,7 @@ export async function load(name: string) {
  * @internal
  */
 async function loadSlide(name: string) {
-  const response = await fetch(`assets/slides/${name}.html`)
+  const response = await fetch(`/content/${name}.html`)
   const slide = await response.text()
   return new Slide(slide)
 }
