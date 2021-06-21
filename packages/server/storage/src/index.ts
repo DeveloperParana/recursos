@@ -1,1 +1,1 @@
-export * from './lib/server-storage.impl'
+export * from './lib/server-storage.factory'

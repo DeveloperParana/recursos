@@ -35,6 +35,9 @@
     "devector": {
       "tags": ["type:app", "preset:web"]
     },
+    "endpoint": {
+      "tags": []
+    },
     "example": {
       "tags": ["type:app", "preset:web"]
     },

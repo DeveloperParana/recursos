@@ -16,5 +16,6 @@ module.exports = {
     '<rootDir>/packages/shared/util-collection',
     '<rootDir>/packages/core/entities',
     '<rootDir>/packages/server/storage',
+    '<rootDir>/apps/endpoint',
   ],
 }
