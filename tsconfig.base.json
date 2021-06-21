@@ -15,15 +15,19 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@devpr/common-web": ["packages/common/web/src/index.ts"],
       "@devpr/common-elements": ["packages/common/elements/src/index.ts"],
-      "@devpr/web-core": ["packages/web/core/src/index.ts"],
-      "@devpr/web-buttons": ["packages/web/buttons/src/index.ts"],
-      "@devpr/web-icons": ["packages/web/icons/src/index.ts"],
+      "@devpr/common-web": ["packages/common/web/src/index.ts"],
+      "@devpr/core-entities": ["packages/core/entities/src/index.ts"],
+      "@devpr/server-storage": ["packages/server/storage/src/index.ts"],
+      "@devpr/util-collection": [
+        "packages/shared/util-collection/src/index.ts"
+      ],
       "@devpr/web-avatars": ["packages/web/avatars/src/index.ts"],
-      "@devpr/web-forms": ["packages/web/forms/src/index.ts"],
+      "@devpr/web-buttons": ["packages/web/buttons/src/index.ts"],
+      "@devpr/web-core": ["packages/web/core/src/index.ts"],
       "@devpr/web-flows": ["packages/web/flows/src/index.ts"],
-      "@devpr/util-collection": ["packages/shared/util-collection/src/index.ts"]
+      "@devpr/web-forms": ["packages/web/forms/src/index.ts"],
+      "@devpr/web-icons": ["packages/web/icons/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

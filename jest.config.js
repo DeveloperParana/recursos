@@ -14,5 +14,7 @@ module.exports = {
     '<rootDir>/packages/web/forms',
     '<rootDir>/packages/web/flows',
     '<rootDir>/packages/shared/util-collection',
+    '<rootDir>/packages/core/entities',
+    '<rootDir>/packages/server/storage',
   ],
 }
