@@ -38,6 +38,7 @@ module.exports = {
     { name: 'devector', description: 'O app Devector foi alterado' },
     { name: 'presenter', description: 'O app Presenter foi alterado' },
     { name: 'example', description: 'O app Example foi alterado' },
+    { name: 'endpoint', description: 'O app Endpoint foi alterado' },
     { name: 'core-entities', description: 'A lib Core Entities foi alterada' },
     {
       name: 'server-storage',

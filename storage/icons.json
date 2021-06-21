@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Add",
+    "path": "assets/icons/svg/add.svg",
+    "id": 0
+  },
+  {
+    "name": "Adidas",
+    "path": "assets/icons/svg/adidas.svg",
+    "id": 1
+  }
+]
