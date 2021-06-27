@@ -1,3 +1,4 @@
+import '@devpr/web-core'
 import { AppElement } from './app.element'
 
 const whenDefined = (selector: string, fn: () => void) => {
@@ -16,10 +17,10 @@ describe('AppElement', () => {
   })
 
   it('should call connected callback', () => {
-    spyOn(app, 'connectedCallback')
-    app.connectedCallback()
+    jest.spyOn(app, 'connected')
     whenDefined('devpr-root', () => {
-      expect(app.connectedCallback).toHaveBeenCalledTimes(1)
+      app.connected()
+      expect(app.connected).toHaveBeenCalledTimes(1)
     })
   })
 })

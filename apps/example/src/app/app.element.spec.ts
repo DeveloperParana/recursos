@@ -12,9 +12,9 @@ describe('AppElement', () => {
   })
 
   it('should have a greeting', () => {
-    spyOn(app, 'connectedCallback')
-    app.connectedCallback()
+    jest.spyOn(app, 'connected')
 
-    expect(app.connectedCallback).toHaveBeenCalledTimes(1)
+    app.connected()
+    expect(app.connected).toHaveBeenCalledTimes(1)
   })
 })

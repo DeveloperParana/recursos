@@ -1,6 +1,9 @@
-import { css, html, CustomElement, eventTarget } from '@devpr/common-web'
+import { css, html, Autonomous } from '@devpr/web-core'
 
-@CustomElement('devpr-root')
+@Autonomous({
+  selector: 'devpr-root',
+  mode: 'open',
+})
 export class AppElement extends HTMLElement {
   title = 'DevPR Screen'
 
@@ -14,7 +17,51 @@ export class AppElement extends HTMLElement {
   link: HTMLAnchorElement
 
   get styles() {
-    return css``
+    return css`
+      main {
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 800px;
+        margin: 0px auto;
+        flex: 1;
+      }
+
+      section {
+        flex: 1;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      section video {
+        position: absolute;
+        width: 100%;
+        max-width: 100%;
+        border-radius: 8px;
+        overflow: hidden;
+        background: rgba(0, 0, 0, 0.1);
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 80px;
+        position: relative;
+      }
+      nav > div {
+        gap: 16px;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+        align-content: center;
+      }
+    `
   }
 
   get template() {
@@ -26,19 +73,27 @@ export class AppElement extends HTMLElement {
         </section>
         <nav>
           <div>
-            <button is="devpr-button" id="start">Start camera</button>
+            <button is="outlined-button" id="start">
+              <bs-icon slot="suffix" icon="external"></bs-icon>
+            </button>
+
+            <button is="outlined-button" mode="outlined" id="record" disabled>
+              <bs-icon slot="prefix" icon="record"></bs-icon>
+              <!-- <span>Gravar</span> -->
+            </button>
+
             <label is="devpr-checkbox">
               <input type="checkbox" name="muted" />
               <span>Mute</span>
             </label>
-            <button is="devpr-button" mode="outlined" id="record" disabled>
-              Start Recording
-            </button>
           </div>
           <div>
-            <button is="devpr-button" id="play" disabled>Play</button>
-            <button is="devpr-button" mode="outlined" id="download" disabled>
-              Download
+            <button is="outlined-button" id="play" disabled>
+              <bs-icon slot="prefix" icon="play"></bs-icon>
+            </button>
+            <template> </template>
+            <button is="outlined-button" mode="outlined" id="download" disabled>
+              <bs-icon slot="prefix" icon="download"></bs-icon>
             </button>
           </div>
         </nav>
@@ -48,27 +103,30 @@ export class AppElement extends HTMLElement {
     `
   }
 
-  connectedCallback() {
+  connected() {
     this.button = {
-      play: this.querySelector('#play'),
-      start: this.querySelector('#start'),
-      record: this.querySelector('#record'),
-      download: this.querySelector('#download'),
+      play: this.shadowRoot.querySelector('#play'),
+      start: this.shadowRoot.querySelector('#start'),
+      record: this.shadowRoot.querySelector('#record'),
+      download: this.shadowRoot.querySelector('#download'),
     }
 
     this.video = {
-      recorder: this.querySelector('#recorder'),
-      recorded: this.querySelector('#recorded'),
+      recorder: this.shadowRoot.querySelector('#recorder'),
+      recorded: this.shadowRoot.querySelector('#recorded'),
     }
 
-    this.link = this.querySelector('#downlink')
+    this.link = this.shadowRoot.querySelector('#downlink')
 
-    this.button.record.onclick = eventTarget(this.onRecord.bind(this))
+    // this.button.record.onclick = eventTarget(this.onRecord.bind(this))
+    this.button.record.onclick = (event: PointerEvent) => {
+      this.onRecord(event.currentTarget as HTMLButtonElement)
+    }
     this.button.download.onclick = this.onDownload.bind(this)
     this.button.start.onclick = this.onStart.bind(this)
     this.button.play.onclick = this.onPlay.bind(this)
 
-    const check = this.querySelector('input')
+    const check = this.shadowRoot.querySelector('input')
     check.onchange = ({ target }) => {
       const { checked } = target as HTMLInputElement
       this.video.recorder.muted = checked
@@ -79,7 +137,6 @@ export class AppElement extends HTMLElement {
 
   onStart() {
     const constraints = { video: { width: 1920, height: 1080 }, audio: true }
-
     this.init(constraints)
       .then((stream) => {
         this.stream = stream
@@ -103,10 +160,10 @@ export class AppElement extends HTMLElement {
 
     if (state && state === 'recording') {
       this.mediaRecorder.stop()
-      button.textContent = 'Start'
+      button.querySelector('bs-icon').setAttribute('icon', 'record')
     } else {
+      button.querySelector('bs-icon').setAttribute('icon', 'pause')
       this.startRecording()
-      button.textContent = 'Stop'
     }
   }
 

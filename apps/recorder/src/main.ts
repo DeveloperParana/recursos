@@ -1,2 +1,5 @@
-import '@devpr/common-elements'
+import '@devpr/web-core'
+import '@devpr/web-icons'
+import '@devpr/web-buttons'
+import './app/app.element'
 import './app/app.element'
