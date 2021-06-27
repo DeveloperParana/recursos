@@ -8,7 +8,14 @@ export class BsIconElement extends Component(HTMLElement) implements Connected {
   static observed = ['href', 'icon', 'color', 'size']
 
   public href = 'assets/icons/bs-icons.svg'
-  public icon = ''
+  public _icon = ''
+  get icon() {
+    return this._icon
+  }
+  set icon(v: string) {
+    this._icon = v
+    this.setIcon(this.icon)
+  }
 
   public color: string
   public size: string
@@ -37,6 +44,8 @@ export class BsIconElement extends Component(HTMLElement) implements Connected {
 
   setIcon(icon: string) {
     const href = `${this.href}#${icon}`
-    this.use.setAttribute('xlink:href', href)
+    if (this.use) {
+      this.use.setAttribute('xlink:href', href)
+    }
   }
 }
