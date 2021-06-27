@@ -9,4 +9,3 @@ jobs:
       - uses: actions/checkout@v1
       - run: echo '${{ github.event.client_payload.tokens }}' > design/tokens/properties/${{ github.event.client_payload.tokenFileName }}
       - run: npm run design-tokens
-

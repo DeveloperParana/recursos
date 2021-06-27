@@ -35,7 +35,7 @@ jobs:
       - name: Test
         run: npm run affected:test -- --base=origin/main
       - name: Build
-        run: npm run affected:build -- --base=origin/main
+        run: npm run affected:build -- --base=origin/main --with-deps
       - name: Mapper
         run: npx nx affected --target mapper --base=origin/main
       - name: Release
