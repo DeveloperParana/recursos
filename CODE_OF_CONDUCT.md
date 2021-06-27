@@ -22,12 +22,12 @@
 
 1. ## Conduta
 
-      1. O Dev Paraná é uma comunidade dedicada a oferecer um ambiente livre de assédio para todos, independentemente do sexo, identidade de gênero e expressão, idade, orientação sexual, deficiência, aparência física, tamanho corporal, cor de pele, etnia, religião (ou falta dela) ou escolhas de tecnologias.
+   1. O Dev Paraná é uma comunidade dedicada a oferecer um ambiente livre de assédio para todos, independentemente do sexo, identidade de gênero e expressão, idade, orientação sexual, deficiência, aparência física, tamanho corporal, cor de pele, etnia, religião (ou falta dela) ou escolhas de tecnologias.
 
-      1. Nós não toleramos o assédio aos participantes da comunidade, sob qualquer forma.
+   1. Nós não toleramos o assédio aos participantes da comunidade, sob qualquer forma.
 
-      1. Linguagem e imagens sexuais não são apropriadas em nenhum espaço, incluindo palestras, workshops, festas, canais do Slack, discussões do Meetup e outras mídias on-line. Os participantes que violarem essas regras poderão ser expulsos e banidos do Slack e do Meetup do Dev Paraná. A punição pode ir desde a expulsão do membro, até ser banido de eventos futuros promovidos pelo Dev Paraná.
+   1. Linguagem e imagens sexuais não são apropriadas em nenhum espaço, incluindo palestras, workshops, festas, canais do Slack, discussões do Meetup e outras mídias on-line. Os participantes que violarem essas regras poderão ser expulsos e banidos do Slack e do Meetup do Dev Paraná. A punição pode ir desde a expulsão do membro, até ser banido de eventos futuros promovidos pelo Dev Paraná.
 
 ### Referência
-  
+
 - <http://confcodeofconduct.com/>

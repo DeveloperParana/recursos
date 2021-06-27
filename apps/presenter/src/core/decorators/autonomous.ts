@@ -8,13 +8,13 @@ export function Autonomous({ selector, ...opts }: AutonomousOptions) {
     const connected = lifecycle.conn(target)
     const attribute = lifecycle.attr(target)
 
-    ;(target as unknown as Component).selector = selector
+    ;((target as unknown) as Component).selector = selector
 
-    const styles = (target as unknown as Component)?.styles
+    const styles = ((target as unknown) as Component)?.styles
 
-    const template = (target as unknown as Component)?.template
+    const template = ((target as unknown) as Component)?.template
 
-    const observed = (target as unknown as Component)?.observed
+    const observed = ((target as unknown) as Component)?.observed
 
     ;(target as any).observedAttributes = observed
 
