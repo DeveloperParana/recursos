@@ -14,7 +14,12 @@
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e"
+        ]
       }
     }
   },
@@ -24,32 +29,51 @@
   },
   "projects": {
     "common-elements": {
-      "tags": ["type:package"]
+      "tags": [
+        "type:package"
+      ]
     },
     "common-web": {
-      "tags": ["type:package"]
+      "tags": [
+        "type:package"
+      ]
     },
     "core-entities": {
       "tags": []
     },
     "devector": {
-      "tags": ["type:app", "preset:web"]
+      "tags": [
+        "type:app",
+        "preset:web"
+      ]
     },
     "endpoint": {
       "tags": []
     },
     "example": {
-      "tags": ["type:app", "preset:web"]
+      "tags": [
+        "type:app",
+        "preset:web"
+      ]
     },
     "presenter": {
-      "tags": ["type:app"]
+      "tags": [
+        "type:app"
+      ]
     },
     "recorder": {
-      "tags": ["type:app", "preset:web"]
+      "tags": [
+        "type:app",
+        "preset:web"
+      ]
     },
     "recorder-e2e": {
-      "tags": ["type:e2e"],
-      "implicitDependencies": ["recorder"]
+      "tags": [
+        "type:e2e"
+      ],
+      "implicitDependencies": [
+        "recorder"
+      ]
     },
     "server-storage": {
       "tags": []
@@ -76,7 +100,10 @@
       "tags": []
     },
     "website": {
-      "tags": ["type:app", "preset:web"]
+      "tags": [
+        "type:app",
+        "preset:web"
+      ]
     }
   }
 }

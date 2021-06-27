@@ -171,7 +171,7 @@ export class AppElement extends HTMLElement {
     <!-- <table-page></table-page> -->
   `
 
-  connectedCallback() {
+  connected() {
     console.log('example')
   }
 }

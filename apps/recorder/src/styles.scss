@@ -1,5 +1,6 @@
 @import 'theming/variables';
 @import 'scss/elements';
+@import 'scss/variables';
 
 html,
 body {
@@ -36,50 +37,5 @@ devpr-root {
     background-size: contain;
     opacity: 0.02;
     z-index: 0;
-  }
-}
-
-main {
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 800px;
-  margin: 0px auto;
-  flex: 1;
-}
-
-section {
-  flex: 1;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-section video {
-  position: absolute;
-  width: 100%;
-  max-width: 100%;
-  border-radius: 8px;
-  overflow: hidden;
-  background: rgba(0, 0, 0, 0.1);
-}
-
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 80px;
-  position: relative;
-
-  > div {
-    gap: 16px;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
-    align-content: center;
   }
 }
