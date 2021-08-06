@@ -32,6 +32,7 @@ module.exports = {
   ],
 
   scopes: [
+    { name: 'conf-2021', description: 'App DevPR Conf 2021' },
     { name: 'talk-show', description: 'Pauta do talk show' },
     { name: 'website', description: 'O website foi alterado' },
     { name: 'recorder', description: 'O app Recorder foi alterado' },

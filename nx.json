@@ -29,6 +29,13 @@
     "common-web": {
       "tags": ["type:package"]
     },
+    "conf": {
+      "tags": ["type:app"]
+    },
+    "conf-e2e": {
+      "tags": [],
+      "implicitDependencies": ["conf"]
+    },
     "core-entities": {
       "tags": []
     },
