@@ -44,6 +44,8 @@
   },
   "private": false,
   "dependencies": {
+    "@ffmpeg/core": "^0.10.0",
+    "@ffmpeg/ffmpeg": "^0.10.1",
     "@ungap/custom-elements": "^1.0.0",
     "core-js": "^3.6.5",
     "document-register-element": "1.13.1",

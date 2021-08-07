@@ -96,6 +96,14 @@ export const textStyles = css`
     fill: var(--grey-03);
   }
 
+  button[is='text-button'][type='submit']:disabled bs-icon,
+  button[is='text-button'].cancel:disabled bs-icon,
+  button[is='text-button'].delete:disabled bs-icon,
+  button[is='text-button']:disabled bs-icon {
+    color: var(--grey-03);
+    fill: var(--grey-03);
+  }
+
   button[is='text-button'][type='submit'] > bs-icon,
   button[is='text-button'][type='submit']:hover > bs-icon {
     border-color: transparent;

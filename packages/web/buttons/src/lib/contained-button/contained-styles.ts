@@ -102,6 +102,14 @@ export const containedStyles = css`
     filter: none;
   }
 
+  button[is='contained-button'][type='submit']:disabled bs-icon,
+  button[is='contained-button'].cancel:disabled bs-icon,
+  button[is='contained-button'].delete:disabled bs-icon,
+  button[is='contained-button']:disabled bs-icon {
+    color: var(--grey-02);
+    fill: var(--grey-02);
+  }
+
   button[is='contained-button'][type='submit'],
   button[is='contained-button'][type='submit']:hover {
     color: var(--green-01);
