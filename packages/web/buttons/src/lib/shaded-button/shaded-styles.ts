@@ -100,6 +100,14 @@ export const shadedStyles = css`
     fill: var(--grey-03);
   }
 
+  button[is='shaded-button'][type='submit']:disabled bs-icon,
+  button[is='shaded-button'].cancel:disabled bs-icon,
+  button[is='shaded-button'].delete:disabled bs-icon,
+  button[is='shaded-button']:disabled bs-icon {
+    color: var(--grey-03);
+    fill: var(--grey-03);
+  }
+
   button[is='shaded-button'][type='submit'],
   button[is='shaded-button'][type='submit']:hover {
     color: var(--green-06);

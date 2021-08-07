@@ -1,18 +1,32 @@
+import { createFFmpeg, fetchFile, FFmpeg } from '@ffmpeg/ffmpeg'
 import { css, html, Autonomous } from '@devpr/web-core'
+
+let ffmpeg: FFmpeg = null
+
+type ActionButton = 'play' | 'start' | 'record' | 'download'
+
+const getCurrentDate = () =>
+  Date()
+    .toString()
+    .split('GMT')
+    .shift()
+    .trim()
+    .replace(new RegExp(' ', 'g'), '-')
 
 @Autonomous({
   selector: 'devpr-root',
   mode: 'open',
 })
 export class AppElement extends HTMLElement {
-  title = 'DevPR Screen'
-
   mimeType: string
   stream: MediaStream
   mediaRecorder: MediaRecorder
   recordedBlobs: Blob[] = []
 
-  button: Record<'play' | 'start' | 'record' | 'download', HTMLButtonElement>
+  button: Record<ActionButton, HTMLButtonElement>
+
+  transcode: NodeListOf<HTMLButtonElement>
+
   video: Record<'recorder' | 'recorded', HTMLVideoElement>
   link: HTMLAnchorElement
 
@@ -68,32 +82,56 @@ export class AppElement extends HTMLElement {
         <video id="recorder" playsinline autoplay></video>
         <video id="recorded" playsinline loop></video>
       </section>
+
+      <!-- <video-gif></video-gif> -->
+
       <nav>
         <div>
           <button is="outlined-button" id="start">
-            <bs-icon slot="suffix" icon="external"></bs-icon>
+            <bs-icon slot="prefix" icon="cast"></bs-icon>
+            <span>Capturar</span>
           </button>
 
           <button is="outlined-button" mode="outlined" id="record" disabled>
             <bs-icon slot="prefix" icon="record"></bs-icon>
-            <!-- <span>Gravar</span> -->
+            <span>Gravar</span>
           </button>
-
-          <label is="devpr-checkbox">
-            <input type="checkbox" name="muted" />
-            <span>Mute</span>
-          </label>
         </div>
         <div>
           <button is="outlined-button" id="play" disabled>
             <bs-icon slot="prefix" icon="play"></bs-icon>
+            <span>Play</span>
           </button>
-          <template> </template>
+
           <button is="outlined-button" mode="outlined" id="download" disabled>
             <bs-icon slot="prefix" icon="download"></bs-icon>
+            <span>WebM</span>
+          </button>
+
+          <button
+            is="outlined-button"
+            mode="outlined"
+            class="transcode"
+            data-format="mp4"
+            disabled
+          >
+            <bs-icon slot="prefix" icon="slow_motion_video"></bs-icon>
+            <span>MP4</span>
+          </button>
+
+          <button
+            is="outlined-button"
+            mode="outlined"
+            class="transcode"
+            data-format="gif"
+            disabled
+          >
+            <bs-icon slot="prefix" icon="motion_photos_auto"></bs-icon>
+            <span>GIF</span>
           </button>
         </div>
       </nav>
+
       <a id="downlink" download></a>
       <output id="error-message"></output>
     </main>
@@ -108,6 +146,8 @@ export class AppElement extends HTMLElement {
         download: this.shadowRoot?.querySelector('#download'),
       }
 
+      this.transcode = this.shadowRoot?.querySelectorAll('.transcode')
+
       this.video = {
         recorder: this.shadowRoot?.querySelector('#recorder'),
         recorded: this.shadowRoot?.querySelector('#recorded'),
@@ -115,19 +155,23 @@ export class AppElement extends HTMLElement {
 
       this.link = this.shadowRoot?.querySelector('#downlink')
 
-      // this.button.record.onclick = eventTarget(this.onRecord.bind(this))
       this.button.record.onclick = (event: PointerEvent) => {
         this.onRecord(event.currentTarget as HTMLButtonElement)
       }
+
+      this.transcode.forEach((button) => {
+        button.onclick = (event) => {
+          this.onTranscode(
+            event.currentTarget as HTMLButtonElement,
+            button.dataset.format
+          )
+        }
+      })
+
       this.button.download.onclick = this.onDownload.bind(this)
       this.button.start.onclick = this.onStart.bind(this)
       this.button.play.onclick = this.onPlay.bind(this)
-
-      const check = this.shadowRoot?.querySelector('input')
-      check.onchange = ({ target }) => {
-        const { checked } = target as HTMLInputElement
-        this.video.recorder.muted = checked
-      }
+      this.video.recorder.muted = true
 
       this.button.start.focus()
     }
@@ -172,6 +216,88 @@ export class AppElement extends HTMLElement {
     this.link.click()
   }
 
+  // onTranscode() {
+  //   const blob = new Blob(this.recordedBlobs, { type: this.mimeType })
+
+  //   if (ffmpeg === null) {
+  //     ffmpeg = createFFmpeg({
+  //       corePath: 'assets/ffmpeg/ffmpeg-core.js',
+  //       log: true,
+  //     })
+  //   }
+
+  //   const btn = this.button.transcode
+  //   const span = btn.querySelector('span')
+
+  //   const transcode = async () => {
+  //     span.textContent = 'Convertendo...'
+  //     btn.disabled = true
+
+  //     if (!ffmpeg.isLoaded()) {
+  //       await ffmpeg.load()
+  //     }
+
+  //     ffmpeg.FS('writeFile', 'video.webm', await fetchFile(blob))
+  //     await ffmpeg.run('-i', 'video.webm', 'video.mp4')
+  //     const data = ffmpeg.FS('readFile', 'video.mp4')
+
+  //     this.link.href = URL.createObjectURL(new Blob([data.buffer], { type: 'video/mp4' }));
+  //     this.link.download = 'video.mp4'
+  //     this.link.click()
+  //   }
+
+  //   transcode().then(() => {
+  //     span.textContent = 'Converter para MP4'
+  //     btn.disabled = false
+  //   })
+  // }
+
+  onTranscode(target: HTMLButtonElement, format = 'mp4') {
+    const blob = new Blob(this.recordedBlobs, { type: this.mimeType })
+
+    if (ffmpeg === null) {
+      ffmpeg = createFFmpeg({
+        corePath: 'assets/ffmpeg/ffmpeg-core.js',
+        log: true,
+      })
+    }
+
+    // const btn = this.button.transcode
+    const span = target.querySelector('span')
+
+    const transcode = async () => {
+      const time = ['-t', '2.5']
+      const ss = ['-ss', '2.0']
+      const out = ['-f', format]
+
+      span.textContent = 'Convertendo...'
+      target.disabled = true
+
+      if (!ffmpeg.isLoaded()) {
+        await ffmpeg.load()
+      }
+
+      ffmpeg.FS('writeFile', 'video.webm', await fetchFile(blob))
+
+      const params = format === 'gif' ? [...time, ...ss, ...out] : [...out]
+
+      await ffmpeg.run('-i', 'video.webm', ...params, 'video.' + format)
+
+      const data = ffmpeg.FS('readFile', 'video.' + format)
+
+      this.link.href = URL.createObjectURL(
+        new Blob([data.buffer], { type: 'video/' + format })
+      )
+      this.link.download = getCurrentDate() + '.' + format
+      this.link.click()
+    }
+
+    transcode().then(() => {
+      span.textContent = format.toUpperCase()
+      target.disabled = false
+    })
+  }
+
   // Core
   startRecording() {
     this.recordedBlobs = []
@@ -207,6 +333,7 @@ export class AppElement extends HTMLElement {
       this.mediaRecorder.onstop = () => {
         this.button.play.disabled = false
         this.button.download.disabled = false
+        this.transcode.forEach((button) => (button.disabled = false))
         this.button.play.focus()
       }
     } catch (err) {

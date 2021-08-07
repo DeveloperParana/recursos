@@ -96,6 +96,14 @@ export const outlinedStyles = css`
     fill: var(--grey-03);
   }
 
+  button[is='outlined-button'][type='submit']:disabled bs-icon,
+  button[is='outlined-button'].cancel:disabled bs-icon,
+  button[is='outlined-button'].delete:disabled bs-icon,
+  button[is='outlined-button']:disabled bs-icon {
+    color: var(--grey-03);
+    fill: var(--grey-03);
+  }
+
   button[is='outlined-button'][type='submit'],
   button[is='outlined-button'][type='submit']:hover {
     color: var(--green-05);

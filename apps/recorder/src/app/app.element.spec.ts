@@ -5,7 +5,6 @@ describe('AppElement', () => {
 
   beforeEach(() => {
     app = new AppElement()
-    // app = document.createElement('devpr-root') as AppElement
   })
 
   it('should create successfully', () => {
