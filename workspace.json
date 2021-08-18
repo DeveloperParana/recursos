@@ -426,7 +426,7 @@
           "executor": "@nrwl/web:build",
           "outputs": ["{options.outputPath}"],
           "options": {
-            "outputPath": "dist/apps/recorder",
+            "outputPath": "dist/apps/website/recorder",
             "index": "apps/recorder/src/index.html",
             "main": "apps/recorder/src/main.ts",
             "polyfills": "apps/recorder/src/polyfills.ts",
@@ -452,6 +452,28 @@
                 {
                   "replace": "apps/recorder/src/environments/environment.ts",
                   "with": "apps/recorder/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            },
+            "mx": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/recorder/src/environments/environment.ts",
+                  "with": "apps/recorder/src/environments/environment.mx.ts"
                 }
               ],
               "optimization": true,
@@ -861,6 +883,14 @@
           "options": {
             "jestConfig": "apps/website/jest.config.js",
             "passWithNoTests": true
+          }
+        },
+        "move-recorder": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "mv recorder website/",
+            "cwd": "dist/apps",
+            "parallel": false
           }
         }
       }

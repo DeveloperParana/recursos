@@ -26,16 +26,17 @@ devpr-root {
   border-radius: 12px;
   flex-direction: column;
   &::after {
-    top: 0;
+    top: 20px;
     bottom: 0;
+    right: 20px;
     content: '';
     width: 100%;
     position: absolute;
     background-image: url(assets/images/devparana.svg);
     background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    opacity: 0.02;
+    background-position: right top;
+    background-size: 400px;
+    opacity: 0.5;
     z-index: 0;
   }
 }

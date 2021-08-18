@@ -32,10 +32,12 @@ export const containedStyles = css`
 
   button[is='contained-button'] > [slot='prefix'] {
     margin-left: 0;
+    margin-right: 0;
     order: 0;
   }
 
   button[is='contained-button'] > [slot='suffix'] {
+    margin-left: 0;
     margin-right: 0;
     order: 2;
   }

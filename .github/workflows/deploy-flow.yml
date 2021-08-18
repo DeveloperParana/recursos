@@ -29,17 +29,11 @@ jobs:
       - name: Unit Tests
         run: npm run affected:test -- --base origin/main
 
-      # - name: Build, Release on GitHub & Publish to NPM
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      #   run: npm run release
-
-      - name: Build affected projects
-        run: npm run affected:build -- --base origin/main --with-deps --prod
-
       - name: Build website
-        run: npm run build -- --with-deps --prod
+        run: npm run build website -- --with-deps --prod
+
+      - name: Build Recorder
+        run: npm run build recorder --baseHref=/recorder/ --configuration=mx
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

@@ -31,11 +31,13 @@ export const outlinedStyles = css`
   }
 
   button[is='outlined-button'] > [slot='prefix'] {
+    margin-right: 0;
     margin-left: 0;
     order: 0;
   }
 
   button[is='outlined-button'] > [slot='suffix'] {
+    margin-left: 0;
     margin-right: 0;
     order: 2;
   }
