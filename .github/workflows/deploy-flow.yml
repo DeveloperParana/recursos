@@ -33,7 +33,7 @@ jobs:
         run: npm run build website -- --with-deps --prod
 
       - name: Build Recorder
-        run: npm run build recorder --baseHref=/recorder/ --configuration=mx
+        run: npm run build recorder -- --baseHref=/recorder/ --configuration=mx
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
