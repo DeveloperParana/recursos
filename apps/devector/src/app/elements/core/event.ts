@@ -19,27 +19,28 @@ import { Emitter } from './emitter'
  * @returns
  */
 export function event() {
-  return (protoOrDescriptor: HTMLElement & { key?: string }, name: string) => {
+  // return (protoOrDescriptor: PropertyDecorator & { key: PropertyKey }, name: string) => {
+  return (target: any, propertyKey: string | symbol) => {
     const descriptor = {
       get(this: HTMLElement) {
-        return new Emitter(
+        return new Emitter<string | symbol>(
           this,
-          name !== undefined ? name : protoOrDescriptor.key
+          propertyKey !== undefined ? propertyKey.toString() : target.key
         )
       },
       enumerable: true,
       configurable: true,
     }
 
-    if (name !== undefined) {
+    if (propertyKey !== undefined) {
       // legacy TS decorator
-      return Object.defineProperty(protoOrDescriptor, name, descriptor)
+      return Object.defineProperty(target, propertyKey, descriptor)
     } else {
       // TC39 Decorators proposal
       return {
         kind: 'method',
         placement: 'prototype',
-        key: protoOrDescriptor.key,
+        key: target.key,
         descriptor,
       }
     }

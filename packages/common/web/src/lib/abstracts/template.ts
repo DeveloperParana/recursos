@@ -1,6 +1,6 @@
 export abstract class Template extends HTMLElement {
   static selector?: string
 
-  abstract styles = ``
-  abstract template = ``
+  abstract styles: string
+  abstract template: string
 }

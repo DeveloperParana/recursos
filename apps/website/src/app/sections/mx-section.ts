@@ -4,7 +4,8 @@ import { Section } from './../section/section'
 @BuiltInElement('devpr-mx-section', 'section')
 export class MxSection extends Section {
   innerHTML = html`
-    <devpr-member></devpr-member>
+    <!-- <devpr-member></devpr-member> -->
+    <devpr-pair></devpr-pair>
     <article>
       <div>
         <devpr-heading> Dev Paraná </devpr-heading>

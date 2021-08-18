@@ -1,17 +1,8 @@
-import { createFFmpeg, fetchFile, FFmpeg } from '@ffmpeg/ffmpeg'
 import { css, html, Autonomous } from '@devpr/web-core'
+import { environment } from '../environments/environment'
+import { Transcoder } from './utilities/transcoder'
 
-let ffmpeg: FFmpeg = null
-
-type ActionButton = 'play' | 'start' | 'record' | 'download'
-
-const getCurrentDate = () =>
-  Date()
-    .toString()
-    .split('GMT')
-    .shift()
-    .trim()
-    .replace(new RegExp(' ', 'g'), '-')
+type ActionButton = 'play' | 'camera' | 'start' | 'record' | 'download'
 
 @Autonomous({
   selector: 'devpr-root',
@@ -31,6 +22,12 @@ export class AppElement extends HTMLElement {
   link: HTMLAnchorElement
 
   styles = css`
+    :host {
+      background-image: url('assets/images/pair-programming.svg');
+      background-position: left bottom;
+      background-repeat: no-repeat;
+    }
+
     main {
       z-index: 2;
       display: flex;
@@ -87,9 +84,12 @@ export class AppElement extends HTMLElement {
 
       <nav>
         <div>
-          <button is="outlined-button" id="start">
+          <button is="outlined-button" id="start-screen">
             <bs-icon slot="prefix" icon="cast"></bs-icon>
-            <span>Capturar</span>
+          </button>
+
+          <button is="outlined-button" id="start-camera">
+            <bs-icon slot="prefix" icon="video_camera_front"></bs-icon>
           </button>
 
           <button is="outlined-button" mode="outlined" id="record" disabled>
@@ -141,7 +141,8 @@ export class AppElement extends HTMLElement {
     if (this.shadowRoot) {
       this.button = {
         play: this.shadowRoot?.querySelector('#play'),
-        start: this.shadowRoot?.querySelector('#start'),
+        start: this.shadowRoot?.querySelector('#start-screen'),
+        camera: this.shadowRoot?.querySelector('#start-camera'),
         record: this.shadowRoot?.querySelector('#record'),
         download: this.shadowRoot?.querySelector('#download'),
       }
@@ -159,42 +160,78 @@ export class AppElement extends HTMLElement {
         this.onRecord(event.currentTarget as HTMLButtonElement)
       }
 
+      const transcoder = new Transcoder()
+
       this.transcode.forEach((button) => {
-        button.onclick = (event) => {
-          this.onTranscode(
-            event.currentTarget as HTMLButtonElement,
-            button.dataset.format
-          )
+        button.onclick = ({ currentTarget }) => {
+          this.toggleButtons()
+
+          transcoder
+            .onTranscode(
+              this.mimeType,
+              this.recordedBlobs,
+              currentTarget as HTMLButtonElement,
+              button.dataset.format
+            )
+            .then(() => {
+              this.toggleButtons()
+            })
         }
       })
 
-      this.button.download.onclick = this.onDownload.bind(this)
-      this.button.start.onclick = this.onStart.bind(this)
-      this.button.play.onclick = this.onPlay.bind(this)
+      this.button.download.onclick = this.onDownload()
+      this.button.start.onclick = this.onStart()
+      this.button.play.onclick = this.onPlay()
+      this.button.camera.onclick = this.onCamera()
       this.video.recorder.muted = true
 
       this.button.start.focus()
+
+      const head = document.head
+      const selector = 'meta[http-equiv]'
+      const meta = head.querySelector<HTMLMetaElement>(selector)
+      meta.content = environment.originToken
     }
   }
 
   onStart() {
-    const constraints = { video: { width: 1920, height: 1080 }, audio: true }
-    this.init(constraints)
-      .then((stream) => {
-        this.stream = stream
-        this.button.start.disabled = true
-        this.button.record.disabled = false
-        this.video.recorder.srcObject = stream
-      })
-      .then(() => this.button.record.focus())
+    return () => {
+      const constraints = { video: { width: 1920, height: 1080 }, audio: true }
+      this.init(constraints)
+        .then((stream) => {
+          this.stream = stream
+          this.button.start.disabled = true
+          this.button.camera.disabled = true
+          this.button.record.disabled = false
+          this.video.recorder.srcObject = stream
+        })
+        .then(() => this.button.record.focus())
+    }
+  }
+
+  onCamera() {
+    return () => {
+      const constraints = { video: { width: 1920, height: 1080 }, audio: true }
+      this.initCamera(constraints)
+        .then((stream) => {
+          this.stream = stream
+          this.button.start.disabled = true
+          this.button.camera.disabled = true
+          this.button.record.disabled = false
+          this.video.recorder.srcObject = stream
+        })
+        .then(() => this.button.record.focus())
+    }
   }
 
   onPlay() {
-    const blob = new Blob(this.recordedBlobs, { type: this.mimeType })
-    this.video.recorded.src = URL.createObjectURL(blob)
-    this.video.recorded.controls = true
-    this.video.recorded.play()
-    this.button.download.focus()
+    return () => {
+      const blob = new Blob(this.recordedBlobs, { type: this.mimeType })
+      this.video.recorded.src = URL.createObjectURL(blob)
+      this.video.recorded.controls = true
+      this.video.recorded.play()
+      this.button.download.focus()
+    }
   }
 
   onRecord(button: HTMLButtonElement) {
@@ -209,93 +246,18 @@ export class AppElement extends HTMLElement {
     }
   }
 
-  onDownload() {
-    const blob = new Blob(this.recordedBlobs, { type: this.mimeType })
-    this.link.href = URL.createObjectURL(blob)
-    this.link.download = 'video.webm'
-    this.link.click()
+  toggleButtons() {
+    const buttons = this.shadowRoot.querySelectorAll('button')
+    buttons.forEach((btn) => (btn.disabled = !btn.disabled))
   }
 
-  // onTranscode() {
-  //   const blob = new Blob(this.recordedBlobs, { type: this.mimeType })
-
-  //   if (ffmpeg === null) {
-  //     ffmpeg = createFFmpeg({
-  //       corePath: 'assets/ffmpeg/ffmpeg-core.js',
-  //       log: true,
-  //     })
-  //   }
-
-  //   const btn = this.button.transcode
-  //   const span = btn.querySelector('span')
-
-  //   const transcode = async () => {
-  //     span.textContent = 'Convertendo...'
-  //     btn.disabled = true
-
-  //     if (!ffmpeg.isLoaded()) {
-  //       await ffmpeg.load()
-  //     }
-
-  //     ffmpeg.FS('writeFile', 'video.webm', await fetchFile(blob))
-  //     await ffmpeg.run('-i', 'video.webm', 'video.mp4')
-  //     const data = ffmpeg.FS('readFile', 'video.mp4')
-
-  //     this.link.href = URL.createObjectURL(new Blob([data.buffer], { type: 'video/mp4' }));
-  //     this.link.download = 'video.mp4'
-  //     this.link.click()
-  //   }
-
-  //   transcode().then(() => {
-  //     span.textContent = 'Converter para MP4'
-  //     btn.disabled = false
-  //   })
-  // }
-
-  onTranscode(target: HTMLButtonElement, format = 'mp4') {
-    const blob = new Blob(this.recordedBlobs, { type: this.mimeType })
-
-    if (ffmpeg === null) {
-      ffmpeg = createFFmpeg({
-        corePath: 'assets/ffmpeg/ffmpeg-core.js',
-        log: true,
-      })
-    }
-
-    // const btn = this.button.transcode
-    const span = target.querySelector('span')
-
-    const transcode = async () => {
-      const time = ['-t', '2.5']
-      const ss = ['-ss', '2.0']
-      const out = ['-f', format]
-
-      span.textContent = 'Convertendo...'
-      target.disabled = true
-
-      if (!ffmpeg.isLoaded()) {
-        await ffmpeg.load()
-      }
-
-      ffmpeg.FS('writeFile', 'video.webm', await fetchFile(blob))
-
-      const params = format === 'gif' ? [...time, ...ss, ...out] : [...out]
-
-      await ffmpeg.run('-i', 'video.webm', ...params, 'video.' + format)
-
-      const data = ffmpeg.FS('readFile', 'video.' + format)
-
-      this.link.href = URL.createObjectURL(
-        new Blob([data.buffer], { type: 'video/' + format })
-      )
-      this.link.download = getCurrentDate() + '.' + format
+  onDownload() {
+    return () => {
+      const blob = new Blob(this.recordedBlobs, { type: this.mimeType })
+      this.link.href = URL.createObjectURL(blob)
+      this.link.download = 'video.webm'
       this.link.click()
     }
-
-    transcode().then(() => {
-      span.textContent = format.toUpperCase()
-      target.disabled = false
-    })
   }
 
   // Core
@@ -342,6 +304,10 @@ export class AppElement extends HTMLElement {
   }
 
   async init({ video, audio }: MediaStreamConstraints) {
+    const meta =
+      document.head.querySelector<HTMLMetaElement>('meta[http-equiv]')
+    meta.content = environment.originToken
+
     try {
       const display = await this.getDisplay(video as MediaTrackConstraints)
       const user = await this.getUser(audio as MediaTrackConstraints)
@@ -353,6 +319,18 @@ export class AppElement extends HTMLElement {
     } catch (err) {
       alert(err)
     }
+  }
+
+  async initCamera({ video, audio }: MediaStreamConstraints) {
+    try {
+      return await this.getUserMedia({ video, audio })
+    } catch (err) {
+      alert(err)
+    }
+  }
+
+  getUserMedia(constraints: MediaStreamConstraints) {
+    return navigator.mediaDevices.getUserMedia(constraints)
   }
 
   getUser(audio: MediaTrackConstraints) {
