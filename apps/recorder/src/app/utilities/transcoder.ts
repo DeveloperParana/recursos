@@ -23,8 +23,6 @@ export class Transcoder {
     const span = target.querySelector('span')
 
     const transcode = async () => {
-      const time = ['-t', '2.0']
-      const ss = ['-ss', '2.0']
       const out = ['-f', format]
 
       span.textContent = 'Convertendo'
@@ -36,7 +34,7 @@ export class Transcoder {
 
       ffmpeg.FS('writeFile', 'video.webm', await fetchFile(blob))
 
-      const params = format === 'gif' ? [...time, ...ss, ...out] : [...out]
+      const params = [...out]
 
       await ffmpeg.run('-i', 'video.webm', ...params, 'video.' + format)
 
