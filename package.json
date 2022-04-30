@@ -68,6 +68,7 @@
     "@nrwl/jest": "12.10.0",
     "@nrwl/linter": "12.10.0",
     "@nrwl/node": "12.10.0",
+    "@nrwl/nx-cloud": "^14.0.3",
     "@nrwl/tao": "12.10.0",
     "@nrwl/web": "12.10.0",
     "@nrwl/workspace": "12.10.0",
@@ -94,9 +95,6 @@
     "ts-jest": "27.0.5",
     "ts-node": "~9.1.1",
     "typescript": "4.3.5"
-  },
-  "engines": {
-    "node": ">=12"
   },
   "repository": {
     "type": "git",

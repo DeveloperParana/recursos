@@ -12,9 +12,10 @@
   "npmScope": "devpr",
   "tasksRunnerOptions": {
     "default": {
-      "runner": "@nrwl/workspace/tasks-runners/default",
+      "runner": "@nrwl/nx-cloud",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "cacheableOperations": ["build", "lint", "test", "e2e"],
+        "accessToken": "Mjk0N2I3YmQtNzQ0YS00MmVkLTkxZGEtZDRkNTg5NDE3NGUwfHJlYWQtd3JpdGU="
       }
     }
   },
