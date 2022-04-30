@@ -1,6 +1,6 @@
 module.exports = {
   displayName: 'presenter',
-  preset: '../../jest.preset.js',
+
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
     'ts-jest': {
@@ -12,4 +12,5 @@ module.exports = {
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
   coverageDirectory: '../../coverage/apps/presenter',
+  preset: '../../jest.preset.ts',
 }

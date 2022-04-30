@@ -18,7 +18,8 @@ let NEXT_ID = 0
 })
 export class FormFieldElement
   extends Component(FormFieldBase)
-  implements Connected {
+  implements Connected
+{
   static observed = []
 
   private _dirty: boolean

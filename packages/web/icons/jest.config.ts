@@ -1,6 +1,6 @@
 module.exports = {
-  displayName: 'web-flows',
-  preset: '../../../jest.preset.js',
+  displayName: 'web-icons',
+
   globals: {
     'ts-jest': {
       tsconfig: '<rootDir>/tsconfig.spec.json',
@@ -10,5 +10,6 @@ module.exports = {
     '^.+\\.[tj]sx?$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../../coverage/packages/web/flows',
+  coverageDirectory: '../../../coverage/packages/web/icons',
+  preset: '../../../jest.preset.ts',
 }

@@ -1,15 +1,16 @@
 module.exports = {
-  displayName: 'endpoint',
-  preset: '../../jest.preset.js',
+  displayName: 'website',
+
+  setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
     'ts-jest': {
       tsconfig: '<rootDir>/tsconfig.spec.json',
     },
   },
-  testEnvironment: 'node',
   transform: {
     '^.+\\.[tj]s$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
-  coverageDirectory: '../../coverage/apps/endpoint',
+  coverageDirectory: '../../coverage/apps/website',
+  preset: '../../jest.preset.ts',
 }

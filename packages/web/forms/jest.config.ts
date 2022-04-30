@@ -1,6 +1,6 @@
 module.exports = {
-  displayName: 'shared-util-collection',
-  preset: '../../../jest.preset.js',
+  displayName: 'web-forms',
+
   globals: {
     'ts-jest': {
       tsconfig: '<rootDir>/tsconfig.spec.json',
@@ -10,5 +10,6 @@ module.exports = {
     '^.+\\.[tj]sx?$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../../coverage/packages/shared/util-collection',
+  coverageDirectory: '../../../coverage/packages/web/forms',
+  preset: '../../../jest.preset.ts',
 }

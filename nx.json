@@ -15,70 +15,14 @@
       "runner": "@nrwl/nx-cloud",
       "options": {
         "cacheableOperations": ["build", "lint", "test", "e2e"],
-        "accessToken": "Mjk0N2I3YmQtNzQ0YS00MmVkLTkxZGEtZDRkNTg5NDE3NGUwfHJlYWQtd3JpdGU="
+        "accessToken": "Mjk0N2I3YmQtNzQ0YS00MmVkLTkxZGEtZDRkNTg5NDE3NGUwfHJlYWQtd3JpdGU=",
+        "parallel": 1
       }
     }
   },
   "workspaceLayout": {
     "appsDir": "apps",
     "libsDir": "packages"
-  },
-  "projects": {
-    "common-elements": {
-      "tags": ["type:package"]
-    },
-    "common-web": {
-      "tags": ["type:package"]
-    },
-    "core-entities": {
-      "tags": []
-    },
-    "devector": {
-      "tags": ["type:app", "preset:web"]
-    },
-    "endpoint": {
-      "tags": []
-    },
-    "example": {
-      "tags": ["type:app", "preset:web"]
-    },
-    "presenter": {
-      "tags": ["type:app"]
-    },
-    "recorder": {
-      "tags": ["type:app", "preset:web"]
-    },
-    "recorder-e2e": {
-      "tags": ["type:e2e"],
-      "implicitDependencies": ["recorder"]
-    },
-    "server-storage": {
-      "tags": []
-    },
-    "shared-util-collection": {
-      "tags": []
-    },
-    "web-avatars": {
-      "tags": []
-    },
-    "web-buttons": {
-      "tags": []
-    },
-    "web-core": {
-      "tags": []
-    },
-    "web-flows": {
-      "tags": []
-    },
-    "web-forms": {
-      "tags": []
-    },
-    "web-icons": {
-      "tags": []
-    },
-    "website": {
-      "tags": ["type:app", "preset:web"]
-    }
   },
   "targetDependencies": {
     "build": [
@@ -87,5 +31,22 @@
         "projects": "dependencies"
       }
     ]
-  }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/web"
+  },
+  "generators": {
+    "@nrwl/web:application": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/web:library": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "website"
 }

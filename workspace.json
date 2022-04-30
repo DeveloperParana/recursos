@@ -1,22 +1,5 @@
 {
   "version": 2,
-  "cli": {
-    "defaultCollection": "@nrwl/web"
-  },
-  "defaultProject": "website",
-  "generators": {
-    "@nrwl/web:application": {
-      "style": "scss",
-      "linter": "eslint",
-      "unitTestRunner": "jest",
-      "e2eTestRunner": "cypress"
-    },
-    "@nrwl/web:library": {
-      "style": "scss",
-      "linter": "eslint",
-      "unitTestRunner": "jest"
-    }
-  },
   "projects": {
     "common-elements": {
       "root": "packages/common/elements",
@@ -24,7 +7,7 @@
       "projectType": "library",
       "targets": {
         "build": {
-          "executor": "@nrwl/web:package",
+          "executor": "@nrwl/web:rollup",
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/packages/common/elements",
@@ -45,7 +28,7 @@
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/packages/common/elements"],
           "options": {
-            "jestConfig": "packages/common/elements/jest.config.js",
+            "jestConfig": "packages/common/elements/jest.config.ts",
             "passWithNoTests": true
           }
         },
@@ -55,7 +38,8 @@
             "command": "npx semantic-release -e ./packages/common/elements/.releaserc.json"
           }
         }
-      }
+      },
+      "tags": ["type:package"]
     },
     "common-web": {
       "root": "packages/common/web",
@@ -63,7 +47,7 @@
       "projectType": "library",
       "targets": {
         "build": {
-          "executor": "@nrwl/web:package",
+          "executor": "@nrwl/web:rollup",
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/packages/common/web",
@@ -84,7 +68,7 @@
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/packages/common/web"],
           "options": {
-            "jestConfig": "packages/common/web/jest.config.js",
+            "jestConfig": "packages/common/web/jest.config.ts",
             "passWithNoTests": true
           }
         },
@@ -94,7 +78,8 @@
             "command": "npx semantic-release -e ./packages/common/web/.releaserc.json"
           }
         }
-      }
+      },
+      "tags": ["type:package"]
     },
     "core-entities": {
       "root": "packages/core/entities",
@@ -102,7 +87,7 @@
       "projectType": "library",
       "targets": {
         "build": {
-          "executor": "@nrwl/workspace:tsc",
+          "executor": "@nrwl/js:tsc",
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/packages/core/entities",
@@ -122,11 +107,12 @@
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/packages/core/entities"],
           "options": {
-            "jestConfig": "packages/core/entities/jest.config.js",
+            "jestConfig": "packages/core/entities/jest.config.ts",
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     },
     "devector": {
       "projectType": "application",
@@ -134,7 +120,7 @@
       "sourceRoot": "apps/devector/src",
       "targets": {
         "build": {
-          "executor": "@nrwl/web:build",
+          "executor": "@nrwl/web:webpack",
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/devector",
@@ -209,7 +195,7 @@
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/apps/devector"],
           "options": {
-            "jestConfig": "apps/devector/jest.config.js",
+            "jestConfig": "apps/devector/jest.config.ts",
             "passWithNoTests": true
           }
         },
@@ -220,7 +206,8 @@
             "command": "npm run devector:mapper"
           }
         }
-      }
+      },
+      "tags": ["type:app", "preset:web"]
     },
     "endpoint": {
       "root": "apps/endpoint",
@@ -228,7 +215,7 @@
       "projectType": "application",
       "targets": {
         "build": {
-          "executor": "@nrwl/node:build",
+          "executor": "@nrwl/node:webpack",
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/endpoint",
@@ -251,7 +238,7 @@
           }
         },
         "serve": {
-          "executor": "@nrwl/node:execute",
+          "executor": "@nrwl/node:node",
           "options": {
             "buildTarget": "endpoint:build"
           }
@@ -267,11 +254,12 @@
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/apps/endpoint"],
           "options": {
-            "jestConfig": "apps/endpoint/jest.config.js",
+            "jestConfig": "apps/endpoint/jest.config.ts",
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     },
     "example": {
       "projectType": "application",
@@ -279,7 +267,7 @@
       "sourceRoot": "apps/example/src",
       "targets": {
         "build": {
-          "executor": "@nrwl/web:build",
+          "executor": "@nrwl/web:webpack",
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/example",
@@ -344,11 +332,12 @@
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/apps/example"],
           "options": {
-            "jestConfig": "apps/example/jest.config.js",
+            "jestConfig": "apps/example/jest.config.ts",
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": ["type:app", "preset:web"]
     },
     "presenter": {
       "projectType": "application",
@@ -356,7 +345,7 @@
       "sourceRoot": "apps/presenter/src",
       "targets": {
         "build": {
-          "executor": "@nrwl/web:build",
+          "executor": "@nrwl/web:webpack",
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/presenter",
@@ -418,11 +407,12 @@
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/apps/presenter"],
           "options": {
-            "jestConfig": "apps/presenter/jest.config.js",
+            "jestConfig": "apps/presenter/jest.config.ts",
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": ["type:app"]
     },
     "recorder": {
       "projectType": "application",
@@ -430,7 +420,7 @@
       "sourceRoot": "apps/recorder/src",
       "targets": {
         "build": {
-          "executor": "@nrwl/web:build",
+          "executor": "@nrwl/web:webpack",
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/website/recorder",
@@ -522,11 +512,12 @@
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/apps/recorder"],
           "options": {
-            "jestConfig": "apps/recorder/jest.config.js",
+            "jestConfig": "apps/recorder/jest.config.ts",
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": ["type:app", "preset:web"]
     },
     "recorder-e2e": {
       "root": "apps/recorder-e2e",
@@ -553,7 +544,9 @@
           },
           "outputs": ["{options.outputFile}"]
         }
-      }
+      },
+      "tags": ["type:e2e"],
+      "implicitDependencies": ["recorder"]
     },
     "server-storage": {
       "root": "packages/server/storage",
@@ -561,7 +554,7 @@
       "projectType": "library",
       "targets": {
         "build": {
-          "executor": "@nrwl/node:package",
+          "executor": "@nrwl/js:tsc",
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/packages/server/storage",
@@ -582,11 +575,12 @@
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/packages/server/storage"],
           "options": {
-            "jestConfig": "packages/server/storage/jest.config.js",
+            "jestConfig": "packages/server/storage/jest.config.ts",
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     },
     "shared-util-collection": {
       "root": "packages/shared/util-collection",
@@ -594,7 +588,7 @@
       "projectType": "library",
       "targets": {
         "build": {
-          "executor": "@nrwl/workspace:tsc",
+          "executor": "@nrwl/js:tsc",
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/packages/shared/util-collection",
@@ -614,11 +608,12 @@
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/packages/shared/util-collection"],
           "options": {
-            "jestConfig": "packages/shared/util-collection/jest.config.js",
+            "jestConfig": "packages/shared/util-collection/jest.config.ts",
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     },
     "web-avatars": {
       "root": "packages/web/avatars",
@@ -626,7 +621,7 @@
       "projectType": "library",
       "targets": {
         "build": {
-          "executor": "@nrwl/web:package",
+          "executor": "@nrwl/web:rollup",
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/packages/web/avatars",
@@ -647,11 +642,12 @@
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/packages/web/avatars"],
           "options": {
-            "jestConfig": "packages/web/avatars/jest.config.js",
+            "jestConfig": "packages/web/avatars/jest.config.ts",
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     },
     "web-buttons": {
       "root": "packages/web/buttons",
@@ -659,7 +655,7 @@
       "projectType": "library",
       "targets": {
         "build": {
-          "executor": "@nrwl/web:package",
+          "executor": "@nrwl/web:rollup",
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/packages/web/buttons",
@@ -680,11 +676,12 @@
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/packages/web/buttons"],
           "options": {
-            "jestConfig": "packages/web/buttons/jest.config.js",
+            "jestConfig": "packages/web/buttons/jest.config.ts",
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     },
     "web-core": {
       "root": "packages/web/core",
@@ -692,7 +689,7 @@
       "projectType": "library",
       "targets": {
         "build": {
-          "executor": "@nrwl/web:package",
+          "executor": "@nrwl/web:rollup",
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/packages/web/core",
@@ -713,7 +710,7 @@
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/packages/web/core"],
           "options": {
-            "jestConfig": "packages/web/core/jest.config.js",
+            "jestConfig": "packages/web/core/jest.config.ts",
             "passWithNoTests": true
           }
         },
@@ -723,7 +720,8 @@
             "command": "npx semantic-release -e ./packages/web/core/.releaserc.json"
           }
         }
-      }
+      },
+      "tags": []
     },
     "web-flows": {
       "root": "packages/web/flows",
@@ -731,7 +729,7 @@
       "projectType": "library",
       "targets": {
         "build": {
-          "executor": "@nrwl/web:package",
+          "executor": "@nrwl/web:rollup",
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/packages/web/flows",
@@ -752,11 +750,12 @@
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/packages/web/flows"],
           "options": {
-            "jestConfig": "packages/web/flows/jest.config.js",
+            "jestConfig": "packages/web/flows/jest.config.ts",
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     },
     "web-forms": {
       "root": "packages/web/forms",
@@ -764,7 +763,7 @@
       "projectType": "library",
       "targets": {
         "build": {
-          "executor": "@nrwl/web:package",
+          "executor": "@nrwl/web:rollup",
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/packages/web/forms",
@@ -785,11 +784,12 @@
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/packages/web/forms"],
           "options": {
-            "jestConfig": "packages/web/forms/jest.config.js",
+            "jestConfig": "packages/web/forms/jest.config.ts",
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     },
     "web-icons": {
       "root": "packages/web/icons",
@@ -797,7 +797,7 @@
       "projectType": "library",
       "targets": {
         "build": {
-          "executor": "@nrwl/web:package",
+          "executor": "@nrwl/web:rollup",
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/packages/web/icons",
@@ -818,11 +818,12 @@
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/packages/web/icons"],
           "options": {
-            "jestConfig": "packages/web/icons/jest.config.js",
+            "jestConfig": "packages/web/icons/jest.config.ts",
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     },
     "website": {
       "projectType": "application",
@@ -830,7 +831,7 @@
       "sourceRoot": "apps/website/src",
       "targets": {
         "build": {
-          "executor": "@nrwl/web:build",
+          "executor": "@nrwl/web:webpack",
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/website",
@@ -899,7 +900,7 @@
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/apps/website"],
           "options": {
-            "jestConfig": "apps/website/jest.config.js",
+            "jestConfig": "apps/website/jest.config.ts",
             "passWithNoTests": true
           }
         },
@@ -911,7 +912,8 @@
             "parallel": false
           }
         }
-      }
+      },
+      "tags": ["type:app", "preset:web"]
     }
   }
 }

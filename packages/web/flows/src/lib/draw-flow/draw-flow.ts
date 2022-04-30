@@ -437,8 +437,8 @@ export class Drawflow {
         }
         this.connectionSelected = this.elementSelected
         this.connectionSelected.classList.add('selected')
-        const listclassConnection = this.connectionSelected.parentElement
-          .classList
+        const listclassConnection =
+          this.connectionSelected.parentElement.classList
         this.dispatch('connectionSelected', {
           output_id: listclassConnection[2].slice(14),
           input_id: listclassConnection[1].slice(13),
@@ -577,12 +577,10 @@ export class Drawflow {
       this.elementSelected.setAttributeNS(null, 'cx', posX + '')
       this.elementSelected.setAttributeNS(null, 'cy', posY + '')
 
-      const nodeUpdate = this.elementSelected.parentElement.classList[2].slice(
-        9
-      )
-      const nodeUpdateIn = this.elementSelected.parentElement.classList[1].slice(
-        13
-      )
+      const nodeUpdate =
+        this.elementSelected.parentElement.classList[2].slice(9)
+      const nodeUpdateIn =
+        this.elementSelected.parentElement.classList[1].slice(13)
       const outputClass = this.elementSelected.parentElement.classList[3]
       const inputClass = this.elementSelected.parentElement.classList[4]
 
@@ -616,9 +614,8 @@ export class Drawflow {
         posY: posY,
       }
 
-      const parentSelected = this.elementSelected.parentElement.classList[2].slice(
-        9
-      )
+      const parentSelected =
+        this.elementSelected.parentElement.classList[2].slice(9)
 
       this.updateConnectionNodes(parentSelected)
     }
@@ -1560,9 +1557,9 @@ export class Drawflow {
         )
         elems[item].children[0].setAttributeNS(null, 'd', lineCurve)
       } else {
-        const points = (elems[
-          item
-        ] as HTMLElement).querySelectorAll<HTMLElement>('.point')
+        const points = (
+          elems[item] as HTMLElement
+        ).querySelectorAll<HTMLElement>('.point')
 
         let linecurve = ''
         const reoute_fix = []
@@ -1872,12 +1869,10 @@ export class Drawflow {
   createReroutePoint(ele: HTMLElement) {
     this.connectionSelected.classList.remove('selected')
 
-    const nodeUpdate = this.connectionSelected.parentElement.classList[2].slice(
-      9
-    )
-    const nodeUpdateIn = this.connectionSelected.parentElement.classList[1].slice(
-      13
-    )
+    const nodeUpdate =
+      this.connectionSelected.parentElement.classList[2].slice(9)
+    const nodeUpdateIn =
+      this.connectionSelected.parentElement.classList[1].slice(13)
     const outputClass = this.connectionSelected.parentElement.classList[3]
     const inputClass = this.connectionSelected.parentElement.classList[4]
 
@@ -1909,8 +1904,8 @@ export class Drawflow {
 
     let positionAddArrayPoint = 0
     if (this.rerouteFixCurvature) {
-      const numberPoints = ele.parentElement.querySelectorAll('.main-path')
-        .length
+      const numberPoints =
+        ele.parentElement.querySelectorAll('.main-path').length
       const path = document.createElementNS(
         'http://www.w3.org/2000/svg',
         'path'
@@ -1997,8 +1992,8 @@ export class Drawflow {
     })
 
     if (this.rerouteFixCurvature) {
-      const numberMainPath = ele.parentElement.querySelectorAll('.main-path')
-        .length
+      const numberMainPath =
+        ele.parentElement.querySelectorAll('.main-path').length
       ele.parentElement.children[numberMainPath - 1].remove()
       numberPointPosition -= numberMainPath
       if (numberPointPosition < 0) {
@@ -2360,11 +2355,12 @@ export class Drawflow {
     for (let i = 0; i < attr.length; i++) {
       if (attr[i].nodeName.startsWith('df-')) {
         const keys = attr[i].nodeName.slice(3).split('-')
-        let target = this.drawflow.drawflow[this.module].data[
-          event.target
-            .closest('.drawflow_content_node')
-            .parentElement.id.slice(5)
-        ].data
+        let target =
+          this.drawflow.drawflow[this.module].data[
+            event.target
+              .closest('.drawflow_content_node')
+              .parentElement.id.slice(5)
+          ].data
         for (let index = 0; index < keys.length - 1; index += 1) {
           if (target[keys[index]] == null) {
             target[keys[index]] = {}
@@ -2501,9 +2497,8 @@ export class Drawflow {
       item.connections.forEach((itemx, f) => {
         ;(nodeUpdates as Array<any>).push(itemx)
       })
-      this.drawflow.drawflow[moduleName].data[id].inputs[
-        'input_' + (i + 1)
-      ] = item
+      this.drawflow.drawflow[moduleName].data[id].inputs['input_' + (i + 1)] =
+        item
     })
     nodeUpdates = new Set(nodeUpdates.map((e) => JSON.stringify(e)))
     nodeUpdates = Array.from(nodeUpdates).map((e) => JSON.parse(e))
@@ -2594,8 +2589,8 @@ export class Drawflow {
 
     // Update connection
     const connections = []
-    const connectionsOuputs = this.drawflow.drawflow[moduleName].data[id]
-      .outputs
+    const connectionsOuputs =
+      this.drawflow.drawflow[moduleName].data[id].outputs
     Object.keys(connectionsOuputs).map(function (key, index) {
       connections.push(connectionsOuputs[key])
     })
@@ -2609,9 +2604,8 @@ export class Drawflow {
           output: itemx.output,
         })
       })
-      this.drawflow.drawflow[moduleName].data[id].outputs[
-        'output_' + (i + 1)
-      ] = item
+      this.drawflow.drawflow[moduleName].data[id].outputs['output_' + (i + 1)] =
+        item
     })
     nodeUpdates = new Set(nodeUpdates.map((e) => JSON.stringify(e)))
     nodeUpdates = Array.from(nodeUpdates).map((e) => JSON.parse(e))

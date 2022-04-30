@@ -1,6 +1,6 @@
 module.exports = {
-  displayName: 'web-avatars',
-  preset: '../../../jest.preset.js',
+  displayName: 'core-entities',
+
   globals: {
     'ts-jest': {
       tsconfig: '<rootDir>/tsconfig.spec.json',
@@ -10,5 +10,6 @@ module.exports = {
     '^.+\\.[tj]sx?$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../../coverage/packages/web/avatars',
+  coverageDirectory: '../../../coverage/packages/core/entities',
+  preset: '../../../jest.preset.ts',
 }

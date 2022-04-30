@@ -13,7 +13,8 @@ import {
 })
 export class ImageAvatarElement
   extends Component(HTMLElement)
-  implements Connected {
+  implements Connected
+{
   static observed = ['name', 'size', 'content']
 
   public name: string

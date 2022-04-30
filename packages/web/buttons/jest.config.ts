@@ -1,6 +1,6 @@
 module.exports = {
-  displayName: 'web-icons',
-  preset: '../../../jest.preset.js',
+  displayName: 'web-buttons',
+
   globals: {
     'ts-jest': {
       tsconfig: '<rootDir>/tsconfig.spec.json',
@@ -10,5 +10,6 @@ module.exports = {
     '^.+\\.[tj]sx?$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../../coverage/packages/web/icons',
+  coverageDirectory: '../../../coverage/packages/web/buttons',
+  preset: '../../../jest.preset.ts',
 }

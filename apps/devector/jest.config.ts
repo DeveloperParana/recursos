@@ -1,6 +1,6 @@
 module.exports = {
-  displayName: 'example',
-  preset: '../../jest.preset.js',
+  displayName: 'devector',
+
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
     'ts-jest': {
@@ -11,5 +11,6 @@ module.exports = {
     '^.+\\.[tj]s$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
-  coverageDirectory: '../../coverage/apps/example',
+  coverageDirectory: '../../coverage/apps/devector',
+  preset: '../../jest.preset.ts',
 }

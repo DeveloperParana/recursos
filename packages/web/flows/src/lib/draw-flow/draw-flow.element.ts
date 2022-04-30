@@ -16,7 +16,8 @@ import { Drawflow } from './draw-flow'
 })
 export class DrawFlowElement
   extends Component(HTMLElement)
-  implements Connected {
+  implements Connected
+{
   static observed = ['param']
 
   public param: string
